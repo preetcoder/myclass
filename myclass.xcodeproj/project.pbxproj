@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10356052232CDC1400466075 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10356051232CDC1400466075 /* Student.swift */; };
+		10356054232CDE0600466075 /* Attendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10356053232CDE0600466075 /* Attendance.swift */; };
+		10356056232CDFD700466075 /* Assessment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10356055232CDFD700466075 /* Assessment.swift */; };
+		10356058232CE6BB00466075 /* Marks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10356057232CE6BB00466075 /* Marks.swift */; };
+		1035605A232CEF1400466075 /* ImportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10356059232CEF1400466075 /* ImportData.swift */; };
 		10EC239C232CA46D00E488B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EC239B232CA46D00E488B3 /* AppDelegate.swift */; };
 		10EC239E232CA46D00E488B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EC239D232CA46D00E488B3 /* ViewController.swift */; };
 		10EC23A1232CA46D00E488B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10EC239F232CA46D00E488B3 /* Main.storyboard */; };
@@ -36,6 +41,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10356051232CDC1400466075 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		10356053232CDE0600466075 /* Attendance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attendance.swift; sourceTree = "<group>"; };
+		10356055232CDFD700466075 /* Assessment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assessment.swift; sourceTree = "<group>"; };
+		10356057232CE6BB00466075 /* Marks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marks.swift; sourceTree = "<group>"; };
+		10356059232CEF1400466075 /* ImportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportData.swift; sourceTree = "<group>"; };
 		10EC2398232CA46D00E488B3 /* myclass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myclass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10EC239B232CA46D00E488B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10EC239D232CA46D00E488B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,10 +53,10 @@
 		10EC23A2232CA46E00E488B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10EC23A5232CA46E00E488B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		10EC23A7232CA46E00E488B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		10EC23AC232CA46E00E488B3 /*  */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = ""; path = myclassTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		10EC23AC232CA46E00E488B3 /* myclassTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myclassTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		10EC23B0232CA46E00E488B3 /* myclassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myclassTests.swift; sourceTree = "<group>"; };
 		10EC23B2232CA46E00E488B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		10EC23B7232CA46E00E488B3 /*  */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = ""; path = myclassUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		10EC23B7232CA46E00E488B3 /* myclassUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myclassUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		10EC23BB232CA46E00E488B3 /* myclassUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myclassUITests.swift; sourceTree = "<group>"; };
 		10EC23BD232CA46E00E488B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE37B7A4232CB91A0086DCD3 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -92,8 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				10EC2398232CA46D00E488B3 /* myclass.app */,
-				10EC23AC232CA46E00E488B3 /*  */,
-				10EC23B7232CA46E00E488B3 /*  */,
+				10EC23AC232CA46E00E488B3 /* myclassTests.xctest */,
+				10EC23B7232CA46E00E488B3 /* myclassUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -133,6 +143,11 @@
 		CE37B7A1232CA9ED0086DCD3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				10356051232CDC1400466075 /* Student.swift */,
+				10356053232CDE0600466075 /* Attendance.swift */,
+				10356055232CDFD700466075 /* Assessment.swift */,
+				10356057232CE6BB00466075 /* Marks.swift */,
+				10356059232CEF1400466075 /* ImportData.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -190,7 +205,7 @@
 			);
 			name = myclassTests;
 			productName = myclassTests;
-			productReference = 10EC23AC232CA46E00E488B3 /*  */;
+			productReference = 10EC23AC232CA46E00E488B3 /* myclassTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		10EC23B6232CA46E00E488B3 /* myclassUITests */ = {
@@ -208,7 +223,7 @@
 			);
 			name = myclassUITests;
 			productName = myclassUITests;
-			productReference = 10EC23B7232CA46E00E488B3 /*  */;
+			productReference = 10EC23B7232CA46E00E488B3 /* myclassUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -290,9 +305,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1035605A232CEF1400466075 /* ImportData.swift in Sources */,
 				10EC239E232CA46D00E488B3 /* ViewController.swift in Sources */,
+				10356058232CE6BB00466075 /* Marks.swift in Sources */,
 				10EC239C232CA46D00E488B3 /* AppDelegate.swift in Sources */,
 				CE37B7A7232CB9930086DCD3 /* HomeViewController.swift in Sources */,
+				10356056232CDFD700466075 /* Assessment.swift in Sources */,
+				10356052232CDC1400466075 /* Student.swift in Sources */,
+				10356054232CDE0600466075 /* Attendance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
