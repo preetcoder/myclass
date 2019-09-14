@@ -217,13 +217,16 @@
 				TargetAttributes = {
 					10EC2397232CA46D00E488B3 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1030;
 					};
 					10EC23AB232CA46E00E488B3 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1030;
 						TestTargetID = 10EC2397232CA46D00E488B3;
 					};
 					10EC23B6232CA46E00E488B3 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1030;
 						TestTargetID = 10EC2397232CA46D00E488B3;
 					};
 				};
@@ -457,7 +460,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RPG67598D8;
+				DEVELOPMENT_TEAM = ZP7K522VJC;
 				INFOPLIST_FILE = myclass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -475,7 +478,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RPG67598D8;
+				DEVELOPMENT_TEAM = ZP7K522VJC;
 				INFOPLIST_FILE = myclass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
