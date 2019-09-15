@@ -8,8 +8,9 @@
 
 import Foundation
 
-class ImportData {
+struct ImportData {
    
+    let APIURL = "https://my.api.mockaroo.com/students_data.json?key=3e4cec20"
     
     func getDataFromURL(_ completion: @escaping (_ students : [Student]) -> ())
     {
@@ -17,7 +18,7 @@ class ImportData {
         
         var allStudent : [Student] = []
         
-        let url = URL(string: "https://my.api.mockaroo.com/students_data.json?key=3e4cec20")
+        let url = URL(string: APIURL)
         
         URLSession.shared.dataTask(with:url!) {(data, response, error) in
             guard let data = data, error == nil else { return }
@@ -32,10 +33,11 @@ class ImportData {
                         allStudent.append(studentData)
                         
                     }
+                    // callback 
                     completion(allStudent)
                 }
                 else{
-                    print("sdsds")
+                    print("failed to load data")
                 }
             } catch let error as NSError {
                 print(error)

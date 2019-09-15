@@ -16,7 +16,7 @@ struct Attendance {
     
     // initializers
     init(attendanceID : Int, attendanceDate : DateComponents, attendanceStatus : Bool) {
-        
+
         id = attendanceID
         date = attendanceDate
         status = attendanceStatus
