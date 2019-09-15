@@ -10,10 +10,17 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    var allStudents : [Student] = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        aa()
+       // performSegue(withIdentifier: "allStudents", sender: self)
+        
+        //aa()
+        
+        
         // Do any additional setup after loading the view.
     }
     func aa(){
@@ -22,21 +29,30 @@ class HomeViewController: UIViewController {
             students in
             
             for student in students {
-                print(student.getStudentID())
-                print(student.getStudentName())
+               self.allStudents.append(student)
             }
+            self.bb()
             
         }
     }
     
-    /*
+    func bb() {
+        print(self.allStudents.count)
+    }
+    
+    @IBAction func onButtonPressed(_ sender: Any) {
+        
+    }
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
     }
-    */
+    
 
 }

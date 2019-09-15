@@ -9,6 +9,8 @@
 import Foundation
 
 struct ImportData {
+    
+    // load data from API
    
     let APIURL = "https://my.api.mockaroo.com/students_data.json?key=3e4cec20"
     
@@ -28,8 +30,8 @@ struct ImportData {
                 //let posts = json["posts"] as? [[String: Any]] ?? []
                 if json != nil {
                     for singleJsonData in json! {
-                        //print(singleJsonData["email"])
-                        let studentData = Student(studentEmail: singleJsonData["email"]! as! String, studentID: singleJsonData["studentID"]! as! String, studentFirstName: singleJsonData["first_name"]! as! String, studentLastName: singleJsonData["last_name"]! as! String, studentPhone: singleJsonData["phone"]! as! String, studentImage: singleJsonData["image"]! as! String)
+                        // instantiating Student
+                        let studentData = Student(studentEmail: singleJsonData["email"]! as! String, studentID: singleJsonData["studentID"]! as! String, studentFirstName: singleJsonData["first_name"]! as! String, studentLastName: singleJsonData["last_name"]! as! String, studentPhone: singleJsonData["phone"]! as! String, studentImage: "download")
                         allStudent.append(studentData)
                         
                     }
