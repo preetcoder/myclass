@@ -29,8 +29,4 @@ class SingleStudentTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func loadData(){
-        StudentName.text = "hello"
-    }
-
 }
