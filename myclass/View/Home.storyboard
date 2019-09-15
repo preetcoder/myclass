@@ -53,7 +53,7 @@
         <!--Title-->
         <scene sceneID="Gq9-Ci-aVz">
             <objects>
-                <viewController id="LER-0p-0rb" sceneMemberID="viewController">
+                <viewController id="LER-0p-0rb" customClass="HomeViewController" customModule="myclass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nzf-za-ioN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -72,10 +72,10 @@
             </objects>
             <point key="canvasLocation" x="444" y="-839"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Ho-->
         <scene sceneID="JFk-VP-fKt">
             <objects>
-                <tabBarController id="fs6-C7-wJQ" sceneMemberID="viewController">
+                <tabBarController id="fs6-C7-wJQ" customClass="Ho" sceneMemberID="viewController">
                     <tabBar key="tabBar" clipsSubviews="YES" clearsContextBeforeDrawing="NO" alpha="0.94999999999999996" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="e7H-P1-ULF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

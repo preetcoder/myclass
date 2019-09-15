@@ -13,11 +13,22 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        aa()
         // Do any additional setup after loading the view.
     }
+    func aa(){
+        let aUrl = ImportData()
+        aUrl.getDataFromURL{
+            students in
+            
+            for student in students {
+                print(student.getStudentID())
+                print(student.getStudentName())
+            }
+            
+        }
+    }
     
-
     /*
     // MARK: - Navigation
 
