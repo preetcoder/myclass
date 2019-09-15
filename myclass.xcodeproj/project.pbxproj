@@ -10,12 +10,14 @@
 		10EC239C232CA46D00E488B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EC239B232CA46D00E488B3 /* AppDelegate.swift */; };
 		10EC239E232CA46D00E488B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EC239D232CA46D00E488B3 /* ViewController.swift */; };
 		10EC23A1232CA46D00E488B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10EC239F232CA46D00E488B3 /* Main.storyboard */; };
-		10EC23A3232CA46E00E488B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10EC23A2232CA46E00E488B3 /* Assets.xcassets */; };
 		10EC23A6232CA46E00E488B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10EC23A4232CA46E00E488B3 /* LaunchScreen.storyboard */; };
 		10EC23B1232CA46E00E488B3 /* myclassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EC23B0232CA46E00E488B3 /* myclassTests.swift */; };
 		10EC23BC232CA46E00E488B3 /* myclassUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EC23BB232CA46E00E488B3 /* myclassUITests.swift */; };
 		CE37B7A5232CB91A0086DCD3 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE37B7A4232CB91A0086DCD3 /* Home.storyboard */; };
 		CE37B7A7232CB9930086DCD3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37B7A6232CB9930086DCD3 /* HomeViewController.swift */; };
+		CE37B7AB232CDB1E0086DCD3 /* AddStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37B7AA232CDB1E0086DCD3 /* AddStudentViewController.swift */; };
+		CE37B7AD232CDC550086DCD3 /* AddStudent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE37B7AC232CDC550086DCD3 /* AddStudent.storyboard */; };
+		CEF579B3232D006E009099ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF579B2232D006E009099ED /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,17 +42,19 @@
 		10EC239B232CA46D00E488B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10EC239D232CA46D00E488B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		10EC23A0232CA46D00E488B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		10EC23A2232CA46E00E488B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10EC23A5232CA46E00E488B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		10EC23A7232CA46E00E488B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		10EC23AC232CA46E00E488B3 /*  */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = ""; path = myclassTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		10EC23AC232CA46E00E488B3 /* myclassTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myclassTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		10EC23B0232CA46E00E488B3 /* myclassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myclassTests.swift; sourceTree = "<group>"; };
 		10EC23B2232CA46E00E488B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		10EC23B7232CA46E00E488B3 /*  */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = ""; path = myclassUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		10EC23B7232CA46E00E488B3 /* myclassUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myclassUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		10EC23BB232CA46E00E488B3 /* myclassUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myclassUITests.swift; sourceTree = "<group>"; };
 		10EC23BD232CA46E00E488B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE37B7A4232CB91A0086DCD3 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		CE37B7A6232CB9930086DCD3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		CE37B7AA232CDB1E0086DCD3 /* AddStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentViewController.swift; sourceTree = "<group>"; };
+		CE37B7AC232CDC550086DCD3 /* AddStudent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddStudent.storyboard; sourceTree = "<group>"; };
+		CEF579B2232D006E009099ED /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,7 @@
 		10EC238F232CA46D00E488B3 = {
 			isa = PBXGroup;
 			children = (
+				CEF579B2232D006E009099ED /* Images.xcassets */,
 				10EC239A232CA46D00E488B3 /* myclass */,
 				10EC23AF232CA46E00E488B3 /* myclassTests */,
 				10EC23BA232CA46E00E488B3 /* myclassUITests */,
@@ -92,8 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				10EC2398232CA46D00E488B3 /* myclass.app */,
-				10EC23AC232CA46E00E488B3 /*  */,
-				10EC23B7232CA46E00E488B3 /*  */,
+				10EC23AC232CA46E00E488B3 /* myclassTests.xctest */,
+				10EC23B7232CA46E00E488B3 /* myclassUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,7 +111,6 @@
 				CE37B7A1232CA9ED0086DCD3 /* Model */,
 				10EC239B232CA46D00E488B3 /* AppDelegate.swift */,
 				10EC239D232CA46D00E488B3 /* ViewController.swift */,
-				10EC23A2232CA46E00E488B3 /* Assets.xcassets */,
 				10EC23A7232CA46E00E488B3 /* Info.plist */,
 			);
 			path = myclass;
@@ -143,6 +147,7 @@
 				10EC239F232CA46D00E488B3 /* Main.storyboard */,
 				10EC23A4232CA46E00E488B3 /* LaunchScreen.storyboard */,
 				CE37B7A4232CB91A0086DCD3 /* Home.storyboard */,
+				CE37B7AC232CDC550086DCD3 /* AddStudent.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				CE37B7A6232CB9930086DCD3 /* HomeViewController.swift */,
+				CE37B7AA232CDB1E0086DCD3 /* AddStudentViewController.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -190,7 +196,7 @@
 			);
 			name = myclassTests;
 			productName = myclassTests;
-			productReference = 10EC23AC232CA46E00E488B3 /*  */;
+			productReference = 10EC23AC232CA46E00E488B3 /* myclassTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		10EC23B6232CA46E00E488B3 /* myclassUITests */ = {
@@ -208,7 +214,7 @@
 			);
 			name = myclassUITests;
 			productName = myclassUITests;
-			productReference = 10EC23B7232CA46E00E488B3 /*  */;
+			productReference = 10EC23B7232CA46E00E488B3 /* myclassUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -263,7 +269,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				10EC23A6232CA46E00E488B3 /* LaunchScreen.storyboard in Resources */,
-				10EC23A3232CA46E00E488B3 /* Assets.xcassets in Resources */,
+				CEF579B3232D006E009099ED /* Images.xcassets in Resources */,
+				CE37B7AD232CDC550086DCD3 /* AddStudent.storyboard in Resources */,
 				10EC23A1232CA46D00E488B3 /* Main.storyboard in Resources */,
 				CE37B7A5232CB91A0086DCD3 /* Home.storyboard in Resources */,
 			);
@@ -290,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE37B7AB232CDB1E0086DCD3 /* AddStudentViewController.swift in Sources */,
 				10EC239E232CA46D00E488B3 /* ViewController.swift in Sources */,
 				10EC239C232CA46D00E488B3 /* AppDelegate.swift in Sources */,
 				CE37B7A7232CB9930086DCD3 /* HomeViewController.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  AddStudentViewController.swift
 //  myclass
 //
 //  Created by Bhavesh Hingad on 14/9/19.
@@ -8,10 +8,11 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class AddStudentViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
     

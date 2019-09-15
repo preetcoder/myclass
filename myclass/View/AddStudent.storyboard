@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="u6A-nr-OdY">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add Student-->
+        <scene sceneID="gnN-EY-7bv">
+            <objects>
+                <viewController id="u6A-nr-OdY" customClass="AddStudentViewController" customModule="myclass" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bGo-wb-Bv8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="download" translatesAutoresizingMaskIntoConstraints="NO" id="iAH-NV-Zqz">
+                                <rect key="frame" x="25" y="40" width="325" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="lwp-Zk-xIa"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Apv-6F-V2P">
+                                <rect key="frame" x="25" y="617" width="325" height="30"/>
+                                <color key="backgroundColor" red="0.33333333329999998" green="0.90196078430000004" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <color key="tintColor" red="0.17254901959999999" green="0.2274509804" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Save"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8uR-tD-sbG">
+                                <rect key="frame" x="25" y="178" width="325" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter StudentID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vKK-6S-dNB">
+                                <rect key="frame" x="25" y="218" width="325" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter email id" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fv6-ds-Gom">
+                                <rect key="frame" x="25" y="258" width="325" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter Phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kys-eK-Q3v">
+                                <rect key="frame" x="25" y="298" width="325" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FKh-dM-3Ra" firstAttribute="trailing" secondItem="vKK-6S-dNB" secondAttribute="trailing" constant="25" id="0Rr-JK-xVu"/>
+                            <constraint firstItem="FKh-dM-3Ra" firstAttribute="trailing" secondItem="kys-eK-Q3v" secondAttribute="trailing" constant="25" id="0bj-aF-2Jm"/>
+                            <constraint firstItem="8uR-tD-sbG" firstAttribute="leading" secondItem="FKh-dM-3Ra" secondAttribute="leading" constant="25" id="5e1-fz-wtb"/>
+                            <constraint firstItem="FKh-dM-3Ra" firstAttribute="trailing" secondItem="8uR-tD-sbG" secondAttribute="trailing" constant="25" id="6B7-pk-1PE"/>
+                            <constraint firstItem="FKh-dM-3Ra" firstAttribute="trailing" secondItem="Apv-6F-V2P" secondAttribute="trailing" constant="25" id="DrN-Ar-shB"/>
+                            <constraint firstItem="Fv6-ds-Gom" firstAttribute="leading" secondItem="FKh-dM-3Ra" secondAttribute="leading" constant="25" id="IbH-fY-ruI"/>
+                            <constraint firstItem="kys-eK-Q3v" firstAttribute="top" secondItem="Fv6-ds-Gom" secondAttribute="bottom" constant="10" id="N4Z-Wz-FYp"/>
+                            <constraint firstItem="FKh-dM-3Ra" firstAttribute="trailing" secondItem="Apv-6F-V2P" secondAttribute="trailing" constant="10" id="QSt-FQ-gNg"/>
+                            <constraint firstItem="vKK-6S-dNB" firstAttribute="leading" secondItem="FKh-dM-3Ra" secondAttribute="leading" constant="25" id="Y2q-2A-oSn"/>
+                            <constraint firstItem="Fv6-ds-Gom" firstAttribute="top" secondItem="vKK-6S-dNB" secondAttribute="bottom" constant="10" id="bCC-To-ZIF"/>
+                            <constraint firstItem="vKK-6S-dNB" firstAttribute="top" secondItem="8uR-tD-sbG" secondAttribute="bottom" constant="10" id="bzf-kE-TVN"/>
+                            <constraint firstItem="Apv-6F-V2P" firstAttribute="leading" secondItem="FKh-dM-3Ra" secondAttribute="leading" constant="10" id="fLA-Fx-Bqx"/>
+                            <constraint firstItem="FKh-dM-3Ra" firstAttribute="trailing" secondItem="Apv-6F-V2P" secondAttribute="trailing" constant="25" id="grg-oC-HV5"/>
+                            <constraint firstItem="FKh-dM-3Ra" firstAttribute="bottom" secondItem="Apv-6F-V2P" secondAttribute="bottom" constant="20" id="gsu-71-2FY"/>
+                            <constraint firstItem="FKh-dM-3Ra" firstAttribute="trailing" secondItem="iAH-NV-Zqz" secondAttribute="trailing" constant="25" id="hHD-Yx-Sqn"/>
+                            <constraint firstItem="Apv-6F-V2P" firstAttribute="leading" secondItem="FKh-dM-3Ra" secondAttribute="leading" constant="25" id="if3-yJ-Esj"/>
+                            <constraint firstItem="kys-eK-Q3v" firstAttribute="leading" secondItem="FKh-dM-3Ra" secondAttribute="leading" constant="25" id="jWt-lG-DKf"/>
+                            <constraint firstItem="8uR-tD-sbG" firstAttribute="top" secondItem="iAH-NV-Zqz" secondAttribute="bottom" constant="10" id="ke5-ha-pdb"/>
+                            <constraint firstItem="FKh-dM-3Ra" firstAttribute="trailing" secondItem="Fv6-ds-Gom" secondAttribute="trailing" constant="25" id="pze-Sa-WYc"/>
+                            <constraint firstItem="iAH-NV-Zqz" firstAttribute="top" secondItem="FKh-dM-3Ra" secondAttribute="top" constant="20" id="rza-4j-t4g"/>
+                            <constraint firstItem="FKh-dM-3Ra" firstAttribute="trailing" secondItem="Fv6-ds-Gom" secondAttribute="trailing" constant="25" id="sBG-HZ-crb"/>
+                            <constraint firstItem="iAH-NV-Zqz" firstAttribute="leading" secondItem="FKh-dM-3Ra" secondAttribute="leading" constant="25" id="tow-zg-zK7"/>
+                            <constraint firstItem="Fv6-ds-Gom" firstAttribute="top" secondItem="vKK-6S-dNB" secondAttribute="bottom" constant="10" id="wlr-dk-VOc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FKh-dM-3Ra"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Student" id="mcM-gF-6Ul">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="mQo-G1-To2"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bIk-fv-Faf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="345" y="-407"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="download" width="225" height="225"/>
+    </resources>
+</document>
