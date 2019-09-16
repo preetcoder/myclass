@@ -12,14 +12,33 @@ class StudentProfileViewController: UIViewController {
     
     var selectedStudent = Student() 
     
-   
+    // Mark: - UI Connections
     @IBOutlet weak var studentName: UILabel!
+    
+    @IBOutlet weak var studentImage: UIImageView!
+    
+    @IBOutlet weak var studentPhone: UILabel!
+    @IBOutlet weak var studentEmail: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.studentName.text = self.selectedStudent.getStudentName()
+        populateDatainView()
 
         // Do any additional setup after loading the view.
+    }
+    
+    //Mark: - Populate Data
+    private func populateDatainView(){
+        
+        self.studentName.text = "\(self.selectedStudent.getStudentName()) \(self.selectedStudent.getStudentLastName())"
+        
+        self.studentPhone.text = self.selectedStudent.getStudentPhone()
+        
+        self.studentEmail.text = self.selectedStudent.getStudentEmail()
+        
+        self.studentImage.image =   UIImage(named: self.selectedStudent.getStudentImage()) 
+        
     }
     
 
