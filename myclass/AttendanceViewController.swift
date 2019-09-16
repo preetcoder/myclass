@@ -27,26 +27,45 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
         // Do any additional setup after loading the view.
     }
     
+    // move to another screen on cell click
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showProfile", sender: indexPath)
+    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return allStudents.count
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            
+            // delete from array first
+            allStudents.remove(at: indexPath.row)
+            // Delete the row from the data source
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "singleStudent", for: indexPath)
+        //let cell = tableView.dequeueReusableCell(withIdentifier: "singleStudent", for: indexPath)
         
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SingleStudentTableViewCell", for: indexPath) as? SingleStudentTableViewCell else {
-//            fatalError("The dequeued cell is not an instance of SingleStudentTableViewCell.")
-//        }
+        let cellIdentifier = "SingleStudentTableViewCell"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? SingleStudentTableViewCell else {
+            fatalError("The dequeued cell is not an instance of SingleStudentTableViewCell.")
+        }
+        
+        //print(indexPath.count)
         
         let student  = allStudents[indexPath.row]
         
-        cell.textLabel?.text = student.getStudentName()
-        
-        cell.imageView?.image = UIImage(named: student.getStudentImage())
-        
+        cell.StudentName?.text = student.getStudentName()
+        //cell.StudentName.text = "ss"
+        cell.studentImage?.image = UIImage(named: student.getStudentImage())
         
         return cell
         
@@ -81,14 +100,21 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
         
     }
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showProfile" {
+            
+            let secondVC = segue.destination as! StudentProfileViewController
+            
+            let indexPath = sender as! IndexPath
+            
+            secondVC.selectedStudent = allStudents[indexPath.row]
+            
+        }
     }
-    */
+    
 
 }
