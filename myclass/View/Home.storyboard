@@ -18,23 +18,37 @@
             </objects>
             <point key="canvasLocation" x="1169" y="-681"/>
         </scene>
-        <!--View Controller-->
+        <!--Assessments-->
         <scene sceneID="9UW-Wr-w6u">
             <objects>
-                <viewController id="3mB-rx-9Vi" sceneMemberID="viewController">
+                <viewController id="3mB-rx-9Vi" customClass="AssessmentsViewController" customModule="myclass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Af-wM-fqV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Pw5-1W-D4m"/>
                     </view>
-                    <navigationItem key="navigationItem" id="DO0-5y-cDU"/>
+                    <navigationItem key="navigationItem" title="Assessments" id="Bxa-45-p5Z">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="d4m-Tk-kgJ">
+                            <connections>
+                                <segue destination="Hdv-M6-AG6" kind="show" id="YgY-Fr-jsW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kQs-da-tgn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="443" y="-147"/>
         </scene>
-        <!--View Controller-->
+        <!--NewAssessment-->
+        <scene sceneID="nXV-O1-w6X">
+            <objects>
+                <viewControllerPlaceholder storyboardName="NewAssessment" id="Hdv-M6-AG6" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dBf-hW-nDS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1146" y="-258"/>
+        </scene>
+        <!--Export-->
         <scene sceneID="nAe-Nb-Oe0">
             <objects>
                 <viewController id="gTC-xe-xbe" sceneMemberID="viewController">
@@ -44,23 +58,23 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Shc-Bk-JSa"/>
                     </view>
-                    <navigationItem key="navigationItem" id="hvO-af-gHn"/>
+                    <navigationItem key="navigationItem" title="Export" id="41I-Uu-P6e"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gMP-EG-6gu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="443" y="563"/>
         </scene>
-        <!--Title-->
+        <!--Date-->
         <scene sceneID="Gq9-Ci-aVz">
             <objects>
-                <viewController id="LER-0p-0rb" customClass="HomeViewController" customModule="myclass" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LER-0p-0rb" customClass="StudentsViewController" customModule="myclass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nzf-za-ioN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="FEu-nX-jGx"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="AlX-ve-sGh">
+                    <navigationItem key="navigationItem" title="Date" id="AlX-ve-sGh">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="aP8-QD-x2T">
                             <connections>
                                 <segue destination="aLd-ty-rsK" kind="show" id="m28-rF-FJH"/>
@@ -92,11 +106,11 @@
             </objects>
             <point key="canvasLocation" x="-1524" y="21"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Attendance-->
         <scene sceneID="Sia-6a-keV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Y6g-YC-zpg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="FTi-FX-6CN"/>
+                    <tabBarItem key="tabBarItem" title="Attendance" image="attendanceIcon" id="FTi-FX-6CN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gLi-9i-JW6" customClass="Attendance">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -112,11 +126,11 @@
             </objects>
             <point key="canvasLocation" x="-519" y="-838"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Assessments-->
         <scene sceneID="A0B-FR-u3W">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Tfx-4N-b9U" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="history" id="eyS-fa-UJ1"/>
+                    <tabBarItem key="tabBarItem" title="Assessments" image="marksIcons" id="eyS-fa-UJ1"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tTh-Pf-MkU">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -132,11 +146,11 @@
             </objects>
             <point key="canvasLocation" x="-519.375" y="-146.83098591549296"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Export-->
         <scene sceneID="drW-PH-0Zj">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OMP-23-eA7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="280-Tm-uGm"/>
+                    <tabBarItem key="tabBarItem" title="Export" image="exportIcon" id="280-Tm-uGm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Bmn-VS-MWu">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -153,4 +167,9 @@
             <point key="canvasLocation" x="-519.375" y="563.02816901408448"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="attendanceIcon" width="29" height="29"/>
+        <image name="exportIcon" width="29" height="29"/>
+        <image name="marksIcons" width="29" height="29"/>
+    </resources>
 </document>

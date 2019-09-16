@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R6x-3T-3Vw">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add new Assessment-->
+        <scene sceneID="S5T-NW-u16">
+            <objects>
+                <viewController id="R6x-3T-3Vw" customClass="NewAssessmentViewController" customModule="myclass" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5WQ-Fc-684">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Assessment description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xSP-aP-5Eh">
+                                <rect key="frame" x="25" y="45" width="270" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Total marks" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1og-xa-I8y">
+                                <rect key="frame" x="25" y="85" width="270" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="vlI-Zv-9ZB">
+                                <rect key="frame" x="20" y="125" width="280" height="100"/>
+                                <date key="date" timeIntervalSinceReferenceDate="590232862.72525299">
+                                    <!--2019-09-15 09:34:22 +0000-->
+                                </date>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvR-LC-gMe">
+                                <rect key="frame" x="20" y="518" width="280" height="30"/>
+                                <color key="backgroundColor" red="0.33333333329999998" green="0.90196078430000004" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.17254901959999999" green="0.2274509804" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Save"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vlI-Zv-9ZB" firstAttribute="leading" secondItem="GiH-QV-7gs" secondAttribute="leading" constant="20" id="ByV-K0-Of9"/>
+                            <constraint firstItem="GiH-QV-7gs" firstAttribute="trailing" secondItem="1og-xa-I8y" secondAttribute="trailing" constant="25" id="M32-me-WoI"/>
+                            <constraint firstItem="vlI-Zv-9ZB" firstAttribute="top" secondItem="1og-xa-I8y" secondAttribute="bottom" constant="10" id="PYg-xi-Zhf"/>
+                            <constraint firstItem="GiH-QV-7gs" firstAttribute="bottom" secondItem="uvR-LC-gMe" secondAttribute="bottom" constant="20" id="Tqq-BW-4kq"/>
+                            <constraint firstAttribute="trailing" secondItem="vlI-Zv-9ZB" secondAttribute="trailing" constant="20" id="UJD-EA-bIR"/>
+                            <constraint firstItem="GiH-QV-7gs" firstAttribute="trailing" secondItem="vlI-Zv-9ZB" secondAttribute="trailing" constant="20" id="UKj-kQ-d9f"/>
+                            <constraint firstItem="1og-xa-I8y" firstAttribute="top" secondItem="xSP-aP-5Eh" secondAttribute="bottom" constant="10" id="VBh-eO-aH4"/>
+                            <constraint firstItem="vlI-Zv-9ZB" firstAttribute="top" secondItem="1og-xa-I8y" secondAttribute="bottom" constant="10" id="WhT-gp-yvv"/>
+                            <constraint firstItem="uvR-LC-gMe" firstAttribute="leading" secondItem="GiH-QV-7gs" secondAttribute="leading" constant="20" id="ZUR-eh-Jly"/>
+                            <constraint firstItem="xSP-aP-5Eh" firstAttribute="leading" secondItem="GiH-QV-7gs" secondAttribute="leading" constant="25" id="a4a-oD-ulT"/>
+                            <constraint firstItem="vlI-Zv-9ZB" firstAttribute="leading" secondItem="GiH-QV-7gs" secondAttribute="leading" constant="20" id="ehX-w6-tAy"/>
+                            <constraint firstItem="1og-xa-I8y" firstAttribute="leading" secondItem="GiH-QV-7gs" secondAttribute="leading" constant="25" id="gCz-Yf-myl"/>
+                            <constraint firstItem="xSP-aP-5Eh" firstAttribute="top" secondItem="GiH-QV-7gs" secondAttribute="top" constant="25" id="i3b-Mk-6eK"/>
+                            <constraint firstItem="GiH-QV-7gs" firstAttribute="trailing" secondItem="xSP-aP-5Eh" secondAttribute="trailing" constant="25" id="lU9-W6-REn"/>
+                            <constraint firstItem="GiH-QV-7gs" firstAttribute="trailing" secondItem="uvR-LC-gMe" secondAttribute="trailing" constant="20" id="nGQ-32-Kwa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="GiH-QV-7gs"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add new Assessment" id="khg-7I-och"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gsf-hF-Tp6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="91.875" y="81.338028169014081"/>
+        </scene>
+    </scenes>
+</document>
