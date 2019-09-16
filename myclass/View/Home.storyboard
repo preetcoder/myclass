@@ -10,6 +10,41 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Title-->
+        <scene sceneID="b0J-B5-bMK">
+            <objects>
+                <tableViewController id="CVX-5R-zVd" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="HoQ-zk-SMm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="vCi-bw-DXq">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vCi-bw-DXq" id="bWu-ea-fgs">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="CVX-5R-zVd" id="awB-lE-vBD"/>
+                            <outlet property="delegate" destination="CVX-5R-zVd" id="usk-AJ-jlj"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="bQt-Yv-uQ2">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ing-Wm-aeU">
+                            <connections>
+                                <segue destination="aLd-ty-rsK" kind="show" id="QqG-8l-YmO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I86-YA-vRf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="390" y="-839"/>
+        </scene>
         <!--AddStudent-->
         <scene sceneID="k3N-2Q-tKh">
             <objects>
@@ -38,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kQs-da-tgn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="443" y="-147"/>
+            <point key="canvasLocation" x="390" y="-147"/>
         </scene>
         <!--NewAssessment-->
         <scene sceneID="nXV-O1-w6X">
@@ -62,29 +97,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gMP-EG-6gu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="443" y="563"/>
-        </scene>
-        <!--Date-->
-        <scene sceneID="Gq9-Ci-aVz">
-            <objects>
-                <viewController id="LER-0p-0rb" customClass="StudentsViewController" customModule="myclass" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="nzf-za-ioN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="FEu-nX-jGx"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Date" id="AlX-ve-sGh">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="aP8-QD-x2T">
-                            <connections>
-                                <segue destination="aLd-ty-rsK" kind="show" id="m28-rF-FJH"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KXS-xN-RqP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="444" y="-839"/>
+            <point key="canvasLocation" x="390" y="563"/>
         </scene>
         <!--Ho-->
         <scene sceneID="JFk-VP-fKt">
@@ -119,7 +132,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="LER-0p-0rb" kind="relationship" relationship="rootViewController" id="55f-zU-8ZV"/>
+                        <segue destination="CVX-5R-zVd" kind="relationship" relationship="rootViewController" id="Sdl-Pn-kfz"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="riU-Uv-lDe" userLabel="First Responder" sceneMemberID="firstResponder"/>
