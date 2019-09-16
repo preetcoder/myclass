@@ -22,4 +22,8 @@ struct Assessment {
         totalMarks = assessmentTotalMarks
         
     }
+    
+    func getAssessmentTitle() -> String {
+        return  self.name
+    }
 }

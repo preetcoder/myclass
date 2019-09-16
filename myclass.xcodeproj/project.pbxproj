@@ -16,6 +16,9 @@
 		1054579D232E5CC8008BEF57 /* AllStudentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1054579C232E5CC8008BEF57 /* AllStudentsTableViewController.swift */; };
 		106EAFEB232E93EF00A20C5B /* StudentProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EAFEA232E93EF00A20C5B /* StudentProfileViewController.swift */; };
 		106EAFED232F6F2F00A20C5B /* StudentProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 106EAFEC232F6F2F00A20C5B /* StudentProfile.storyboard */; };
+		106EAFEF232F83D000A20C5B /* SingleAssessmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EAFEE232F83D000A20C5B /* SingleAssessmentTableViewCell.swift */; };
+		106EAFF1232F934700A20C5B /* Attendance.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 106EAFF0232F934700A20C5B /* Attendance.storyboard */; };
+		106EAFF3232F93AA00A20C5B /* AttendanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EAFF2232F93AA00A20C5B /* AttendanceViewController.swift */; };
 		10EC239C232CA46D00E488B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EC239B232CA46D00E488B3 /* AppDelegate.swift */; };
 		10EC239E232CA46D00E488B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EC239D232CA46D00E488B3 /* ViewController.swift */; };
 		10EC23A1232CA46D00E488B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10EC239F232CA46D00E488B3 /* Main.storyboard */; };
@@ -65,6 +68,9 @@
 		1054579C232E5CC8008BEF57 /* AllStudentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllStudentsTableViewController.swift; sourceTree = "<group>"; };
 		106EAFEA232E93EF00A20C5B /* StudentProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentProfileViewController.swift; sourceTree = "<group>"; };
 		106EAFEC232F6F2F00A20C5B /* StudentProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StudentProfile.storyboard; sourceTree = "<group>"; };
+		106EAFEE232F83D000A20C5B /* SingleAssessmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAssessmentTableViewCell.swift; sourceTree = "<group>"; };
+		106EAFF0232F934700A20C5B /* Attendance.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Attendance.storyboard; sourceTree = "<group>"; };
+		106EAFF2232F93AA00A20C5B /* AttendanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceViewController.swift; sourceTree = "<group>"; };
 		10EC2398232CA46D00E488B3 /* myclass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myclass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10EC239B232CA46D00E488B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10EC239D232CA46D00E488B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -226,6 +232,7 @@
 				CEF579B8232E3C1C009099ED /* NewAssessment.storyboard */,
 				106EAFEC232F6F2F00A20C5B /* StudentProfile.storyboard */,
 				CE0119D8232F76E0002E183C /* Assessments.storyboard */,
+				106EAFF0232F934700A20C5B /* Attendance.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -242,6 +249,8 @@
 				1054579C232E5CC8008BEF57 /* AllStudentsTableViewController.swift */,
 				106EAFEA232E93EF00A20C5B /* StudentProfileViewController.swift */,
 				CE0119DA232F78DB002E183C /* AssessmentsTableViewController.swift */,
+				106EAFEE232F83D000A20C5B /* SingleAssessmentTableViewCell.swift */,
+				106EAFF2232F93AA00A20C5B /* AttendanceViewController.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -362,6 +371,7 @@
 				CE37B7AD232CDC550086DCD3 /* AddNewStudent.storyboard in Resources */,
 				CEF579B9232E3C1C009099ED /* NewAssessment.storyboard in Resources */,
 				10EC23A1232CA46D00E488B3 /* Main.storyboard in Resources */,
+				106EAFF1232F934700A20C5B /* Attendance.storyboard in Resources */,
 				106EAFED232F6F2F00A20C5B /* StudentProfile.storyboard in Resources */,
 				CE0119D9232F76E0002E183C /* Assessments.storyboard in Resources */,
 				CE37B7A5232CB91A0086DCD3 /* Home.storyboard in Resources */,
@@ -485,6 +495,8 @@
 				CEF579C1232E3FB8009099ED /* ExportViewController.swift in Sources */,
 				1054579B232E4B28008BEF57 /* SingleStudentTableViewCell.swift in Sources */,
 				10356058232CE6BB00466075 /* Marks.swift in Sources */,
+				106EAFEF232F83D000A20C5B /* SingleAssessmentTableViewCell.swift in Sources */,
+				106EAFF3232F93AA00A20C5B /* AttendanceViewController.swift in Sources */,
 				10EC239C232CA46D00E488B3 /* AppDelegate.swift in Sources */,
 				1054579D232E5CC8008BEF57 /* AllStudentsTableViewController.swift in Sources */,
 				CE37B7A7232CB9930086DCD3 /* HomeViewController.swift in Sources */,

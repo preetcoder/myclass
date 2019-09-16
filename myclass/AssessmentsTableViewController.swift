@@ -9,6 +9,8 @@
 import UIKit
 
 class AssessmentsTableViewController: UITableViewController {
+    
+    var assessments = [Assessment]()
 
     @IBAction func OnAddAssessmentClick(_ sender: Any)
     {
@@ -16,6 +18,8 @@ class AssessmentsTableViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadSampleMeals()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -23,28 +27,81 @@ class AssessmentsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    //MARK: Private Methods
+    
+    private func loadSampleMeals() {
+        
+        let assessment1 = Assessment(assessmentId: 1, assessmentName: "Assessment1", assessmentTotalMarks: 10)
+        
+        let assessment2 = Assessment(assessmentId: 2, assessmentName: "Assessment2", assessmentTotalMarks: 100)
+        
+        assessments.append(assessment1)
+        assessments.append(assessment2)
+        
+        
+    }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
+        
+//        if items.count > 0 {
+//            tableView.backgroundView = nil
+//            tableView.separatorStyle = .singleLine
+//            return 1
+//        }
+//        else{
+//            // otherwise, return 0, remove cell lines, and display a Label
+//            let rect = CGRect(x: 0,
+//                              y: 0,
+//                              width: tableView.bounds.size.width,
+//                              height: tableView.bounds.size.height)
+//            let noScanLabel: UILabel = UILabel(frame: rect)
+//
+//            noScanLabel.text = "No Scans"
+//            noScanLabel.textColor = UIColor.gray
+//            noScanLabel.font = UIFont.boldSystemFont(ofSize: 24)
+//
+//            noScanLabel.textAlignment = NSTextAlignment.center
+//
+//
+//
+//            tableView.backgroundView = noScanLabel
+//            tableView.separatorStyle = .none
+//
+//
+//
+//            return 0
+//        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return assessments.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        
+        let cellIdentifier = "SingleAssessmentTableViewCell"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? SingleAssessmentTableViewCell  else {
+            fatalError("The dequeued cell is not an instance of MealTableViewCell.")
+        }
+        
+        let assessment = self.assessments[indexPath.row]
 
         // Configure the cell...
+        
+        cell.assessmentTitle.text = assessment.getAssessmentTitle()
+        
+        
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
