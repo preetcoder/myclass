@@ -15,6 +15,7 @@
 		1054579B232E4B28008BEF57 /* SingleStudentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1054579A232E4B28008BEF57 /* SingleStudentTableViewCell.swift */; };
 		1054579D232E5CC8008BEF57 /* AllStudentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1054579C232E5CC8008BEF57 /* AllStudentsTableViewController.swift */; };
 		106EAFEB232E93EF00A20C5B /* StudentProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EAFEA232E93EF00A20C5B /* StudentProfileViewController.swift */; };
+		106EAFED232F6F2F00A20C5B /* StudentProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 106EAFEC232F6F2F00A20C5B /* StudentProfile.storyboard */; };
 		10EC239C232CA46D00E488B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EC239B232CA46D00E488B3 /* AppDelegate.swift */; };
 		10EC239E232CA46D00E488B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EC239D232CA46D00E488B3 /* ViewController.swift */; };
 		10EC23A1232CA46D00E488B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10EC239F232CA46D00E488B3 /* Main.storyboard */; };
@@ -26,7 +27,7 @@
 		CE37B7A5232CB91A0086DCD3 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE37B7A4232CB91A0086DCD3 /* Home.storyboard */; };
 		CE37B7A7232CB9930086DCD3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37B7A6232CB9930086DCD3 /* HomeViewController.swift */; };
 		CE37B7AB232CDB1E0086DCD3 /* AddStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37B7AA232CDB1E0086DCD3 /* AddStudentViewController.swift */; };
-		CE37B7AD232CDC550086DCD3 /* AddStudent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE37B7AC232CDC550086DCD3 /* AddStudent.storyboard */; };
+		CE37B7AD232CDC550086DCD3 /* AddNewStudent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE37B7AC232CDC550086DCD3 /* AddNewStudent.storyboard */; };
 		CEF579B3232D006E009099ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF579B2232D006E009099ED /* Images.xcassets */; };
 		CEF579B9232E3C1C009099ED /* NewAssessment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF579B8232E3C1C009099ED /* NewAssessment.storyboard */; };
 		CEF579BB232E3E27009099ED /* NewAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF579BA232E3E27009099ED /* NewAssessmentViewController.swift */; };
@@ -62,6 +63,7 @@
 		1054579A232E4B28008BEF57 /* SingleStudentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleStudentTableViewCell.swift; sourceTree = "<group>"; };
 		1054579C232E5CC8008BEF57 /* AllStudentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllStudentsTableViewController.swift; sourceTree = "<group>"; };
 		106EAFEA232E93EF00A20C5B /* StudentProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentProfileViewController.swift; sourceTree = "<group>"; };
+		106EAFEC232F6F2F00A20C5B /* StudentProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StudentProfile.storyboard; sourceTree = "<group>"; };
 		10EC2398232CA46D00E488B3 /* myclass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myclass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10EC239B232CA46D00E488B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10EC239D232CA46D00E488B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,7 +85,7 @@
 		CE37B7A4232CB91A0086DCD3 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		CE37B7A6232CB9930086DCD3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CE37B7AA232CDB1E0086DCD3 /* AddStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentViewController.swift; sourceTree = "<group>"; };
-		CE37B7AC232CDC550086DCD3 /* AddStudent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddStudent.storyboard; sourceTree = "<group>"; };
+		CE37B7AC232CDC550086DCD3 /* AddNewStudent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddNewStudent.storyboard; sourceTree = "<group>"; };
 		CEF579B2232D006E009099ED /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CEF579B8232E3C1C009099ED /* NewAssessment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewAssessment.storyboard; sourceTree = "<group>"; };
 		CEF579BA232E3E27009099ED /* NewAssessmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAssessmentViewController.swift; sourceTree = "<group>"; };
@@ -218,8 +220,9 @@
 				10EC239F232CA46D00E488B3 /* Main.storyboard */,
 				10EC23A4232CA46E00E488B3 /* LaunchScreen.storyboard */,
 				CE37B7A4232CB91A0086DCD3 /* Home.storyboard */,
-				CE37B7AC232CDC550086DCD3 /* AddStudent.storyboard */,
+				CE37B7AC232CDC550086DCD3 /* AddNewStudent.storyboard */,
 				CEF579B8232E3C1C009099ED /* NewAssessment.storyboard */,
+				106EAFEC232F6F2F00A20C5B /* StudentProfile.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -353,9 +356,10 @@
 			files = (
 				10EC23A6232CA46E00E488B3 /* LaunchScreen.storyboard in Resources */,
 				CEF579B3232D006E009099ED /* Images.xcassets in Resources */,
-				CE37B7AD232CDC550086DCD3 /* AddStudent.storyboard in Resources */,
+				CE37B7AD232CDC550086DCD3 /* AddNewStudent.storyboard in Resources */,
 				CEF579B9232E3C1C009099ED /* NewAssessment.storyboard in Resources */,
 				10EC23A1232CA46D00E488B3 /* Main.storyboard in Resources */,
+				106EAFED232F6F2F00A20C5B /* StudentProfile.storyboard in Resources */,
 				CE37B7A5232CB91A0086DCD3 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

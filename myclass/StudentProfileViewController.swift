@@ -14,6 +14,7 @@ class StudentProfileViewController: UIViewController {
     
    
     @IBOutlet weak var studentName: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

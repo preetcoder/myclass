@@ -99,7 +99,7 @@ class AllStudentsTableViewController: UITableViewController {
     
     // move to another screen on cell click
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       performSegue(withIdentifier: "addNewStudent", sender: indexPath)
+       performSegue(withIdentifier: "viewProfile", sender: indexPath)
     }
 
  
@@ -150,7 +150,7 @@ class AllStudentsTableViewController: UITableViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         
-        if segue.identifier == "addNewStudent" {
+        if segue.identifier == "viewProfile" {
             
                 let secondVC = segue.destination as! StudentProfileViewController
                 
