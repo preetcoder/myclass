@@ -11,16 +11,18 @@ import Foundation
 struct Attendance {
     
     private var id : Int
-    private var date : DateComponents
+    private var date : Date
     private var status : Bool
     
     // initializers
-    init(attendanceID : Int, attendanceDate : DateComponents, attendanceStatus : Bool) {
+    init(attendanceID : Int, attendanceDate : Date, attendanceStatus : Bool) {
 
         id = attendanceID
         date = attendanceDate
         status = attendanceStatus
         
     }
+    
+    
     
 }

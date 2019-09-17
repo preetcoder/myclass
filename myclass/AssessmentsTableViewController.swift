@@ -8,7 +8,11 @@
 
 import UIKit
 
-class AssessmentsTableViewController: UITableViewController {
+class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDelegate {
+    
+    
+    
+    var assessments = [Assessment]()
 
     @IBAction func OnAddAssessmentClick(_ sender: Any)
     {
@@ -17,78 +21,108 @@ class AssessmentsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    // Delegated Method from NewAssessment
+    func userEnteredData(Desc: String, marks: String, dateVal: Date) {
+        
+        //print("\(Desc) \(marks) \(dateVal)")
+        
+        if(Desc != "" && marks != "" && dateVal != nil){
+            
+         let newAssessment = Assessment(assessmentId: (assessments.count + 1), assessmentName: Desc, assessmentTotalMarks: Int(marks)!, date: dateVal)
+            
+            assessments.append(newAssessment)
+            
+            // reload table view
+            tableView.reloadData()
+           
+            
+        }
+       
+        
     }
 
-    // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            
+            // delete from array first
+            assessments.remove(at: indexPath.row)
+            // Delete the row from the data source
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        //return assessments.count
+        
+        if assessments.count > 0 {
+                        tableView.backgroundView = nil
+                        tableView.separatorStyle = .singleLine
+                        return assessments.count
+                    }
+                    else{
+                        // otherwise, return 0, remove cell lines, and display a Label
+                        let rect = CGRect(x: 0,
+                                          y: 0,
+                                          width: tableView.bounds.size.width,
+                                          height: tableView.bounds.size.height)
+                        let noScanLabel: UILabel = UILabel(frame: rect)
+            
+                        noScanLabel.text = "No Assessment"
+                        noScanLabel.textColor = UIColor.gray
+                        noScanLabel.font = UIFont.boldSystemFont(ofSize: 24)
+            
+                        noScanLabel.textAlignment = NSTextAlignment.center
+            
+            
+            
+                        tableView.backgroundView = noScanLabel
+                        tableView.separatorStyle = .none
+            
+            
+            
+                        return 0
+                    }
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        
+        let cellIdentifier = "SingleAssessmentTableViewCell"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? SingleAssessmentTableViewCell  else {
+            fatalError("The dequeued cell is not an instance of MealTableViewCell.")
+        }
+        
+        let assessment = self.assessments[indexPath.row]
 
         // Configure the cell...
+        
+        cell.assessmentTitle.text = assessment.getAssessmentTitle()
+        
+        
 
         return cell
     }
-    */
+    
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+       
+        if segue.identifier == "newAssessment" {
+            
+            let destinationVC = segue.destination as! NewAssessmentViewController
+            
+            destinationVC.delegate = self
+        }
     }
-    */
+    
 
 }

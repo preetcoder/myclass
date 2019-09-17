@@ -8,15 +8,37 @@
 
 import UIKit
 
-class NewAssessmentViewController: UIViewController {
+protocol NewAssessmentDataDelegate {
+    func userEnteredData (Desc : String, marks : String, dateVal : Date)
+}
 
+class NewAssessmentViewController: UIViewController {
+    
+    // Define Delegate property
+    
+    var delegate : NewAssessmentDataDelegate?
+    
+    @IBOutlet weak var assessmentDesc: UITextField!
+    
+    @IBOutlet weak var assessmentMarks: UITextField!
+    
+    @IBOutlet weak var assessmentDate: UIDatePicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func newAssessmentSave(_ sender: Any) {
+        
+        delegate?.userEnteredData(Desc: assessmentDesc.text!, marks: assessmentMarks.text!, dateVal: assessmentDate.date)
+        
+        // dismiss sigue
+        navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
