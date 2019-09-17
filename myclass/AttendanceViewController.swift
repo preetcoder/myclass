@@ -9,7 +9,8 @@
 import UIKit
 import SVProgressHUD
 
-class AttendanceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AttendanceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NewStudentDataDelegate {
+    
     
     var allStudents = [Student]()
 
@@ -30,6 +31,24 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
 
         // Do any additional setup after loading the view.
     }
+    
+    // Delegation method
+    
+    func newStudentEnteredData(name: String, lastName: String, studentID: String, studentEmail: String, studentPhone: String) {
+        //print("\(name) \(studentID) \(studentEmail) \(studentPhone)")
+        
+        if (name != "" && studentID != "" && lastName != "" && studentEmail != "" && studentPhone != ""){
+            
+            let newStudent = Student(studentEmail: studentEmail, studentID: studentID, studentFirstName: name, studentLastName: lastName, studentPhone: studentPhone, studentImage : "download")
+            
+            allStudents.insert(newStudent, at: 0)
+            
+            // reload table view
+            StudentData.reloadData()
+            
+        }
+    }
+    
     
     // move to another screen on cell click
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -118,6 +137,16 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
             secondVC.selectedStudent = allStudents[indexPath.row]
             
         }
+        
+        
+        if segue.identifier == "addNewStudent" {
+            
+            let destinationVC = segue.destination as! AddStudentViewController
+            
+            destinationVC.delegate = self
+            destinationVC.allStudentsData = self.allStudents
+        }
+        
     }
     
 

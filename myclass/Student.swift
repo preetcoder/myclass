@@ -45,12 +45,20 @@ class Student {
     }
     
     
+    
+    
+    
+    
     func getStudentID() -> String {
        return  self.studentID!
     }
     
     func getStudentName() -> String {
         return  "\(String(describing: self.first_name!))"
+    }
+    
+    func getStudentLastName() -> String {
+        return  "\(String(describing: self.last_name!))"
     }
     
     func getStudentImage() -> String {

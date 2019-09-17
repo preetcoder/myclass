@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="u6A-nr-OdY">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,17 +15,17 @@
             <objects>
                 <viewController id="u6A-nr-OdY" customClass="AddStudentViewController" customModule="myclass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bGo-wb-Bv8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="download" translatesAutoresizingMaskIntoConstraints="NO" id="iAH-NV-Zqz">
-                                <rect key="frame" x="25" y="40" width="325" height="128"/>
+                                <rect key="frame" x="25" y="40" width="270" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="lwp-Zk-xIa"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Apv-6F-V2P">
-                                <rect key="frame" x="25" y="617" width="325" height="30"/>
+                                <rect key="frame" x="25" y="518" width="270" height="30"/>
                                 <color key="backgroundColor" red="0.33333333329999998" green="0.90196078430000004" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <color key="tintColor" red="0.17254901959999999" green="0.2274509804" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -35,27 +35,37 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onSaveNewStudentClick:" destination="u6A-nr-OdY" eventType="touchUpInside" id="lx2-wl-mRO"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8uR-tD-sbG">
-                                <rect key="frame" x="25" y="178" width="325" height="30"/>
+                                <rect key="frame" x="25" y="178" width="270" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter StudentID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vKK-6S-dNB">
-                                <rect key="frame" x="25" y="218" width="325" height="30"/>
+                                <rect key="frame" x="25" y="218" width="270" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter email id" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fv6-ds-Gom">
-                                <rect key="frame" x="25" y="258" width="325" height="30"/>
+                                <rect key="frame" x="25" y="258" width="270" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter Phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kys-eK-Q3v">
-                                <rect key="frame" x="25" y="298" width="325" height="30"/>
+                                <rect key="frame" x="25" y="298" width="270" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nJS-oD-b0T" userLabel="Please enter last name">
+                                <rect key="frame" x="25" y="336" width="270" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -89,9 +99,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FKh-dM-3Ra"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Student" id="mcM-gF-6Ul">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="mQo-G1-To2"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Add Student" id="mcM-gF-6Ul"/>
+                    <connections>
+                        <outlet property="newStudentEmail" destination="Fv6-ds-Gom" id="SGB-qx-FCj"/>
+                        <outlet property="newStudentID" destination="vKK-6S-dNB" id="rfK-lb-oay"/>
+                        <outlet property="newStudentName" destination="8uR-tD-sbG" id="XNn-5S-b71"/>
+                        <outlet property="newStudentPhone" destination="kys-eK-Q3v" id="nb8-VV-ecX"/>
+                        <outlet property="studentLastName" destination="nJS-oD-b0T" id="F9I-HE-vzy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bIk-fv-Faf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

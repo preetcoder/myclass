@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f6r-Go-oTM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f6r-Go-oTM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -62,6 +62,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hs1-la-8Kp" userLabel="Stud Last Name">
+                                <rect key="frame" x="25" y="338" width="325" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -82,6 +88,7 @@
                             <constraint firstItem="0NK-Sl-Zyv" firstAttribute="top" secondItem="p2Y-F0-ASv" secondAttribute="bottom" constant="10" id="oHg-Bq-aCR"/>
                             <constraint firstItem="udT-Vk-7Go" firstAttribute="trailing" secondItem="UZl-b0-a8N" secondAttribute="trailing" constant="25" id="p3x-m1-RsS"/>
                             <constraint firstItem="KOF-Pm-4hh" firstAttribute="leading" secondItem="udT-Vk-7Go" secondAttribute="leading" constant="25" id="vLI-9p-QYA"/>
+                            <constraint firstItem="hs1-la-8Kp" firstAttribute="top" secondItem="KOF-Pm-4hh" secondAttribute="bottom" constant="10" id="wOO-85-PbU"/>
                             <constraint firstItem="udT-Vk-7Go" firstAttribute="bottom" secondItem="VNb-pZ-hfu" secondAttribute="bottom" constant="20" id="xXi-6C-q8Z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="udT-Vk-7Go"/>
@@ -95,8 +102,10 @@
                     </navigationItem>
                     <connections>
                         <outlet property="StudentHeader" destination="jki-4h-eNs" id="LzN-Gb-EwW"/>
+                        <outlet property="saveButton" destination="VNb-pZ-hfu" id="w7H-x0-Q2R"/>
                         <outlet property="studEmail" destination="Utw-Va-1V9" id="zHL-YF-1gF"/>
                         <outlet property="studID" destination="0NK-Sl-Zyv" id="HXx-i3-0TI"/>
+                        <outlet property="studLastName" destination="hs1-la-8Kp" id="Euu-Ag-zhF"/>
                         <outlet property="studName" destination="p2Y-F0-ASv" id="imo-Wa-1nP"/>
                         <outlet property="studPhone" destination="KOF-Pm-4hh" id="CnS-DA-Ref"/>
                     </connections>
