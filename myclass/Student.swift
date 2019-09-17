@@ -57,5 +57,11 @@ class Student {
         return  "\(String(describing: self.image!))"
     }
     
+    func getStudentEmail() -> String {
+        return "\(String(describing:self.email!))"
+    }
     
+    func getStudentPhone() -> String {
+        return "\(String(describing:self.phone!))"
+    }
 }

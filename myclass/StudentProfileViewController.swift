@@ -8,22 +8,42 @@
 
 import UIKit
 
-class StudentProfileViewController: UIViewController {
+class StudentProfileViewController: UIViewController
+{
     
     var selectedStudent = Student() 
     
    
     @IBOutlet weak var studentName: UILabel!
     
-    override func viewDidLoad() {
+    @IBOutlet weak var studName: UITextField!
+    @IBOutlet weak var studID: UITextField!
+    @IBOutlet weak var studEmail: UITextField!
+    @IBOutlet weak var studPhone: UITextField!
+    
+    @IBOutlet weak var StudentHeader: UINavigationItem!
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        
-        self.studentName.text = self.selectedStudent.getStudentName()
-
+        self.studName.isUserInteractionEnabled = false;
+        self.studID.isUserInteractionEnabled = false;
+        self.studEmail.isUserInteractionEnabled = false;
+        self.studPhone.isUserInteractionEnabled = false;
+        self.studName.text = self.selectedStudent.getStudentName()
+        self.studID.text = self.selectedStudent.getStudentID()
+        self.studEmail.text = self.selectedStudent.getStudentEmail()
+        self.studPhone.text = self.selectedStudent.getStudentPhone()
+        self.title = self.selectedStudent.getStudentName()
+        //self.studentName.text = self.selectedStudent.getStudentName()
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func onClickEdit(_ sender: Any) {
+    }
+    
+    @IBAction func onClickSave(_ sender: Any) {
+    }
     /*
     // MARK: - Navigation
 
