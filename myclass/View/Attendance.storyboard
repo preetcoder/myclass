@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="44N-Rl-Br3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="44N-Rl-Br3">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Attendance View Controller-->
+        <!--Attendance-->
         <scene sceneID="7rk-jn-mQk">
             <objects>
                 <viewController id="44N-Rl-Br3" customClass="AttendanceViewController" customModule="myclass" customModuleProvider="target" sceneMemberID="viewController">
@@ -63,14 +63,30 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="8fL-lz-TF1"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Attendance" id="6dt-N4-8mM">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="yZR-8F-W6a">
+                            <connections>
+                                <action selector="AddNewStudentOnClick:" destination="44N-Rl-Br3" id="0ZT-Wj-OJp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="StudentData" destination="VGl-j7-nNa" id="lZG-WM-j4g"/>
                         <segue destination="LNz-wD-Dl7" kind="show" identifier="showProfile" id="uou-db-4ta"/>
+                        <segue destination="gUQ-qW-crf" kind="show" identifier="addNewStudent" id="qIP-QX-8iK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="exC-S5-IwR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-339.375" y="17.95774647887324"/>
+        </scene>
+        <!--AddNewStudent-->
+        <scene sceneID="bU2-cB-xaA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddNewStudent" id="gUQ-qW-crf" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Qh-fJ-rF4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="354" y="-214"/>
         </scene>
         <!--StudentProfile-->
         <scene sceneID="Z1n-9r-bdB">
@@ -79,6 +95,13 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oIN-9j-HRd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="331" y="-111"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="4sA-xt-ZHt">
+            <objects>
+                <viewControllerPlaceholder id="wKE-nn-396" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1nt-10-e8F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>

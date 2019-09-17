@@ -17,6 +17,10 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet weak var StudentData: UITableView!
     
+    @IBAction func AddNewStudentOnClick(_ sender: Any)
+    {
+         performSegue(withIdentifier: "addNewStudent", sender: self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
