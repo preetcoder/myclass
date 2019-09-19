@@ -12,12 +12,14 @@ protocol NewStudentDataDelegate {
     func newStudentEnteredData (name : String, lastName : String, studentID : String, studentEmail : String, studentPhone : String)
 }
 
-class AddStudentViewController: UIViewController {
+class AddStudentViewController: UIViewController{
     
     var delegate : NewStudentDataDelegate?
     
     var allStudentsData =  [Student]()
 
+    @IBOutlet weak var studentProfileImage: UIImageView!
+    
     @IBOutlet weak var newStudentName: UITextField!
     @IBOutlet weak var newStudentID: UITextField!
     
@@ -64,26 +66,16 @@ class AddStudentViewController: UIViewController {
         else{
             
             // declare an alert
-            let alert = UIAlertController(title: "Error!!", message: "Student ID already exists", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                switch action.style{
-                case .default:
-                    print("default")
-                    
-                case .cancel:
-                    print("cancel")
-                    
-                case .destructive:
-                    print("destructive")
-                    
-                    
-                }}))
+            let alertpopupVal = PopUpAlert()
+            let alert =  alertpopupVal.popUp(titleMsg: "Error!!", popupMsg: "Student ID Already Exists!")
             self.present(alert, animated: true, completion: nil)
 
         }
         
         
     }
+    
+    
     /*
     // MARK: - Navigation
 

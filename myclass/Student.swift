@@ -72,4 +72,25 @@ class Student {
     func getStudentPhone() -> String {
         return "\(String(describing:self.phone!))"
     }
+    
+    // setters
+    
+    func setStudentFirstName(name : String) {
+        self.first_name = name
+    }
+    
+    func setStudentLastName(lastname : String) {
+        self.last_name = lastname
+    }
+    
+    func setStudentEmail(email : String) {
+        self.email = email
+    }
+    
+    func setStudentPhone(phone : String) {
+        self.phone = phone
+    }
+    
+    
+    
 }

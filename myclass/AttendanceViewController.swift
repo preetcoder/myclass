@@ -25,11 +25,22 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //print("sss")
         
         SVProgressHUD.show()
         loadSampleData()
 
         // Do any additional setup after loading the view.
+    }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        //print("aaa")
+//        // reload table view
+//        StudentData.reloadData()
+//    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        StudentData.reloadData()
     }
     
     // Delegation method

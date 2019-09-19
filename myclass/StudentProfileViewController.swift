@@ -13,8 +13,6 @@ class StudentProfileViewController: UIViewController
     
     var selectedStudent = Student() 
     
-   
-    @IBOutlet weak var studentName: UILabel!
     
     @IBOutlet weak var studName: UITextField!
     @IBOutlet weak var studID: UITextField!
@@ -51,7 +49,8 @@ class StudentProfileViewController: UIViewController
         
         //enable text  fields
         self.studName.isUserInteractionEnabled = true;
-        self.studID.isUserInteractionEnabled = true;
+       // self.studID.isUserInteractionEnabled = true;
+        self.studID.backgroundColor = .gray
         self.studEmail.isUserInteractionEnabled = true;
         self.studPhone.isUserInteractionEnabled = true;
         
@@ -63,7 +62,28 @@ class StudentProfileViewController: UIViewController
     }
     
     @IBAction func onClickSave(_ sender: Any) {
+        if studEmail.text! != "" && studName.text! != "" && studLastName.text! != "" && studPhone.text! != "" && studID.text! != ""{
+            
+            selectedStudent.setStudentEmail(email: self.studEmail.text!)
+            selectedStudent.setStudentPhone(phone: studPhone.text!)
+            selectedStudent.setStudentFirstName(name: studName.text!)
+            selectedStudent.setStudentLastName(lastname: studLastName.text!)
         
+        
+            self.studName.isUserInteractionEnabled = false;
+            self.studID.isUserInteractionEnabled = false;
+            self.studEmail.isUserInteractionEnabled = false;
+            self.studPhone.isUserInteractionEnabled = false;
+            
+            self.studLastName.isUserInteractionEnabled = false;
+        
+        }
+        else{
+            
+            let alertpopupVal = PopUpAlert()
+            let alert =  alertpopupVal.popUp(titleMsg: "Error!!", popupMsg: "One or more fields are empty!")
+            self.present(alert, animated: true, completion: nil)
+        }
         
     }
     /*

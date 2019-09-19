@@ -122,7 +122,21 @@ class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDe
             
             destinationVC.delegate = self
         }
+        
+        if segue.identifier == "ViewAssessmentProfile"
+        {
+            let secondVC = segue.destination as! AssessmentProfileViewController
+            let indexPath = sender as! IndexPath
+            secondVC.selectedAssessment = assessments[indexPath.row]
+            secondVC.indexPathValue = indexPath.row
+        }
     }
+    
+    // move to another screen on cell click
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "ViewAssessmentProfile", sender: indexPath)
+    }
+
     
 
 }
