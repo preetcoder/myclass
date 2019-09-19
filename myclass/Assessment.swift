@@ -10,14 +10,16 @@ import Foundation
 
 struct Assessment {
     
-    private var id : Int
-    private var name : String
-    private var totalMarks : Int
-    private var assessmentDate : Date
+    private var id : Int?
+    private var name : String?
+    private var totalMarks : Int?
+    private var assessmentDate : Date?
+    
+    init() {
+    }
     
     // initializer
     init(assessmentId : Int, assessmentName : String, assessmentTotalMarks : Int, date : Date) {
-
         id = assessmentId
         name = assessmentName
         totalMarks = assessmentTotalMarks
@@ -26,6 +28,29 @@ struct Assessment {
     }
     
     func getAssessmentTitle() -> String {
-        return  self.name
+        return "\(String(describing: self.name!))"
     }
+    
+    func getAssessmentMarks() -> Int {
+        return self.totalMarks!
+    }
+    
+    func getAssessmentDate() -> Date {
+        return assessmentDate!
+    }
+    
+    mutating func setAssessmentTitle(assessmentName : String)
+    {
+        self.name = assessmentName;
+    }
+    
+    mutating func setAssessmentMarks(assessmentTotalMarks : Int) {
+        self.totalMarks = assessmentTotalMarks;
+    }
+    
+    mutating func setAssessmentDate(date : Date)
+    {
+        self.assessmentDate = date;
+    }
+    
 }

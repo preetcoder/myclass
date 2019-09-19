@@ -30,6 +30,8 @@
 		9DC4164F5E3E91C40101265B /* Pods_myclassTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0E5F3B7F7C6DECFB6BF0A9A /* Pods_myclassTests.framework */; };
 		CE0119D9232F76E0002E183C /* Assessments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0119D8232F76E0002E183C /* Assessments.storyboard */; };
 		CE0119DB232F78DB002E183C /* AssessmentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0119DA232F78DB002E183C /* AssessmentsTableViewController.swift */; };
+		CE0119DD2330899C002E183C /* AssessmentProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0119DC2330899C002E183C /* AssessmentProfile.storyboard */; };
+		CE0119DF23308D2B002E183C /* AssessmentProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0119DE23308D2B002E183C /* AssessmentProfileViewController.swift */; };
 		CE37B7A5232CB91A0086DCD3 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE37B7A4232CB91A0086DCD3 /* Home.storyboard */; };
 		CE37B7A7232CB9930086DCD3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37B7A6232CB9930086DCD3 /* HomeViewController.swift */; };
 		CE37B7AB232CDB1E0086DCD3 /* AddStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37B7AA232CDB1E0086DCD3 /* AddStudentViewController.swift */; };
@@ -93,6 +95,8 @@
 		BD136BACECD42362A6A4D823 /* Pods_myclass.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myclass.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE0119D8232F76E0002E183C /* Assessments.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Assessments.storyboard; sourceTree = "<group>"; };
 		CE0119DA232F78DB002E183C /* AssessmentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentsTableViewController.swift; sourceTree = "<group>"; };
+		CE0119DC2330899C002E183C /* AssessmentProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AssessmentProfile.storyboard; sourceTree = "<group>"; };
+		CE0119DE23308D2B002E183C /* AssessmentProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentProfileViewController.swift; sourceTree = "<group>"; };
 		CE37B7A4232CB91A0086DCD3 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		CE37B7A6232CB9930086DCD3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CE37B7AA232CDB1E0086DCD3 /* AddStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentViewController.swift; sourceTree = "<group>"; };
@@ -235,6 +239,7 @@
 				106EAFEC232F6F2F00A20C5B /* StudentProfile.storyboard */,
 				CE0119D8232F76E0002E183C /* Assessments.storyboard */,
 				106EAFF0232F934700A20C5B /* Attendance.storyboard */,
+				CE0119DC2330899C002E183C /* AssessmentProfile.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -254,6 +259,7 @@
 				106EAFEE232F83D000A20C5B /* SingleAssessmentTableViewCell.swift */,
 				106EAFF2232F93AA00A20C5B /* AttendanceViewController.swift */,
 				106EAFF5232FDFF800A20C5B /* convertToDate.swift */,
+				CE0119DE23308D2B002E183C /* AssessmentProfileViewController.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -371,6 +377,7 @@
 			files = (
 				10EC23A6232CA46E00E488B3 /* LaunchScreen.storyboard in Resources */,
 				CEF579B3232D006E009099ED /* Images.xcassets in Resources */,
+				CE0119DD2330899C002E183C /* AssessmentProfile.storyboard in Resources */,
 				CE37B7AD232CDC550086DCD3 /* AddNewStudent.storyboard in Resources */,
 				CEF579B9232E3C1C009099ED /* NewAssessment.storyboard in Resources */,
 				10EC23A1232CA46D00E488B3 /* Main.storyboard in Resources */,
@@ -496,6 +503,7 @@
 				CEF579BB232E3E27009099ED /* NewAssessmentViewController.swift in Sources */,
 				10356058232CE6BB00466075 /* Marks.swift in Sources */,
 				10EC239C232CA46D00E488B3 /* AppDelegate.swift in Sources */,
+				CE0119DF23308D2B002E183C /* AssessmentProfileViewController.swift in Sources */,
 				CEF579C1232E3FB8009099ED /* ExportViewController.swift in Sources */,
 				1054579B232E4B28008BEF57 /* SingleStudentTableViewCell.swift in Sources */,
 				10356058232CE6BB00466075 /* Marks.swift in Sources */,

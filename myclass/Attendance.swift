@@ -10,18 +10,22 @@ import Foundation
 
 struct Attendance {
     
-    private var id : Int
-    private var date : Date
-    private var status : Bool
+    private var id : Int?
+    private var date : Date?
+    private var status : Bool?
+    
+    init() {
+    }
     
     // initializers
     init(attendanceID : Int, attendanceDate : Date, attendanceStatus : Bool) {
-
+        self.init();
         id = attendanceID
         date = attendanceDate
         status = attendanceStatus
         
     }
+    
     
     
     
