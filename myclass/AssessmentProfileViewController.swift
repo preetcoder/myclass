@@ -7,12 +7,18 @@
 //
 
 import UIKit
+protocol AssessmentViewDelegate {
+    func updateAssessment (Desc : String, marks : Int, dateVal : Date, position: Int)
+}
 
 class AssessmentProfileViewController: UIViewController
 {
-    
+
     var selectedAssessment = Assessment();
     var indexPathValue: Int!;
+    
+      // Define Delegate property
+    var delegate1 : AssessmentViewDelegate?
     
     @IBOutlet weak var assessmentDescription: UITextField!
     @IBOutlet weak var assessmentMarks: UITextField!
@@ -30,13 +36,13 @@ class AssessmentProfileViewController: UIViewController
     
     @IBAction func onClickSave(_ sender: Any)
     {
+     
+       // print("\(assessmentDescription) \(assessmentMarks) \(assessmentDate) \(indexPathValue)")
+        delegate1?.updateAssessment(Desc: assessmentDescription.text!, marks: Int(assessmentMarks.text!)!, dateVal: assessmentDate.date,position: indexPathValue!)
         
-        self.selectedAssessment.setAssessmentTitle(assessmentName: self.assessmentDescription.text!)
-        self.selectedAssessment.setAssessmentMarks(assessmentTotalMarks: Int(self.assessmentMarks.text!)!)
-        
-        self.selectedAssessment.setAssessmentDate(date: self.assessmentDate.date)
-        
-        
+        // dismiss sigue
+        navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad()
