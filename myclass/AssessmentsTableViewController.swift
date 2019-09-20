@@ -8,9 +8,7 @@
 
 import UIKit
 
-class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDelegate {
-    
-    
+class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDelegate,AssessmentViewDelegate {
     
     var assessments = [Assessment]()
 
@@ -40,6 +38,18 @@ class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDe
         }
        
         
+    }
+    
+    //Delegated Method for Updating Assessment
+    func updateAssessment(Desc: String, marks: Int, dateVal: Date,position: Int)
+    {
+        if(Desc != "" && marks>0 && dateVal != nil)
+        {
+            assessments[position].setAssessmentTitle(assessmentName: Desc)
+            assessments[position].setAssessmentMarks(assessmentTotalMarks: marks)
+            assessments[position].setAssessmentDate(date: dateVal)
+        }
+        tableView.reloadData()
     }
 
 
@@ -129,6 +139,7 @@ class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDe
             let indexPath = sender as! IndexPath
             secondVC.selectedAssessment = assessments[indexPath.row]
             secondVC.indexPathValue = indexPath.row
+            secondVC.delegate1 = self
         }
     }
     

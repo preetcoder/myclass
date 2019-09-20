@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="esl-w7-quN">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_0" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -14,29 +14,41 @@
             <objects>
                 <tableViewController id="esl-w7-quN" customClass="AssessmentsTableViewController" customModule="myclass" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ozO-XD-Sds">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SingleAssessmentTableViewCell" rowHeight="80" id="5UP-CU-Dzw" customClass="SingleAssessmentTableViewCell" customModule="myclass" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="80"/>
+                                <rect key="frame" x="0.0" y="28" width="568" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5UP-CU-Dzw" id="7A4-jh-e8P">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="568" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KRe-bf-97a">
-                                            <rect key="frame" x="28" y="11" width="141" height="58"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KRe-bf-97a">
+                                            <rect key="frame" x="30" y="10" width="141" height="58"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="KRe-bf-97a" secondAttribute="height" multiplier="141:58" id="UIO-5j-Ktm"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="exportIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Hw9-7n-MXF">
-                                            <rect key="frame" x="235" y="20" width="50" height="41"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-test-results-50" translatesAutoresizingMaskIntoConstraints="NO" id="Hw9-7n-MXF">
+                                            <rect key="frame" x="477" y="13" width="60" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="Hw9-7n-MXF" secondAttribute="height" multiplier="50:41" id="nSt-bg-hBl"/>
+                                            </constraints>
                                         </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Hw9-7n-MXF" secondAttribute="trailing" constant="10" id="1xj-rp-OHf"/>
+                                        <constraint firstItem="KRe-bf-97a" firstAttribute="centerY" secondItem="Hw9-7n-MXF" secondAttribute="centerY" id="4Lh-nn-c9I"/>
+                                        <constraint firstItem="KRe-bf-97a" firstAttribute="leading" secondItem="7A4-jh-e8P" secondAttribute="leadingMargin" constant="10" id="Nvf-8c-ZJc"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Hw9-7n-MXF" secondAttribute="trailing" constant="10" id="Z8L-wl-fyo"/>
+                                        <constraint firstItem="KRe-bf-97a" firstAttribute="bottom" secondItem="7A4-jh-e8P" secondAttribute="bottomMargin" id="lwp-uu-Lwu"/>
+                                        <constraint firstItem="KRe-bf-97a" firstAttribute="centerY" secondItem="7A4-jh-e8P" secondAttribute="centerY" id="meQ-0N-ifX"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="assessmentTitle" destination="KRe-bf-97a" id="BUg-5v-wnJ"/>
@@ -82,6 +94,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="exportIcon" width="29" height="29"/>
+        <image name="icons8-test-results-50" width="50" height="50"/>
     </resources>
 </document>
