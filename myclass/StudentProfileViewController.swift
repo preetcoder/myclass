@@ -68,6 +68,7 @@ class StudentProfileViewController: UIViewController
             selectedStudent.setStudentPhone(phone: studPhone.text!)
             selectedStudent.setStudentFirstName(name: studName.text!)
             selectedStudent.setStudentLastName(lastname: studLastName.text!)
+            self.studID.backgroundColor = nil
         
         
             self.studName.isUserInteractionEnabled = false;
