@@ -23,9 +23,14 @@ class StudentProfileViewController: UIViewController
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var StudentHeader: UINavigationItem!
     
+    @IBOutlet weak var mainScrollView: UIScrollView!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        self.mainScrollView.contentSize =  CGSize(width: view.frame.width, height: view.frame.height);
+        
         self.studName.isUserInteractionEnabled = false;
         self.studID.isUserInteractionEnabled = false;
         self.studEmail.isUserInteractionEnabled = false;
