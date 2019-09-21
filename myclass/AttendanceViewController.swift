@@ -29,9 +29,9 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let date = Date()
         dateLable.text = dateHelper.getStringFromDate(dateVal: date)
+        
         SVProgressHUD.show()
         loadSampleData()
-
         // Do any additional setup after loading the view.
     }
     
@@ -42,6 +42,7 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
         let currentDate = dateHelper.getDateFromString(dateVal: currentDateText!)
         let nextDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)
         dateLable.text = dateHelper.getStringFromDate(dateVal: nextDate!)
+        self.StudentData.reloadData()
     }
     
     
@@ -51,6 +52,7 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
         let currentDate = dateHelper.getDateFromString(dateVal: currentDateText!)
         let nextDate = Calendar.current.date(byAdding: .day, value: -1, to: currentDate)
         dateLable.text = dateHelper.getStringFromDate(dateVal: nextDate!)
+        self.StudentData.reloadData()
     }
     
 
@@ -116,11 +118,21 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
         //print(indexPath.count)
         
         let student  = allStudents[indexPath.row]
-        
         cell.StudentName?.text = student.getStudentName()
         //cell.StudentName.text = "ss"
         cell.studentImage?.image = UIImage(named: student.getStudentImage())
         cell.studewntAttendance?.tag = indexPath.row
+        cell.studewntAttendance?.setOn(false, animated: false)
+        if allStudents[indexPath.row].getAttendance()!.count != 0
+        {
+            for attendanceObject in allStudents[indexPath.row].getAttendance()!.indices
+            {
+                if(allStudents[indexPath.row].getAttendance()![attendanceObject].getDate() == dateHelper.getDateFromString(dateVal: dateLable.text!))
+                {
+                    cell.studewntAttendance?.setOn(allStudents[indexPath.row].getAttendance()![attendanceObject].getStatus(), animated: false)
+                }
+            }
+        }
         cell.studewntAttendance.addTarget(self, action: #selector(buttonClicked(sender:)), for: .valueChanged)
         return cell
     }
@@ -134,20 +146,21 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
         {
             //get the no. of objects
             let Count = allStudents[buttonRow].getAttendance()!.count
-            
             //check if the attendance record already exists for that date
-            var c = 0;
-            for attendanceObject in (allStudents[buttonRow].getAttendance())!
+            var newAttendance = true
+            for attendanceObject in allStudents[buttonRow].getAttendance()!.indices
             {
-                if(attendanceObject.getDate() == dateHelper.getDateFromString(dateVal: dateLable.text!))
+                if(allStudents[buttonRow].getAttendance()![attendanceObject].getDate() == dateHelper.getDateFromString(dateVal: dateLable.text!))
                 {
-                   // allStudents[buttonRow].getAttendance()![c].updateStatus(Status: sender.isOn)
+                    newAttendance = false
+                    allStudents[buttonRow].updateAttendance(position: attendanceObject, state: sender.isOn)
                 }
-                c+=1
             }
-            
-            let todayAttendance = Attendance(attendanceID: Count,attendanceDate: dateHelper.getDateFromString(dateVal: dateLable.text!),attendanceStatus: sender.isOn)
-            allStudents[buttonRow].addAttendance(attendanceObj: todayAttendance)
+            if(newAttendance)
+            {
+                let todayAttendance = Attendance(attendanceID: Count,attendanceDate: dateHelper.getDateFromString(dateVal: dateLable.text!),attendanceStatus: sender.isOn)
+                allStudents[buttonRow].addAttendance(attendanceObj: todayAttendance)
+            }
         }
         else
         {
@@ -155,17 +168,9 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
             let todayAttendance = Attendance(attendanceID: Count,attendanceDate: dateHelper.getDateFromString(dateVal: dateLable.text!),attendanceStatus: sender.isOn)
             allStudents[buttonRow].addAttendance(attendanceObj: todayAttendance)
         }
-        
-        //get index value for new attendance
-        //let attendanceDate = dateHelper.getDateFromString(dateVal: dateLable.text!)
-        
-        
     }
     // MARK: - Private Methods
     private func loadSampleData() {
-        
-
-        
         // load data from API
         let aUrl = ImportData()
         aUrl.getDataFromURL{
@@ -174,7 +179,6 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
             for student in students
             {
                 self.allStudents.append(student)
-                
             }
             
             // reload view
@@ -214,7 +218,6 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
             destinationVC.delegate = self
             destinationVC.allStudentsData = self.allStudents
         }
-        
     }
     
 

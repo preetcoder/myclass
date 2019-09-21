@@ -12,7 +12,7 @@ struct ImportData {
     
     // load data from API
    
-    let APIURL = "https://my.api.mockaroo.com/students_data.json?key=3e4cec20"
+    let APIURL = "https://my.api.mockaroo.com/students_data.json?key=8dad5340"
     
     func getDataFromURL(_ completion: @escaping (_ students : [Student]) -> ())
     {

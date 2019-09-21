@@ -25,32 +25,29 @@ class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDe
         
         //print("\(Desc) \(marks) \(dateVal)")
         
-        if(Desc != "" && marks != "" && dateVal != nil){
-            
+        if(Desc != "" && marks != "" && dateVal != nil)
+        {
          let newAssessment = Assessment(assessmentId: (assessments.count + 1), assessmentName: Desc, assessmentTotalMarks: Int(marks)!, date: dateVal)
             
             assessments.append(newAssessment)
-            
             // reload table view
             tableView.reloadData()
-           
-            
         }
        
         
     }
     
-//    //Delegated Method for Updating Assessment
-//    func updateAssessment(Desc: String, marks: Int, dateVal: Date,position: Int)
-//    {
-//        if(Desc != "" && marks>0 && dateVal != nil)
-//        {
-//            assessments[position].setAssessmentTitle(assessmentName: Desc)
-//            assessments[position].setAssessmentMarks(assessmentTotalMarks: marks)
-//            assessments[position].setAssessmentDate(date: dateVal)
-//        }
-//        tableView.reloadData()
-//    }
+    //Delegated Method for Updating Assessment
+    func updateAssessment(Desc: String, marks: Int, dateVal: Date,position: Int)
+    {
+        if(Desc != "" && marks>0 && dateVal != nil)
+        {
+            assessments[position].setAssessmentTitle(assessmentName: Desc)
+            assessments[position].setAssessmentMarks(assessmentTotalMarks: marks)
+            assessments[position].setAssessmentDate(date: dateVal)
+        }
+        tableView.reloadData()
+    }
 
 
     

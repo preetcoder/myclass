@@ -101,4 +101,9 @@ class Student {
     {
         self.attendance?.append(attendanceObj)
     }
+    
+    func updateAttendance(position : Int, state : Bool)
+    {
+        self.attendance![position].updateStatus(Status: state)
+    }
 }
