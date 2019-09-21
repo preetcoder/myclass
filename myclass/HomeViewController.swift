@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
 
     var allStudents : [Student] = []
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

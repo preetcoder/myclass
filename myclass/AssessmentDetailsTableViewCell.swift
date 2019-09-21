@@ -1,21 +1,19 @@
 //
-//  SingleAssessmentTableViewCell.swift
+//  AssessmentDetailsTableViewCell.swift
 //  myclass
 //
-//  Created by Harpreet Singh on 16/9/19.
+//  Created by Harpreet Singh on 21/9/19.
 //  Copyright © 2019 Harpreetandbhavesh. All rights reserved.
 //
 
 import UIKit
 
-class SingleAssessmentTableViewCell: UITableViewCell {
+class AssessmentDetailsTableViewCell: UITableViewCell {
+
     
-    //MARK: Properties
-   
-    @IBOutlet weak var singleAssessmentTitle: UILabel!
+    @IBOutlet weak var studentID: UILabel!
     
-    //MARK: Properties
-    @IBOutlet weak var assessmentTitle: UILabel!
+   // @IBOutlet weak var studentMarks: UIPickerView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

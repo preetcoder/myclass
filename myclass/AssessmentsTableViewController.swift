@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDelegate,AssessmentViewDelegate {
+class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDelegate {
     
     var assessments = [Assessment]()
 
@@ -40,17 +40,17 @@ class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDe
         
     }
     
-    //Delegated Method for Updating Assessment
-    func updateAssessment(Desc: String, marks: Int, dateVal: Date,position: Int)
-    {
-        if(Desc != "" && marks>0 && dateVal != nil)
-        {
-            assessments[position].setAssessmentTitle(assessmentName: Desc)
-            assessments[position].setAssessmentMarks(assessmentTotalMarks: marks)
-            assessments[position].setAssessmentDate(date: dateVal)
-        }
-        tableView.reloadData()
-    }
+//    //Delegated Method for Updating Assessment
+//    func updateAssessment(Desc: String, marks: Int, dateVal: Date,position: Int)
+//    {
+//        if(Desc != "" && marks>0 && dateVal != nil)
+//        {
+//            assessments[position].setAssessmentTitle(assessmentName: Desc)
+//            assessments[position].setAssessmentMarks(assessmentTotalMarks: marks)
+//            assessments[position].setAssessmentDate(date: dateVal)
+//        }
+//        tableView.reloadData()
+//    }
 
 
     
@@ -112,7 +112,7 @@ class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDe
 
         // Configure the cell...
         
-        cell.assessmentTitle.text = assessment.getAssessmentTitle()
+        cell.singleAssessmentTitle.text = assessment.getAssessmentTitle()
         
         
 
@@ -135,11 +135,13 @@ class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDe
         
         if segue.identifier == "ViewAssessmentProfile"
         {
-            let secondVC = segue.destination as! AssessmentProfileViewController
+            let secondVC = segue.destination as! SingleAssessmentViewController
             let indexPath = sender as! IndexPath
-            secondVC.selectedAssessment = assessments[indexPath.row]
-            secondVC.indexPathValue = indexPath.row
-            secondVC.delegate1 = self
+           // secondVC.selectedAssessment = assessments[indexPath.row]
+            //secondVC.indexPathValue = indexPath.row
+            //secondVC.delegate1 = self
+            
+            //secondVC.assessmentTitle.text = "sdsd"
         }
     }
     
