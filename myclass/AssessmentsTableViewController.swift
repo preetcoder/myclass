@@ -11,6 +11,8 @@ import UIKit
 class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDelegate {
     
     var assessments = [Assessment]()
+    
+    var students = [Student]()
 
     @IBAction func OnAddAssessmentClick(_ sender: Any)
     {
@@ -18,7 +20,17 @@ class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDe
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        studentdataLoad()
+        //print(students)
 
+    }
+    
+    func studentdataLoad(){
+        
+        students =  ImportData.allStudent
+        
+        
     }
     // Delegated Method from NewAssessment
     func userEnteredData(Desc: String, marks: String, dateVal: Date) {

@@ -15,6 +15,7 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
     var allStudents = [Student]()
 
     
+     //var delegate : userDataDelegate?
     
     @IBOutlet weak var StudentData: UITableView!
     
@@ -28,31 +29,36 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
         //print("sss")
         
         SVProgressHUD.show()
+        
+       
         loadSampleData()
 
         // Do any additional setup after loading the view.
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        //print("aaa")
-//        // reload table view
-//        StudentData.reloadData()
-//    }
     
     override func viewWillAppear(_ animated: Bool) {
+
         StudentData.reloadData()
     }
     
     // Delegation method
     
-    func newStudentEnteredData(name: String, lastName: String, studentID: String, studentEmail: String, studentPhone: String) {
+    
+    
+    func newStudentEnteredData(name: String, lastName: String, studentID: String, studentEmail: String, studentPhone: String, studentImage : UIImage) {
         //print("\(name) \(studentID) \(studentEmail) \(studentPhone)")
         
         if (name != "" && studentID != "" && lastName != "" && studentEmail != "" && studentPhone != ""){
             
+            print(studentImage)
+            
             let newStudent = Student(studentEmail: studentEmail, studentID: studentID, studentFirstName: name, studentLastName: lastName, studentPhone: studentPhone, studentImage : "download")
             
             allStudents.insert(newStudent, at: 0)
+            
+            // add to singleton too
+            ImportData.addSharedData(StudOBJ: newStudent)
             
             // reload table view
             StudentData.reloadData()
@@ -110,27 +116,14 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
     // MARK: - Private Methods
     private func loadSampleData() {
         
-        // load data from API
-        let aUrl = ImportData()
-        aUrl.getDataFromURL{
-            students in
-            
-            for student in students {
-                self.allStudents.append(student)
-                
-            }
-            
-            // reload view
-            DispatchQueue.main.async {
-                //tableView.reloadData()
-                self.StudentData.reloadData()
-                // disappear loader
-                SVProgressHUD.dismiss()
-            }
-            
-            
-        }
+       allStudents = ImportData.shared()
         
+                    DispatchQueue.main.async {
+                        //tableView.reloadData()
+                        self.StudentData.reloadData()
+                        // disappear loader
+                        SVProgressHUD.dismiss()
+                    }
         
     }
 
@@ -139,6 +132,7 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "showProfile" {
             
             let secondVC = segue.destination as! StudentProfileViewController
@@ -157,6 +151,10 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
             destinationVC.delegate = self
             destinationVC.allStudentsData = self.allStudents
         }
+        
+       
+        
+       
         
     }
     
