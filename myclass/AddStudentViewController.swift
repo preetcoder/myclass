@@ -81,6 +81,8 @@ class AddStudentViewController: UIViewController, UIImagePickerControllerDelegat
             //let filesave = FileSaving()
            // FileSaving.saveImage(image: studentProfileImage.image!)
             
+            
+            
             if let imageVal = studentProfileImage.image {
                 delegate?.newStudentEnteredData(name: newStudentName.text!, lastName: studentLastName.text!, studentID: newStudentID.text!, studentEmail: newStudentEmail.text!, studentPhone: newStudentPhone.text!, studentImage: studentProfileImage.image!)
             }
