@@ -93,6 +93,7 @@ class AllStudentsTableViewController: UITableViewController {
         
         cell.StudentName.text = student.getStudentName()
         cell.studentImage.image = UIImage(named: student.getStudentImage())
+        cell.studewntAttendance.tag = indexPath.row
 
         return cell
     }

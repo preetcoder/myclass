@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="u6A-nr-OdY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="u6A-nr-OdY">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,84 +18,103 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="download" translatesAutoresizingMaskIntoConstraints="NO" id="iAH-NV-Zqz">
-                                <rect key="frame" x="25" y="40" width="270" height="128"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xqr-5R-ZoF">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8XH-bY-eoX">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="download" translatesAutoresizingMaskIntoConstraints="NO" id="iAH-NV-Zqz">
+                                                <rect key="frame" x="3" y="3" width="314" height="125"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="125" id="V4e-a3-5nU"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8uR-tD-sbG">
+                                                <rect key="frame" x="3" y="138" width="314" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nJS-oD-b0T" userLabel="Please enter last name">
+                                                <rect key="frame" x="3" y="173" width="314" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter StudentID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vKK-6S-dNB">
+                                                <rect key="frame" x="3" y="208" width="314" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter email id" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fv6-ds-Gom">
+                                                <rect key="frame" x="3" y="243" width="314" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Apv-6F-V2P">
+                                                <rect key="frame" x="3" y="313" width="314" height="30"/>
+                                                <color key="backgroundColor" red="0.33333333329999998" green="0.90196078430000004" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                                <color key="tintColor" red="0.17254901959999999" green="0.2274509804" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" title="Save"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onSaveNewStudentClick:" destination="u6A-nr-OdY" eventType="touchUpInside" id="lx2-wl-mRO"/>
+                                                </connections>
+                                            </button>
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter Phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kys-eK-Q3v">
+                                                <rect key="frame" x="3" y="278" width="314" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="kys-eK-Q3v" secondAttribute="trailing" constant="3" id="0DI-TN-CNM"/>
+                                            <constraint firstItem="vKK-6S-dNB" firstAttribute="leading" secondItem="8XH-bY-eoX" secondAttribute="leading" constant="3" id="5AH-iB-KGR"/>
+                                            <constraint firstItem="kys-eK-Q3v" firstAttribute="leading" secondItem="8XH-bY-eoX" secondAttribute="leading" constant="3" id="7GZ-Rh-xXg"/>
+                                            <constraint firstAttribute="trailing" secondItem="8uR-tD-sbG" secondAttribute="trailing" constant="3" id="DfU-lX-oPL"/>
+                                            <constraint firstItem="iAH-NV-Zqz" firstAttribute="leading" secondItem="8XH-bY-eoX" secondAttribute="leading" constant="3" id="Duy-IY-Ykv"/>
+                                            <constraint firstItem="iAH-NV-Zqz" firstAttribute="top" secondItem="8XH-bY-eoX" secondAttribute="top" constant="3" id="S3N-t2-U1Y"/>
+                                            <constraint firstItem="Apv-6F-V2P" firstAttribute="leading" secondItem="8XH-bY-eoX" secondAttribute="leading" constant="3" id="SfV-BV-kC2"/>
+                                            <constraint firstItem="Fv6-ds-Gom" firstAttribute="top" secondItem="vKK-6S-dNB" secondAttribute="bottom" constant="5" id="UVT-Fs-FpV"/>
+                                            <constraint firstItem="vKK-6S-dNB" firstAttribute="top" secondItem="nJS-oD-b0T" secondAttribute="bottom" constant="5" id="aZ4-0v-wtK"/>
+                                            <constraint firstAttribute="bottom" secondItem="Apv-6F-V2P" secondAttribute="bottom" constant="10" id="dTb-MT-xwK"/>
+                                            <constraint firstItem="nJS-oD-b0T" firstAttribute="top" secondItem="8uR-tD-sbG" secondAttribute="bottom" constant="5" id="jVe-a1-tcY"/>
+                                            <constraint firstItem="Fv6-ds-Gom" firstAttribute="leading" secondItem="8XH-bY-eoX" secondAttribute="leading" constant="3" id="l6o-Qj-JCY"/>
+                                            <constraint firstAttribute="trailing" secondItem="iAH-NV-Zqz" secondAttribute="trailing" constant="3" id="mG0-xF-1Ox"/>
+                                            <constraint firstItem="nJS-oD-b0T" firstAttribute="leading" secondItem="8XH-bY-eoX" secondAttribute="leading" constant="3" id="p2q-6E-g26"/>
+                                            <constraint firstAttribute="trailing" secondItem="vKK-6S-dNB" secondAttribute="trailing" constant="3" id="s62-tX-Mff"/>
+                                            <constraint firstItem="kys-eK-Q3v" firstAttribute="top" secondItem="Fv6-ds-Gom" secondAttribute="bottom" constant="5" id="s6h-hk-UwV"/>
+                                            <constraint firstAttribute="trailing" secondItem="nJS-oD-b0T" secondAttribute="trailing" constant="3" id="u4u-GB-kxd"/>
+                                            <constraint firstItem="Apv-6F-V2P" firstAttribute="top" secondItem="kys-eK-Q3v" secondAttribute="bottom" constant="5" id="u6g-jM-R3C"/>
+                                            <constraint firstItem="8uR-tD-sbG" firstAttribute="top" secondItem="iAH-NV-Zqz" secondAttribute="bottom" constant="10" id="vDS-1M-wpb"/>
+                                            <constraint firstAttribute="trailing" secondItem="Apv-6F-V2P" secondAttribute="trailing" constant="3" id="wU0-lA-eAb"/>
+                                            <constraint firstAttribute="trailing" secondItem="Fv6-ds-Gom" secondAttribute="trailing" constant="3" id="xUH-oG-kZ4"/>
+                                            <constraint firstItem="8uR-tD-sbG" firstAttribute="leading" secondItem="8XH-bY-eoX" secondAttribute="leading" constant="3" id="yNi-Te-fOA"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="lwp-Zk-xIa"/>
+                                    <constraint firstItem="8XH-bY-eoX" firstAttribute="height" secondItem="xqr-5R-ZoF" secondAttribute="height" priority="250" id="cxS-dI-MAY"/>
+                                    <constraint firstItem="8XH-bY-eoX" firstAttribute="width" secondItem="xqr-5R-ZoF" secondAttribute="width" id="twt-Fq-Yty"/>
                                 </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Apv-6F-V2P">
-                                <rect key="frame" x="25" y="518" width="270" height="30"/>
-                                <color key="backgroundColor" red="0.33333333329999998" green="0.90196078430000004" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
-                                <color key="tintColor" red="0.17254901959999999" green="0.2274509804" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="Save"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="onSaveNewStudentClick:" destination="u6A-nr-OdY" eventType="touchUpInside" id="lx2-wl-mRO"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8uR-tD-sbG">
-                                <rect key="frame" x="25" y="178" width="270" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter StudentID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vKK-6S-dNB">
-                                <rect key="frame" x="25" y="218" width="270" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter email id" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fv6-ds-Gom">
-                                <rect key="frame" x="25" y="258" width="270" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter Phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kys-eK-Q3v">
-                                <rect key="frame" x="25" y="298" width="270" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nJS-oD-b0T" userLabel="Please enter last name">
-                                <rect key="frame" x="25" y="336" width="270" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="FKh-dM-3Ra" firstAttribute="trailing" secondItem="vKK-6S-dNB" secondAttribute="trailing" constant="25" id="0Rr-JK-xVu"/>
-                            <constraint firstItem="FKh-dM-3Ra" firstAttribute="trailing" secondItem="kys-eK-Q3v" secondAttribute="trailing" constant="25" id="0bj-aF-2Jm"/>
-                            <constraint firstItem="8uR-tD-sbG" firstAttribute="leading" secondItem="FKh-dM-3Ra" secondAttribute="leading" constant="25" id="5e1-fz-wtb"/>
-                            <constraint firstItem="FKh-dM-3Ra" firstAttribute="trailing" secondItem="8uR-tD-sbG" secondAttribute="trailing" constant="25" id="6B7-pk-1PE"/>
-                            <constraint firstItem="FKh-dM-3Ra" firstAttribute="trailing" secondItem="Apv-6F-V2P" secondAttribute="trailing" constant="25" id="DrN-Ar-shB"/>
-                            <constraint firstItem="Fv6-ds-Gom" firstAttribute="leading" secondItem="FKh-dM-3Ra" secondAttribute="leading" constant="25" id="IbH-fY-ruI"/>
-                            <constraint firstItem="kys-eK-Q3v" firstAttribute="top" secondItem="Fv6-ds-Gom" secondAttribute="bottom" constant="10" id="N4Z-Wz-FYp"/>
-                            <constraint firstItem="FKh-dM-3Ra" firstAttribute="trailing" secondItem="Apv-6F-V2P" secondAttribute="trailing" constant="10" id="QSt-FQ-gNg"/>
-                            <constraint firstItem="vKK-6S-dNB" firstAttribute="leading" secondItem="FKh-dM-3Ra" secondAttribute="leading" constant="25" id="Y2q-2A-oSn"/>
-                            <constraint firstItem="Fv6-ds-Gom" firstAttribute="top" secondItem="vKK-6S-dNB" secondAttribute="bottom" constant="10" id="bCC-To-ZIF"/>
-                            <constraint firstItem="vKK-6S-dNB" firstAttribute="top" secondItem="8uR-tD-sbG" secondAttribute="bottom" constant="10" id="bzf-kE-TVN"/>
-                            <constraint firstItem="Apv-6F-V2P" firstAttribute="leading" secondItem="FKh-dM-3Ra" secondAttribute="leading" constant="10" id="fLA-Fx-Bqx"/>
-                            <constraint firstItem="FKh-dM-3Ra" firstAttribute="trailing" secondItem="Apv-6F-V2P" secondAttribute="trailing" constant="25" id="grg-oC-HV5"/>
-                            <constraint firstItem="FKh-dM-3Ra" firstAttribute="bottom" secondItem="Apv-6F-V2P" secondAttribute="bottom" constant="20" id="gsu-71-2FY"/>
-                            <constraint firstItem="FKh-dM-3Ra" firstAttribute="trailing" secondItem="iAH-NV-Zqz" secondAttribute="trailing" constant="25" id="hHD-Yx-Sqn"/>
-                            <constraint firstItem="Apv-6F-V2P" firstAttribute="leading" secondItem="FKh-dM-3Ra" secondAttribute="leading" constant="25" id="if3-yJ-Esj"/>
-                            <constraint firstItem="kys-eK-Q3v" firstAttribute="leading" secondItem="FKh-dM-3Ra" secondAttribute="leading" constant="25" id="jWt-lG-DKf"/>
-                            <constraint firstItem="8uR-tD-sbG" firstAttribute="top" secondItem="iAH-NV-Zqz" secondAttribute="bottom" constant="10" id="ke5-ha-pdb"/>
-                            <constraint firstItem="FKh-dM-3Ra" firstAttribute="trailing" secondItem="Fv6-ds-Gom" secondAttribute="trailing" constant="25" id="pze-Sa-WYc"/>
-                            <constraint firstItem="iAH-NV-Zqz" firstAttribute="top" secondItem="FKh-dM-3Ra" secondAttribute="top" constant="20" id="rza-4j-t4g"/>
-                            <constraint firstItem="FKh-dM-3Ra" firstAttribute="trailing" secondItem="Fv6-ds-Gom" secondAttribute="trailing" constant="25" id="sBG-HZ-crb"/>
-                            <constraint firstItem="iAH-NV-Zqz" firstAttribute="leading" secondItem="FKh-dM-3Ra" secondAttribute="leading" constant="25" id="tow-zg-zK7"/>
-                            <constraint firstItem="Fv6-ds-Gom" firstAttribute="top" secondItem="vKK-6S-dNB" secondAttribute="bottom" constant="10" id="wlr-dk-VOc"/>
+                            <constraint firstItem="xqr-5R-ZoF" firstAttribute="top" secondItem="FKh-dM-3Ra" secondAttribute="top" id="Dzx-iW-TTO"/>
+                            <constraint firstItem="xqr-5R-ZoF" firstAttribute="trailing" secondItem="FKh-dM-3Ra" secondAttribute="trailing" id="L9h-bb-ShX"/>
+                            <constraint firstItem="xqr-5R-ZoF" firstAttribute="leading" secondItem="FKh-dM-3Ra" secondAttribute="leading" id="Qpj-gx-I9V"/>
+                            <constraint firstItem="xqr-5R-ZoF" firstAttribute="bottom" secondItem="FKh-dM-3Ra" secondAttribute="bottom" id="v3Z-Qk-4wz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FKh-dM-3Ra"/>
                     </view>

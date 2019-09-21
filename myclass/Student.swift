@@ -26,7 +26,7 @@ class Student {
         
     }
     
-    convenience init(studentEmail : String, studentID : String, studentFirstName : String, studentLastName : String, studentPhone : String, studentImage : String) {
+    convenience init(studentEmail : String, studentID : String, studentFirstName : String, studentLastName : String, studentPhone : String, studentImage : String, studentAttendance : [Attendance]) {
         self.init()
         self.email = studentEmail
         self.studentID = studentID
@@ -34,6 +34,7 @@ class Student {
         self.last_name = studentLastName
         self.phone = studentPhone
         self.image = studentImage
+        self.attendance = studentAttendance
     }
     
     
@@ -73,6 +74,11 @@ class Student {
         return "\(String(describing:self.phone!))"
     }
     
+    func getAttendance() -> [Attendance]?
+    {
+       return self.attendance
+    }
+    
     // setters
     
     func setStudentFirstName(name : String) {
@@ -91,6 +97,13 @@ class Student {
         self.phone = phone
     }
     
+    func addAttendance(attendanceObj : Attendance)
+    {
+        self.attendance?.append(attendanceObj)
+    }
     
-    
+    func updateAttendance(position : Int, state : Bool)
+    {
+        self.attendance![position].updateStatus(Status: state)
+    }
 }

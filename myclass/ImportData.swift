@@ -76,7 +76,7 @@ struct ImportData {
                 for x  in 1...10 {
         
                     let randomInt = String(Int.random(in: 0..<100))
-                    let studentData = Student(studentEmail: "\(randomInt)abc@123\(x).com", studentID: "121323\(x)", studentFirstName: "hello\(x)", studentLastName: "odwodkow\(x)", studentPhone: "ksdjk2323\(x)", studentImage: "download")
+                    let studentData = Student(studentEmail: "\(randomInt)abc@123\(x).com", studentID: "121323\(x)", studentFirstName: "hello\(x)", studentLastName: "odwodkow\(x)", studentPhone: "ksdjk2323\(x)", studentImage: "download" ,studentAttendance: [])
                     allStudent.append(studentData)
         }
         return allStudent
