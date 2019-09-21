@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "myclass/AssessmentsTableViewController.swift"
-            timestampString = "590599822.591468"
+            timestampString = "590753425.786901"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "46"
             endingLineNumber = "46"
-            landmarkName = "updateAssessment(Desc:marks:dateVal:position:)"
-            landmarkType = "7">
+            landmarkName = "AssessmentsTableViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -24,4 +24,20 @@ class ConvertToDate{
         return date
     }
     
+    func getDateFromString(dateVal : String) ->Date
+    {
+        let format = DateFormatter()
+        format.dateFormat = "dd'-'MM'-'yyyy"
+        let currentDate = format.date(from: dateVal)
+        return currentDate!
+    }
+    
+    func getStringFromDate(dateVal : Date) -> String
+    {
+        let format = DateFormatter()
+        format.dateFormat = "dd'-'MM'-'yyyy"
+        let DateText = format.string(from: dateVal)
+        return DateText
+    }
+    
 }

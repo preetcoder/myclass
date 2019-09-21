@@ -26,7 +26,23 @@ struct Attendance {
         
     }
     
+    mutating func updateStatus(Status : Bool)
+    {
+        self.status = Status
+    }
     
+    func getID() -> Int
+    {
+        return id!
+    }
+    
+    func getDate() -> Date {
+        return date!
+    }
+    
+    func getStatus() -> Bool {
+        return status!
+    }
     
     
 }

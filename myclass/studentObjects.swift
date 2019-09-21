@@ -12,8 +12,4 @@ class studentObjects{
     
     var allStudObj : [Student] = []
     
-   
-    
-    
-    
 }

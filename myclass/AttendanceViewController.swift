@@ -11,28 +11,49 @@ import SVProgressHUD
 
 class AttendanceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NewStudentDataDelegate {
     
+    var dateHelper = ConvertToDate()
+    
+    @IBOutlet weak var dateLable: UILabel!
     
     var allStudents = [Student]()
-
-    
-    
     @IBOutlet weak var StudentData: UITableView!
-    
     @IBAction func AddNewStudentOnClick(_ sender: Any)
     {
          performSegue(withIdentifier: "addNewStudent", sender: self)
     }
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         //print("sss")
         
+        let date = Date()
+        dateLable.text = dateHelper.getStringFromDate(dateVal: date)
         SVProgressHUD.show()
         loadSampleData()
 
         // Do any additional setup after loading the view.
     }
     
+    
+    @IBAction func onClickNextDate(_ sender: Any)
+    {
+        let currentDateText = dateLable.text
+        let currentDate = dateHelper.getDateFromString(dateVal: currentDateText!)
+        let nextDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)
+        dateLable.text = dateHelper.getStringFromDate(dateVal: nextDate!)
+    }
+    
+    
+    @IBAction func onClickPreviousDate(_ sender: Any)
+    {
+        let currentDateText = dateLable.text
+        let currentDate = dateHelper.getDateFromString(dateVal: currentDateText!)
+        let nextDate = Calendar.current.date(byAdding: .day, value: -1, to: currentDate)
+        dateLable.text = dateHelper.getStringFromDate(dateVal: nextDate!)
+    }
+    
+
 //    override func viewDidAppear(_ animated: Bool) {
 //        //print("aaa")
 //        // reload table view
@@ -50,7 +71,7 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
         
         if (name != "" && studentID != "" && lastName != "" && studentEmail != "" && studentPhone != ""){
             
-            let newStudent = Student(studentEmail: studentEmail, studentID: studentID, studentFirstName: name, studentLastName: lastName, studentPhone: studentPhone, studentImage : "download")
+            let newStudent = Student(studentEmail: studentEmail, studentID: studentID, studentFirstName: name, studentLastName: lastName, studentPhone: studentPhone, studentImage : "download",studentAttendance: [])
             
             allStudents.insert(newStudent, at: 0)
             
@@ -86,7 +107,6 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         //let cell = tableView.dequeueReusableCell(withIdentifier: "singleStudent", for: indexPath)
-        
         let cellIdentifier = "SingleStudentTableViewCell"
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? SingleStudentTableViewCell else {
@@ -100,22 +120,59 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.StudentName?.text = student.getStudentName()
         //cell.StudentName.text = "ss"
         cell.studentImage?.image = UIImage(named: student.getStudentImage())
-        
+        cell.studewntAttendance?.tag = indexPath.row
+        cell.studewntAttendance.addTarget(self, action: #selector(buttonClicked(sender:)), for: .valueChanged)
         return cell
+    }
+    
+    @objc func buttonClicked(sender:UISwitch)
+    {
+        let buttonRow = sender.tag
         
+        // check if array is empty
+        if allStudents[buttonRow].getAttendance()!.count != 0
+        {
+            //get the no. of objects
+            let Count = allStudents[buttonRow].getAttendance()!.count
+            
+            //check if the attendance record already exists for that date
+            var c = 0;
+            for attendanceObject in (allStudents[buttonRow].getAttendance())!
+            {
+                if(attendanceObject.getDate() == dateHelper.getDateFromString(dateVal: dateLable.text!))
+                {
+                   // allStudents[buttonRow].getAttendance()![c].updateStatus(Status: sender.isOn)
+                }
+                c+=1
+            }
+            
+            let todayAttendance = Attendance(attendanceID: Count,attendanceDate: dateHelper.getDateFromString(dateVal: dateLable.text!),attendanceStatus: sender.isOn)
+            allStudents[buttonRow].addAttendance(attendanceObj: todayAttendance)
+        }
+        else
+        {
+            let Count = 0
+            let todayAttendance = Attendance(attendanceID: Count,attendanceDate: dateHelper.getDateFromString(dateVal: dateLable.text!),attendanceStatus: sender.isOn)
+            allStudents[buttonRow].addAttendance(attendanceObj: todayAttendance)
+        }
+        
+        //get index value for new attendance
+        //let attendanceDate = dateHelper.getDateFromString(dateVal: dateLable.text!)
         
         
     }
-    
     // MARK: - Private Methods
     private func loadSampleData() {
+        
+
         
         // load data from API
         let aUrl = ImportData()
         aUrl.getDataFromURL{
             students in
             
-            for student in students {
+            for student in students
+            {
                 self.allStudents.append(student)
                 
             }
