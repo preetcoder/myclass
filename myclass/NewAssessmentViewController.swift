@@ -12,7 +12,7 @@ protocol NewAssessmentDataDelegate {
     func userEnteredData (Desc : String, marks : String, dateVal : Date)
 }
 
-class NewAssessmentViewController: UIViewController {
+class NewAssessmentViewController: UIViewController,UITextFieldDelegate {
     
     // Define Delegate property
     
@@ -26,7 +26,8 @@ class NewAssessmentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let userTappedOtherThanKeyboard: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector(("closeKeyboard")))
+        view.addGestureRecognizer(userTappedOtherThanKeyboard)
         // Do any additional setup after loading the view.
     }
     
@@ -37,6 +38,10 @@ class NewAssessmentViewController: UIViewController {
         // dismiss sigue
         navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func closeKeyboard() {
+        view.endEditing(true)
     }
     
     /*

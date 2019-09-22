@@ -144,8 +144,11 @@ class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDe
         
         if segue.identifier == "ViewAssessmentProfile"
         {
-            _ = segue.destination as! SingleAssessmentViewController
-            _ = sender as! IndexPath
+            let secondVC = segue.destination as! SingleAssessmentViewController
+            let indexPath = sender as! IndexPath
+            secondVC.selectedAssessment = assessments[indexPath.row]
+            
+            
            // secondVC.selectedAssessment = assessments[indexPath.row]
             //secondVC.indexPathValue = indexPath.row
             //secondVC.delegate1 = self
