@@ -74,6 +74,9 @@ class AssessmentProfileViewController: UIViewController
         self.title = self.selectedAssessmentProfile.getAssessmentTitle();
         
         self.saveButton.isHidden = true;
+        
+        let userTappedOtherThanKeyboard: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector(("closeKeyboard")))
+        view.addGestureRecognizer(userTappedOtherThanKeyboard)
         // Do any additional setup after loading the view.
     }
     
@@ -87,5 +90,9 @@ class AssessmentProfileViewController: UIViewController
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @objc func closeKeyboard() {
+        view.endEditing(true)
+    }
 
 }

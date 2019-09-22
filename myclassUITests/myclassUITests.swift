@@ -142,5 +142,14 @@ class myclassUITests: XCTestCase {
         XCTAssertTrue(assessmentCell.exists)
     }
     
+    func testReadAddedAssessment()
+    {
+        
+        testAddNewAssessment()
+        let app = XCUIApplication()
+        app.tables.staticTexts["test"].tap()
+        let assessmentCell = app.staticTexts["test"]
+        XCTAssertTrue(assessmentCell.exists)
+    }
     
 }
