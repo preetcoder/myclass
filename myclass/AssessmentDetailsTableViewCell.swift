@@ -8,10 +8,9 @@
 
 import UIKit
 
-class AssessmentDetailsTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    
-    var pickArray : [String] = ["Cameron","Shaffer", "Hydril"]
+class AssessmentDetailsTableViewCell: UITableViewCell
+{
+    var pickArray : [String] = []
     
     @IBOutlet weak var studentID: UILabel!
     
@@ -22,29 +21,12 @@ class AssessmentDetailsTableViewCell: UITableViewCell, UIPickerViewDelegate, UIP
 //        studentMarks?.reloadAllComponents()  // My picker
 //    }
     
-    
-    
-    override func awakeFromNib() {
+    override func awakeFromNib()
+    {
         super.awakeFromNib()
         // Initialization code
     }
-
-    func pickerView(_ pickerView: UIPickerView,
-                    numberOfRowsInComponent component: Int) -> Int {
-        
-        // Row count: rows equals array length.
-        return pickArray.count
-    }
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    func pickerView(_ pickerView: UIPickerView,
-                    titleForRow row: Int,
-                    forComponent component: Int) -> String? {
-        
-        // Return a string from the array for this row.
-        return pickArray[row]
-    }
+    
 
 }

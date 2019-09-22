@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Assessment {
+class Assessment {
     
     private var id : Int?
     private var name : String?
@@ -39,18 +39,22 @@ struct Assessment {
         return assessmentDate!
     }
     
-    mutating func setAssessmentTitle(assessmentName : String)
+     func setAssessmentTitle(assessmentName : String)
     {
         self.name = assessmentName;
     }
     
-    mutating func setAssessmentMarks(assessmentTotalMarks : Int) {
+     func setAssessmentMarks(assessmentTotalMarks : Int) {
         self.totalMarks = assessmentTotalMarks;
     }
     
-    mutating func setAssessmentDate(date : Date)
+     func setAssessmentDate(date : Date)
     {
         self.assessmentDate = date;
+    }
+    
+    func getAssessmentID() -> Int {
+        return self.id!
     }
     
 }

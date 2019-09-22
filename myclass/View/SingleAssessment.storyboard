@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Single Assessment View Controller-->
+        <!--Title-->
         <scene sceneID="25G-3F-aza">
             <objects>
                 <viewController id="aBd-oj-JtE" customClass="SingleAssessmentViewController" customModule="myclass" customModuleProvider="target" sceneMemberID="viewController">
@@ -27,18 +27,24 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right" translatesAutoresizingMaskIntoConstraints="NO" id="WCE-Sc-EOT">
-                                        <rect key="frame" x="313" y="-3.5" width="57" height="57"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="tintColor" red="0.33333333329999998" green="0.90196078430000004" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
-                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xCE-FR-o0k">
+                                        <rect key="frame" x="325" y="2.5" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="45" id="4eP-eU-JN5"/>
+                                            <constraint firstAttribute="height" constant="45" id="NXm-aE-biQ"/>
+                                        </constraints>
+                                        <state key="normal" image="right"/>
+                                        <connections>
+                                            <action selector="onClickShowAssessment:" destination="aBd-oj-JtE" eventType="touchUpInside" id="R9G-ve-FfX"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.90394289086561164" green="0.96688625958781726" blue="0.94379867514831417" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="fv7-nW-JVh" firstAttribute="leading" secondItem="QcH-yP-7c7" secondAttribute="leading" constant="20" id="E1m-lI-bTh"/>
+                                    <constraint firstItem="xCE-FR-o0k" firstAttribute="centerY" secondItem="QcH-yP-7c7" secondAttribute="centerY" id="Oe8-qK-HEz"/>
                                     <constraint firstItem="fv7-nW-JVh" firstAttribute="centerY" secondItem="QcH-yP-7c7" secondAttribute="centerY" id="Wca-Nr-Fd7"/>
-                                    <constraint firstAttribute="trailing" secondItem="WCE-Sc-EOT" secondAttribute="trailing" constant="5" id="kzk-qW-XAq"/>
-                                    <constraint firstItem="WCE-Sc-EOT" firstAttribute="centerY" secondItem="QcH-yP-7c7" secondAttribute="centerY" id="utd-Gz-0JU"/>
+                                    <constraint firstAttribute="trailing" secondItem="xCE-FR-o0k" secondAttribute="trailing" constant="5" id="h5r-NT-CPk"/>
                                     <constraint firstAttribute="height" constant="50" id="wKs-Yf-aQK"/>
                                 </constraints>
                             </view>
@@ -99,14 +105,30 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ilw-X7-SX3"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="4WF-KI-4hp">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="nlQ-HM-pSt">
+                            <connections>
+                                <action selector="onClickDone:" destination="aBd-oj-JtE" id="weP-bS-Y4l"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="assessmentTitle" destination="fv7-nW-JVh" id="D52-XN-ayv"/>
                         <outlet property="studentMarksTable" destination="TVh-Np-acZ" id="ge6-Pb-dwI"/>
+                        <segue destination="AGA-sS-5Cm" kind="show" identifier="showAssessmentProfile" id="dee-HI-VZC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AZE-ju-lzv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-322.39999999999998" y="-29.23538230884558"/>
+        </scene>
+        <!--AssessmentProfile-->
+        <scene sceneID="8yT-Rz-BRG">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AssessmentProfile" id="AGA-sS-5Cm" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gsx-wY-K05" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="385" y="-253"/>
         </scene>
     </scenes>
     <resources>

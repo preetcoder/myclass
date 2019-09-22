@@ -8,8 +8,8 @@
 
 import UIKit
 
-class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDelegate {
-    
+class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDelegate, AssessmentUpdateDelegate
+{
     var assessments = [Assessment]()
     
     var students = [Student]()
@@ -32,6 +32,7 @@ class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDe
         
         
     }
+    
     // Delegated Method from NewAssessment
     func userEnteredData(Desc: String, marks: String, dateVal: Date) {
         
@@ -50,17 +51,16 @@ class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDe
     }
     
     //Delegated Method for Updating Assessment
-    func updateAssessment(Desc: String, marks: Int, dateVal: Date,position: Int)
+    func updateAssessmentDetails(Title: String, Totalmarks: Int, AssessmentDate: Date, IndexValue: Int)
     {
-        if(Desc != "" && marks>0 && dateVal != nil)
+        if(Title != "" && Totalmarks>0 && AssessmentDate != nil)
         {
-            assessments[position].setAssessmentTitle(assessmentName: Desc)
-            assessments[position].setAssessmentMarks(assessmentTotalMarks: marks)
-            assessments[position].setAssessmentDate(date: dateVal)
+            assessments[IndexValue].setAssessmentTitle(assessmentName: Title)
+            assessments[IndexValue].setAssessmentMarks(assessmentTotalMarks: Totalmarks)
+            assessments[IndexValue].setAssessmentDate(date: AssessmentDate)
         }
         tableView.reloadData()
     }
-
 
     
     // Override to support editing the table view.
@@ -147,13 +147,8 @@ class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDe
             let secondVC = segue.destination as! SingleAssessmentViewController
             let indexPath = sender as! IndexPath
             secondVC.selectedAssessment = assessments[indexPath.row]
-            
-            
-           // secondVC.selectedAssessment = assessments[indexPath.row]
-            //secondVC.indexPathValue = indexPath.row
-            //secondVC.delegate1 = self
-            
-            //secondVC.assessmentTitle.text = "sdsd"
+            secondVC.indexPathValue = indexPath.row
+            secondVC.updateDelegate = self
         }
     }
     

@@ -84,7 +84,7 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
             
             var newStudent = Student()
            
-                newStudent = Student(studentEmail: studentEmail, studentID: studentID, studentFirstName: name, studentLastName: lastName, studentPhone: studentPhone, studentImage : studentImage, studentAttendance: [])
+                newStudent = Student(studentEmail: studentEmail, studentID: studentID, studentFirstName: name, studentLastName: lastName, studentPhone: studentPhone, studentImage : studentImage, studentAttendance: [], studentMarks: [])
             
             
             
@@ -147,6 +147,7 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
        
         cell.studewntAttendance?.tag = indexPath.row
         cell.studewntAttendance?.setOn(false, animated: false)
+        
         if allStudents[indexPath.row].getAttendance()!.count != 0
         {
             for attendanceObject in allStudents[indexPath.row].getAttendance()!.indices

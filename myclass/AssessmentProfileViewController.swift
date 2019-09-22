@@ -14,11 +14,11 @@ protocol AssessmentViewDelegate {
 class AssessmentProfileViewController: UIViewController
 {
 
-    var selectedAssessment = Assessment();
+    var selectedAssessmentProfile = Assessment();
     var indexPathValue: Int!;
     
       // Define Delegate property
-    var delegate1 : AssessmentViewDelegate?
+    var delegate : AssessmentViewDelegate?
     
     @IBOutlet weak var assessmentDescription: UITextField!
     @IBOutlet weak var assessmentMarks: UITextField!
@@ -37,8 +37,13 @@ class AssessmentProfileViewController: UIViewController
     @IBAction func onClickSave(_ sender: Any)
     {
      
-       // print("\(assessmentDescription) \(assessmentMarks) \(assessmentDate) \(indexPathValue)")
-        delegate1?.updateAssessment(Desc: assessmentDescription.text!, marks: Int(assessmentMarks.text!)!, dateVal: assessmentDate.date,position: indexPathValue!)
+        selectedAssessmentProfile.setAssessmentTitle(assessmentName: self.assessmentDescription.text!)
+        selectedAssessmentProfile.setAssessmentMarks(assessmentTotalMarks: Int(self.assessmentMarks.text!)!)
+        selectedAssessmentProfile.setAssessmentDate(date: self.assessmentDate.date)
+        
+        //print("HELLO \(selectedAssessmentProfile.getAssessmentTitle())")
+        self.delegate?.updateAssessment(Desc: selectedAssessmentProfile.getAssessmentTitle(), marks: Int(assessmentMarks.text!)!, dateVal: assessmentDate.date,position: indexPathValue!)
+        //self.delegate?.updateAssessment(Desc: "sds", marks: 32, dateVal: assessmentDate.date, position: indexPathValue!)
         
         // dismiss sigue
         navigationController?.popViewController(animated: true)
@@ -51,11 +56,11 @@ class AssessmentProfileViewController: UIViewController
         assessmentDescription.isUserInteractionEnabled = false;
         assessmentMarks.isUserInteractionEnabled = false;
         assessmentDate.isUserInteractionEnabled = false;
-        assessmentDescription.text = self.selectedAssessment.getAssessmentTitle()
-        assessmentMarks.text = String(self.selectedAssessment.getAssessmentMarks())
-        assessmentDate.date = self.selectedAssessment.getAssessmentDate()
+        assessmentDescription.text = self.selectedAssessmentProfile.getAssessmentTitle()
+        assessmentMarks.text = String(self.selectedAssessmentProfile.getAssessmentMarks())
+        assessmentDate.date = self.selectedAssessmentProfile.getAssessmentDate()
         
-        self.title = self.selectedAssessment.getAssessmentTitle();
+        self.title = self.selectedAssessmentProfile.getAssessmentTitle();
         
         self.saveButton.isHidden = true;
         // Do any additional setup after loading the view.
