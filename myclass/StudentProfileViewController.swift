@@ -8,11 +8,12 @@
 
 import UIKit
 
-class StudentProfileViewController: UIViewController
+class StudentProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
     
     var selectedStudent = Student() 
     
+    @IBOutlet weak var studentImage: UIImageView!
     
     @IBOutlet weak var studName: UITextField!
     @IBOutlet weak var studID: UITextField!
@@ -43,11 +44,23 @@ class StudentProfileViewController: UIViewController
         self.studPhone.text = self.selectedStudent.getStudentPhone()
         self.studLastName.text = self.selectedStudent.getStudentLastName()
         
+        // image
+        if self.selectedStudent.getStudentImage() == "download" {
+            self.studentImage.image = UIImage(named: self.selectedStudent.getStudentImage())
+        }
+        else{
+            
+            self.studentImage.image =  FileSaving.getImage(imageName: selectedStudent.getStudentImage())
+        }
+        
         self.title = self.selectedStudent.getStudentName()
         
         self.saveButton.isHidden = true
         //self.studentName.text = self.selectedStudent.getStudentName()
         // Do any additional setup after loading the view.
+        
+        
+        
     }
     
     @IBAction func onClickEdit(_ sender: Any) {
@@ -64,6 +77,35 @@ class StudentProfileViewController: UIViewController
         self.studName.becomeFirstResponder()
         self.saveButton.isHidden = false
         
+        // make image clickable on edit
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedMe))
+        studentImage.addGestureRecognizer(tap)
+        studentImage.isUserInteractionEnabled = true
+        
+    }
+    
+    @objc func tappedMe()
+    {
+        
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
+            
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerController.SourceType.camera
+            imagePicker.allowsEditing = false
+            self.present(imagePicker,animated: true, completion: nil)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            studentImage.image = image
+         
+        }
+        
+        
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onClickSave(_ sender: Any) {
@@ -73,6 +115,22 @@ class StudentProfileViewController: UIViewController
             selectedStudent.setStudentPhone(phone: studPhone.text!)
             selectedStudent.setStudentFirstName(name: studName.text!)
             selectedStudent.setStudentLastName(lastname: studLastName.text!)
+            
+            // set image
+            if  let imageVal = studentImage.image {
+                
+                let selectedImagefromCamera = FileSaving.saveImage(image: imageVal)
+                
+                selectedStudent.setStudentImage(image: selectedImagefromCamera)
+                
+               
+            }
+            else{
+                
+                selectedStudent.setStudentImage(image: "download")
+                
+            }
+            
             self.studID.backgroundColor = nil
         
         
@@ -82,6 +140,10 @@ class StudentProfileViewController: UIViewController
             self.studPhone.isUserInteractionEnabled = false;
             
             self.studLastName.isUserInteractionEnabled = false;
+            
+            studentImage.isUserInteractionEnabled = false
+            
+            self.saveButton.isHidden = true
         
         }
         else{

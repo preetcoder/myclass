@@ -97,6 +97,10 @@ class Student {
         self.phone = phone
     }
     
+    func setStudentImage(image : String){
+        self.image = image
+    }
+    
     func addAttendance(attendanceObj : Attendance)
     {
         self.attendance?.append(attendanceObj)

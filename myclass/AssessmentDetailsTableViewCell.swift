@@ -8,45 +8,43 @@
 
 import UIKit
 
-class AssessmentDetailsTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelegate {
+class AssessmentDetailsTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
     
     
-    var pickArray : [String] = []
+    var pickArray : [String] = ["Cameron","Shaffer", "Hydril"]
     
     @IBOutlet weak var studentID: UILabel!
     
     @IBOutlet weak var studentMarks: UIPickerView!
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        studentMarks?.reloadAllComponents()  // My picker
-    }
+//    override func prepareForReuse() {
+//        super.prepareForReuse()
+//        studentMarks?.reloadAllComponents()  // My picker
+//    }
     
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        let pickerLabel = UILabel()
-        pickerLabel.font = UIFont(name: "Avenir Next Condensed", size: 22)
-            //pickerLabel.textAlignment.rawValue = NSTextAlignment.center
-        pickerLabel.text = pickArray[row]
-        return pickerLabel
-    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    func pickerView(_ pickerView: UIPickerView,
+                    numberOfRowsInComponent component: Int) -> Int {
+        
+        // Row count: rows equals array length.
         return pickArray.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
+    }
+    func pickerView(_ pickerView: UIPickerView,
+                    titleForRow row: Int,
+                    forComponent component: Int) -> String? {
+        
+        // Return a string from the array for this row.
+        return pickArray[row]
     }
 
 }

@@ -196,14 +196,25 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
     // MARK: - Private Methods
     private func loadSampleData() {
         
-       allStudents = ImportData.shared()
+        ImportData.getDataFromURL{
+            
+            students in
+            //print(students[0].getStudentID())
+            for student in students {
+                self.allStudents.append(student)
+            }
+            
+            DispatchQueue.main.async {
+                //self.allStudents = ImportData.shared()
+                //print(self.allStudents)
+                //tableView.reloadData()
+                self.StudentData.reloadData()
+                // disappear loader
+                SVProgressHUD.dismiss()
+            }
+        }
         
-                    DispatchQueue.main.async {
-                        //tableView.reloadData()
-                        self.StudentData.reloadData()
-                        // disappear loader
-                        SVProgressHUD.dismiss()
-                    }
+        
         
     }
 

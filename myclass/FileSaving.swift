@@ -54,4 +54,18 @@ class FileSaving {
         
         return filePath
     }
+    
+    static func createFile() {
+//        let fileName = "Test"
+//        let documentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+//        let fileURL = documentDirURL.appendingPathComponent(fileName).appendingPathExtension("txt")
+//        print("File PAth: \(fileURL.path)")
+        
+        
+    }
+    
+    static func createNewDirPath(){
+        
+       
+    }
 }
