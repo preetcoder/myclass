@@ -30,6 +30,7 @@ class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDe
         
         students =  ImportData.allStudent
         
+        //print("hello \(students[1].getStudentName())")
         
     }
     

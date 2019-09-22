@@ -118,6 +118,8 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
             
             // delete from array first
             allStudents.remove(at: indexPath.row)
+            
+            ImportData.allStudent.remove(at: indexPath.row)
             // Delete the row from the data source
             tableView.deleteRows(at: [indexPath], with: .fade)
         }

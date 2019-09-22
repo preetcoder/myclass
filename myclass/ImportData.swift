@@ -55,31 +55,6 @@ struct ImportData {
         
     }
     
-//    private static var sharedData: [Student] = {
-//                for x  in 1...10 {
-//
-//                    let randomInt = String(Int.random(in: 0..<100))
-//                    let studentData = Student(studentEmail: "\(randomInt)abc@123\(x).com", studentID: "121323\(x)", studentFirstName: "hello\(x)", studentLastName: "odwodkow\(x)", studentPhone: "ksdjk2323\(x)", studentImage: "download" ,studentAttendance: [])
-//                    allStudent.append(studentData)
-//        }
-//        return allStudent
-//    }()
-    
-//    private init(){}
-//
-//    static func shared() -> [Student] {
-//         ImportData.getDataFromURL{
-//                            students in
-//
-//                            for student in students {
-//                               self.allStudent.append(student)
-//                            }
-//                            //self.bb()
-//                        }
-//
-//
-//        }
-    
     // add More objects
     static func addSharedData(StudOBJ : Student) {
         allStudent.append(StudOBJ)

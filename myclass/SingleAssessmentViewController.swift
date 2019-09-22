@@ -36,7 +36,7 @@ class SingleAssessmentViewController: UIViewController, AssessmentViewDelegate,U
         {
             pickerData.append(i)
         }
-        print(pickerData.count)
+        //print(pickerData.count)
         
         // Do any additional setup after loading the view.
     }
@@ -59,7 +59,8 @@ class SingleAssessmentViewController: UIViewController, AssessmentViewDelegate,U
         
         let student = allStudentsData[indexPath.row]
         
-        cell.studentID.text = student.getStudentID()
+        //cell.studentID.text = student.getStudentID()
+        cell.studentID.text = student.getStudentName()
         cell.studentMarks.delegate = self
         cell.studentMarks.dataSource = self
         cell.studentMarks.tag = indexPath.row
