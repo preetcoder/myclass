@@ -42,24 +42,24 @@ class AllStudentsTableViewController: UITableViewController {
     private func loadSampleData() {
         
         // load data from API
-        let aUrl = ImportData()
-        aUrl.getDataFromURL{
-            students in
-            
-            for student in students {
-                self.allStudents.append(student)
-            
-            }
-           
-            // reload view
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-                // disappear loader
-                SVProgressHUD.dismiss()
-            }
-         
-            
-        }
+//        let aUrl = ImportData()
+//        aUrl.getDataFromURL{
+//            students in
+//            
+//            for student in students {
+//                self.allStudents.append(student)
+//            
+//            }
+//           
+//            // reload view
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//                // disappear loader
+//                SVProgressHUD.dismiss()
+//            }
+//         
+//            
+//        }
 
         
     }

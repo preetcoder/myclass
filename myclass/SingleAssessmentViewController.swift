@@ -10,7 +10,7 @@ import UIKit
 
 class SingleAssessmentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let animals = ["cat", "dog"]
+    let allStudentsData = ImportData.allStudent
     
     var selectedAssessment = Assessment();
     var indexPathValue: Int!;
@@ -27,7 +27,7 @@ class SingleAssessmentViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return animals.count
+        return allStudentsData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -41,9 +41,11 @@ class SingleAssessmentViewController: UIViewController, UITableViewDelegate, UIT
         
         //print(indexPath.count)
         
-        let animal   = animals[indexPath.row]
+        let student = allStudentsData[indexPath.row]
         
-        cell.studentID.text = animal
+        cell.studentID.text = student.getStudentID()
+        
+        cell.pickArray = ["1", "2"]
         
         return cell
         

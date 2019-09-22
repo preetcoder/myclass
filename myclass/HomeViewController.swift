@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UITabBarController {
 
     var allStudents : [Student] = []
     
@@ -16,33 +16,21 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       // performSegue(withIdentifier: "allStudents", sender: self)
-        
-        //aa()
-        
-        
-        // Do any additional setup after loading the view.
+      
     }
-    func aa(){
-        let aUrl = ImportData()
-        aUrl.getDataFromURL{
-            students in
-            
-            for student in students {
-               self.allStudents.append(student)
-            }
-            self.bb()
-            
-        }
-    }
-    
-    func bb() {
-        print(self.allStudents.count)
-    }
-    
-    @IBAction func onButtonPressed(_ sender: Any) {
-        
-    }
+//    func aa(){
+//        let aUrl = ImportData()
+//        aUrl.getDataFromURL{
+//            students in
+//            
+//            for student in students {
+//               self.allStudents.append(student)
+//            }
+//            //self.bb()
+//            
+//        }
+//    }
+   
     
     
     // MARK: - Navigation

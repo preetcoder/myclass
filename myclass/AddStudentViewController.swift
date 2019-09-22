@@ -9,10 +9,10 @@
 import UIKit
 
 protocol NewStudentDataDelegate {
-    func newStudentEnteredData (name : String, lastName : String, studentID : String, studentEmail : String, studentPhone : String)
+    func newStudentEnteredData (name : String, lastName : String, studentID : String, studentEmail : String, studentPhone : String, studentImage : UIImage)
 }
 
-class AddStudentViewController: UIViewController{
+class AddStudentViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     var delegate : NewStudentDataDelegate?
     
@@ -36,9 +36,34 @@ class AddStudentViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedMe))
+        studentProfileImage.addGestureRecognizer(tap)
+        studentProfileImage.isUserInteractionEnabled = true
+        
         //print("Hello \(allStudentsData[0].getStudentID())")
 
         // Do any additional setup after loading the view.
+    }
+    
+    @objc func tappedMe()
+    {
+        
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
+            
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerController.SourceType.camera
+            imagePicker.allowsEditing = false
+            self.present(imagePicker,animated: true, completion: nil)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            studentProfileImage.image = image
+           
+        }
+        self.dismiss(animated: true, completion: nil)
     }
     
 
@@ -52,7 +77,21 @@ class AddStudentViewController: UIViewController{
         
         if results.isEmpty == true {
             
-            delegate?.newStudentEnteredData(name: newStudentName.text!, lastName: studentLastName.text!, studentID: newStudentID.text!, studentEmail: newStudentEmail.text!, studentPhone: newStudentPhone.text!)
+            // save image
+            //let filesave = FileSaving()
+           // FileSaving.saveImage(image: studentProfileImage.image!)
+            
+            
+            
+            if let imageVal = studentProfileImage.image {
+                delegate?.newStudentEnteredData(name: newStudentName.text!, lastName: studentLastName.text!, studentID: newStudentID.text!, studentEmail: newStudentEmail.text!, studentPhone: newStudentPhone.text!, studentImage: studentProfileImage.image!)
+            }
+            else{
+                
+                delegate?.newStudentEnteredData(name: newStudentName.text!, lastName: studentLastName.text!, studentID: newStudentID.text!, studentEmail: newStudentEmail.text!, studentPhone: newStudentPhone.text!, studentImage: UIImage(named: "download")!)
+            }
+            
+            
             
            
             

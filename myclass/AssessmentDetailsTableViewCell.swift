@@ -8,12 +8,27 @@
 
 import UIKit
 
-class AssessmentDetailsTableViewCell: UITableViewCell {
-
+class AssessmentDetailsTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    
+    var pickArray : [String] = []
     
     @IBOutlet weak var studentID: UILabel!
     
-   // @IBOutlet weak var studentMarks: UIPickerView!
+    @IBOutlet weak var studentMarks: UIPickerView!
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        studentMarks?.reloadAllComponents()  // My picker
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let pickerLabel = UILabel()
+        pickerLabel.font = UIFont(name: "Avenir Next Condensed", size: 22)
+            //pickerLabel.textAlignment.rawValue = NSTextAlignment.center
+        pickerLabel.text = pickArray[row]
+        return pickerLabel
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +39,14 @@ class AssessmentDetailsTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return pickArray.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 1
     }
 
 }

@@ -84,10 +84,10 @@
             </objects>
             <point key="canvasLocation" x="1198" y="-894"/>
         </scene>
-        <!--Ho-->
+        <!--Home View Controller-->
         <scene sceneID="JFk-VP-fKt">
             <objects>
-                <tabBarController id="fs6-C7-wJQ" customClass="Ho" sceneMemberID="viewController">
+                <tabBarController id="fs6-C7-wJQ" customClass="HomeViewController" customModule="myclass" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" clipsSubviews="YES" clearsContextBeforeDrawing="NO" alpha="0.94999999999999996" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="e7H-P1-ULF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -142,7 +142,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Vg-ET-qek" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-519.375" y="-146.83098591549296"/>
+            <point key="canvasLocation" x="-519" y="4"/>
         </scene>
         <!--Attendance-->
         <scene sceneID="jhB-QY-Edh">
@@ -192,7 +192,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oWw-ZX-yvS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-519.375" y="563.02816901408448"/>
+            <point key="canvasLocation" x="-519" y="815"/>
         </scene>
     </scenes>
     <resources>
