@@ -169,6 +169,7 @@ class StudentProfileViewController: UIViewController, UIImagePickerControllerDel
         }
         navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
+        
     }
     /*
     // MARK: - Navigation
