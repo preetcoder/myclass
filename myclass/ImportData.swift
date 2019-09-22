@@ -9,7 +9,6 @@
 import Foundation
 
 struct ImportData {
-    
     // load data from API
    
    static  let APIURL = "https://my.api.mockaroo.com/students_data.json?key=3e4cec20"
