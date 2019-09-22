@@ -11,59 +11,95 @@ import MessageUI
 
 class ExportViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
+  
+    @IBAction func exportAssessments(_ sender: Any) {
+        
+        mailerFunction(val : "assessments")
+    }
     
     @IBAction func exportAttendance(_ sender: Any) {
         
-        let mailComposeViewController = configureMailComposer()
+        mailerFunction(val : "attendance")
+        
+       
+    }
+    
+    func mailerFunction(val : String){
+        let mailComposeViewController = configureMailComposer(val: val)
         if MFMailComposeViewController.canSendMail(){
             self.present(mailComposeViewController, animated: true, completion: nil)
         }else{
             print("Can't send email")
         }
-        
-       
     }
     
-    func getAllStudentAttendance() -> String{
+    func getAllStudentAttendance(val : String) -> String{
         
         var allStudentData = ""
-        let obj = ConvertToDate()
-       let  allStudents = ImportData.allStudent
         
-        for student in allStudents{
+        print(val)
+        
+        if(val == "attendance") {
             
+            let obj = ConvertToDate()
+            let  allStudents = ImportData.allStudent
             
-            // get all attendance of this student
-            if((student.getAttendance()?.count)! > 0){
+            for student in allStudents{
                 
                 
-                allStudentData += "Student ID - \(student.getStudentID()) \n Dates Attended - "
-                
-                
-                for attendance in student.getAttendance()! {
-                    if attendance.getStatus() == true {
-                        
-                        allStudentData += " \(obj.getStringFromDate(dateVal: attendance.getDate())),"
+                // get all attendance of this student
+                if((student.getAttendance()?.count)! > 0){
+                    allStudentData += "Student ID - \(student.getStudentID()) \n Dates Attended - "
+                    for attendance in student.getAttendance()! {
+                        if attendance.getStatus() == true {
+                            
+                            allStudentData += " \(obj.getStringFromDate(dateVal: attendance.getDate())),"
+                        }
                     }
+                    
+                }
+                allStudentData += "\n"
+            }
+            
+        }
+        else{
+            
+            let obj = ConvertToDate()
+            let  allStudents = ImportData.allStudent
+            
+            for student in allStudents{
+                
+                if (student.getMarks()?.count)! > 0 {
+                    allStudentData += "Student ID - \(student.getStudentID())  "
+                    
+                    
+                    for assessmentMarks in student.getMarks()! {
+                        
+                         allStudentData += "\n Assessment Name - \(assessmentMarks.getAssessment().getAssessmentTitle()) \n Marks Obtained = \(assessmentMarks.getObtainedMarks())"
+                        
+                    }
+                    
+                    allStudentData += "\n ================ \n"
+                    
+                
+                    
+                    
                 }
                 
             }
-            
-            allStudentData += "\n"
-            
         }
+       
         
         return allStudentData
         
-        
     }
     
-    func configureMailComposer() -> MFMailComposeViewController{
+    func configureMailComposer(val : String) -> MFMailComposeViewController{
         let mailComposeVC = MFMailComposeViewController()
         mailComposeVC.mailComposeDelegate = self
         mailComposeVC.setToRecipients(["s3701661@student.rmit.edu.au","s3695018@student.rmit.ed.au"])
         mailComposeVC.setSubject("File Export")
-        mailComposeVC.setMessageBody(getAllStudentAttendance(), isHTML: false)
+        mailComposeVC.setMessageBody(getAllStudentAttendance(val: val), isHTML: false)
         return mailComposeVC
     }
     

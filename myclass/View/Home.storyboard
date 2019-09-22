@@ -9,81 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Attendance-->
-        <scene sceneID="L9s-Tz-q7e">
-            <objects>
-                <tableViewController id="lBo-aA-8g2" customClass="AllStudentsTableViewController" customModule="myclass" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hfH-CT-FEb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SingleStudentTableViewCell" rowHeight="90" id="5cc-4n-Qxh" customClass="SingleStudentTableViewCell" customModule="myclass" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="90"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5cc-4n-Qxh" id="BVA-Q4-bzE">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="89.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="download" translatesAutoresizingMaskIntoConstraints="NO" id="mNf-k7-5Ar">
-                                            <rect key="frame" x="0.0" y="0.0" width="105" height="89"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lbX-PX-mwz">
-                                            <rect key="frame" x="255" y="30" width="49" height="31"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </switch>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQx-10-B2Z">
-                                            <rect key="frame" x="113" y="11" width="100" height="68"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="StudentName" destination="gQx-10-B2Z" id="xoV-9B-oGV"/>
-                                    <outlet property="studentImage" destination="mNf-k7-5Ar" id="2XD-kC-MNd"/>
-                                    <outlet property="studewntAttendance" destination="lbX-PX-mwz" id="F8F-fP-R6l"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="lBo-aA-8g2" id="zID-3a-s3n"/>
-                            <outlet property="delegate" destination="lBo-aA-8g2" id="UWH-UJ-r9n"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Attendance" id="FbH-fa-6qt">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="gs4-as-whw">
-                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="addNewStudentPressed:" destination="lBo-aA-8g2" id="WZy-Bh-QiJ"/>
-                                <segue destination="Vpe-VN-aW3" kind="show" identifier="newStudent" id="LIM-gv-UPx"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jfT-nR-vgC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="443" y="-840"/>
-        </scene>
-        <!--AddNewStudent-->
-        <scene sceneID="1Oy-5q-EG7">
-            <objects>
-                <viewControllerPlaceholder storyboardName="AddNewStudent" id="Vpe-VN-aW3" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Qwo-Uf-IAv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1212" y="-1124"/>
-        </scene>
-        <!--StudentProfile-->
-        <scene sceneID="QgG-gF-Yit">
-            <objects>
-                <viewControllerPlaceholder storyboardName="StudentProfile" id="r9R-Ir-eVI" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tXc-DQ-mOr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1198" y="-894"/>
-        </scene>
         <!--Home View Controller-->
         <scene sceneID="JFk-VP-fKt">
             <objects>
@@ -152,7 +77,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OSz-bc-4qt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="277" y="-453"/>
+            <point key="canvasLocation" x="358" y="-729"/>
         </scene>
         <!--Assessments-->
         <scene sceneID="G7E-Eo-GGQ">
@@ -197,7 +122,6 @@
     </scenes>
     <resources>
         <image name="attendanceIcon" width="29" height="29"/>
-        <image name="download" width="225" height="225"/>
         <image name="exportIcon" width="29" height="29"/>
         <image name="marksIcons" width="29" height="29"/>
     </resources>
