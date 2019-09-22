@@ -15,6 +15,8 @@ struct ImportData {
     
     static var allStudent : [Student] = []
     
+    
+    
     //let studentData : [Student] = []
     
     
@@ -52,6 +54,10 @@ struct ImportData {
                 print(error)
             }
             }.resume()
+        
+        // add a dummy student or test
+        
+        allStudent.append(Student(studentEmail: "test@test.com", studentID: "2332323", studentFirstName: "test", studentLastName: "test", studentPhone: "3434343", studentImage: "download", studentAttendance: [], studentMarks: []))
         
     }
     

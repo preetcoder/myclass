@@ -86,7 +86,60 @@ class myclassUITests: XCTestCase {
     
     func testEditingStudentDetails()
     {
-                
+        
+        let validFirstName = "test123"
+        
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        tablesQuery.staticTexts["test"].tap()
+        
+        let franNavigationBar = app.navigationBars["test"]
+        franNavigationBar.buttons["Edit"].tap()
+        
+        let elementsQuery = app.scrollViews.otherElements
+        let firstNameTextField = elementsQuery.textFields["First Name"]
+        XCTAssertTrue(firstNameTextField.exists)
+        firstNameTextField.tap()
+        firstNameTextField.typeText(validFirstName)
+        
+        let lastNameTextField = elementsQuery.textFields["Last Name"]
+        lastNameTextField.tap()
+        lastNameTextField.tap()
+        elementsQuery.textFields["Phone"].tap()
+        elementsQuery.textFields["StudentID"].tap()
+        elementsQuery.textFields["Email"].tap()
+        elementsQuery.buttons["Save"].tap()
+        
+        franNavigationBar.buttons["Attendance"].tap()
+        let studentcell = tablesQuery.staticTexts["testtest123"]
+        XCTAssertTrue(studentcell.exists)
+    }
+    
+    func testAddNewAssessment()
+    {
+        let validAssessmentName = "test"
+        let validAssessmentMark = "10"
+        
+        let app = XCUIApplication()
+        app.tabBars.buttons["Assessment"].tap()
+        app.navigationBars["Assessments"].buttons["Add"].tap()
+        
+        let assessmentNameTextField = app.textFields["Assessment description"]
+        XCTAssertTrue(assessmentNameTextField.exists)
+        assessmentNameTextField.tap()
+        assessmentNameTextField.typeText(validAssessmentName)
+        
+        let totalMarksTextField = app.textFields["Total marks"]
+        XCTAssertTrue(totalMarksTextField.exists)
+        totalMarksTextField.tap()
+        totalMarksTextField.typeText(validAssessmentMark)
+
+        app.datePickers.pickerWheels["Today"].tap()
+        app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.tap()
+        app.buttons["Save"].tap()
+        
+        let assessmentCell = app.tables.staticTexts["test"]
+        XCTAssertTrue(assessmentCell.exists)
     }
     
     

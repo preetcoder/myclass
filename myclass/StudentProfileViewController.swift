@@ -167,7 +167,8 @@ class StudentProfileViewController: UIViewController, UIImagePickerControllerDel
             let alert =  alertpopupVal.popUp(titleMsg: "Error!!", popupMsg: "One or more fields are empty!")
             self.present(alert, animated: true, completion: nil)
         }
-        
+        navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation

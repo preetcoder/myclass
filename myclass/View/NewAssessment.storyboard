@@ -30,8 +30,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="tel"/>
                             </textField>
-                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="vlI-Zv-9ZB">
-                                <rect key="frame" x="20" y="125" width="280" height="100"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="vlI-Zv-9ZB">
+                                <rect key="frame" x="20" y="135" width="280" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="9Kn-Bn-l1g"/>
+                                </constraints>
                                 <date key="date" timeIntervalSinceReferenceDate="590232862.72525299">
                                     <!--2019-09-15 09:34:22 +0000-->
                                 </date>
