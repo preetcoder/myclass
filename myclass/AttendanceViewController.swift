@@ -77,14 +77,17 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     
-    func newStudentEnteredData(name: String, lastName: String, studentID: String, studentEmail: String, studentPhone: String, studentImage : UIImage) {
+    func newStudentEnteredData(name: String, lastName: String, studentID: String, studentEmail: String, studentPhone: String, studentImage : String) {
         //print("\(name) \(studentID) \(studentEmail) \(studentPhone)")
         
         if (name != "" && studentID != "" && lastName != "" && studentEmail != "" && studentPhone != ""){
             
-            print(studentImage)
+            var newStudent = Student()
+           
+                newStudent = Student(studentEmail: studentEmail, studentID: studentID, studentFirstName: name, studentLastName: lastName, studentPhone: studentPhone, studentImage : studentImage, studentAttendance: [])
             
-            let newStudent = Student(studentEmail: studentEmail, studentID: studentID, studentFirstName: name, studentLastName: lastName, studentPhone: studentPhone, studentImage : "download",studentAttendance: [])
+            
+            
             
             allStudents.insert(newStudent, at: 0)
             
@@ -134,7 +137,14 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
         let student  = allStudents[indexPath.row]
         cell.StudentName?.text = student.getStudentName()
         //cell.StudentName.text = "ss"
-        cell.studentImage?.image = UIImage(named: student.getStudentImage())
+        if student.getStudentImage() == "download" {
+             cell.studentImage?.image = UIImage(named: student.getStudentImage())
+        }
+        
+        else {
+            cell.studentImage?.image = FileSaving.getImage(imageName: student.getStudentImage())
+        }
+       
         cell.studewntAttendance?.tag = indexPath.row
         cell.studewntAttendance?.setOn(false, animated: false)
         if allStudents[indexPath.row].getAttendance()!.count != 0

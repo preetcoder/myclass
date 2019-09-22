@@ -22,4 +22,36 @@ class FileSaving {
         return uuid
         
     }
+    
+    static func getImage(imageName: String) -> UIImage? {
+        
+        var savedImage: UIImage?
+        
+        if let imagePath = getFilePath(fileName: imageName) {
+            savedImage = UIImage(contentsOfFile: imagePath)
+        }
+        else {
+            savedImage = nil
+        }
+        
+        return savedImage
+        
+    }
+    
+    static func getFilePath(fileName: String) -> String? {
+        
+        let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
+        let nsUserDomainMask = FileManager.SearchPathDomainMask.userDomainMask
+        var filePath: String?
+        let paths = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)
+        if paths.count > 0 {
+            let dirPath = paths[0] as NSString
+            filePath = dirPath.appendingPathComponent(fileName)
+        }
+        else {
+            filePath = nil
+        }
+        
+        return filePath
+    }
 }

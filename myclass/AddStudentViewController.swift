@@ -9,7 +9,7 @@
 import UIKit
 
 protocol NewStudentDataDelegate {
-    func newStudentEnteredData (name : String, lastName : String, studentID : String, studentEmail : String, studentPhone : String, studentImage : UIImage)
+    func newStudentEnteredData (name : String, lastName : String, studentID : String, studentEmail : String, studentPhone : String, studentImage : String)
 }
 
 class AddStudentViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
@@ -61,8 +61,11 @@ class AddStudentViewController: UIViewController, UIImagePickerControllerDelegat
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             studentProfileImage.image = image
+            
            
         }
+        
+        
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -84,11 +87,16 @@ class AddStudentViewController: UIViewController, UIImagePickerControllerDelegat
             
             
             if let imageVal = studentProfileImage.image {
-                delegate?.newStudentEnteredData(name: newStudentName.text!, lastName: studentLastName.text!, studentID: newStudentID.text!, studentEmail: newStudentEmail.text!, studentPhone: newStudentPhone.text!, studentImage: studentProfileImage.image!)
+                
+                
+                let selectedImagefromCamera = FileSaving.saveImage(image: studentProfileImage.image!)
+                //print("hello\(pp)")
+                
+                delegate?.newStudentEnteredData(name: newStudentName.text!, lastName: studentLastName.text!, studentID: newStudentID.text!, studentEmail: newStudentEmail.text!, studentPhone: newStudentPhone.text!, studentImage: selectedImagefromCamera)
             }
             else{
                 
-                delegate?.newStudentEnteredData(name: newStudentName.text!, lastName: studentLastName.text!, studentID: newStudentID.text!, studentEmail: newStudentEmail.text!, studentPhone: newStudentPhone.text!, studentImage: UIImage(named: "download")!)
+                delegate?.newStudentEnteredData(name: newStudentName.text!, lastName: studentLastName.text!, studentID: newStudentID.text!, studentEmail: newStudentEmail.text!, studentPhone: newStudentPhone.text!, studentImage: "download")
             }
             
             
