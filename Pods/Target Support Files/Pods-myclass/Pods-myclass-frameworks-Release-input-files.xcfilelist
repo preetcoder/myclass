@@ -1,2 +1,2 @@
 ${PODS_ROOT}/Target Support Files/Pods-myclass/Pods-myclass-frameworks.sh
-${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework
+${BUILT_PRODUCTS_DIR}/SVProgressHUD-framework/SVProgressHUD.framework

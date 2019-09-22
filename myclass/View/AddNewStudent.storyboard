@@ -145,6 +145,7 @@
                         <outlet property="newStudentID" destination="vKK-6S-dNB" id="rfK-lb-oay"/>
                         <outlet property="newStudentName" destination="8uR-tD-sbG" id="XNn-5S-b71"/>
                         <outlet property="newStudentPhone" destination="kys-eK-Q3v" id="nb8-VV-ecX"/>
+                        <outlet property="scrollView" destination="xqr-5R-ZoF" id="fSp-2D-0rZ"/>
                         <outlet property="studentLastName" destination="nJS-oD-b0T" id="F9I-HE-vzy"/>
                         <outlet property="studentProfileImage" destination="iAH-NV-Zqz" id="ksL-b3-TaW"/>
                     </connections>

@@ -12,13 +12,16 @@ protocol NewStudentDataDelegate {
     func newStudentEnteredData (name : String, lastName : String, studentID : String, studentEmail : String, studentPhone : String, studentImage : String)
 }
 
-class AddStudentViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class AddStudentViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITextFieldDelegate{
     
     var delegate : NewStudentDataDelegate?
-    
+    var activeField: UITextField?
+    var lastOffset: CGPoint!
+    var keyboardHeight: CGFloat!
     var allStudentsData =  [Student]()
 
     @IBOutlet weak var studentProfileImage: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var newStudentName: UITextField!
     @IBOutlet weak var newStudentID: UITextField!
@@ -31,7 +34,9 @@ class AddStudentViewController: UIViewController, UIImagePickerControllerDelegat
     
     @IBOutlet weak var newStudentPhone: UITextField!
     
-    
+    // Constraints
+    @IBOutlet weak var constraintContentHeight: NSLayoutConstraint!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,10 +44,21 @@ class AddStudentViewController: UIViewController, UIImagePickerControllerDelegat
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedMe))
         studentProfileImage.addGestureRecognizer(tap)
         studentProfileImage.isUserInteractionEnabled = true
+        self.newStudentPhone.keyboardType = UIKeyboardType.numberPad
+        let userTappedOtherThanKeyboard: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector(("closeKeyboard")))
+        view.addGestureRecognizer(userTappedOtherThanKeyboard)
         
-        //print("Hello \(allStudentsData[0].getStudentID())")
-
-        // Do any additional setup after loading the view.
+        //set TextField Delegate
+        self.newStudentName.delegate = self
+        self.newStudentID.delegate = self
+        self.newStudentPhone.delegate = self
+        self.newStudentEmail.delegate = self
+        self.studentLastName.delegate = self
+        
+        // setup keyboard event
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
     }
     
     @objc func tappedMe()
@@ -122,6 +138,12 @@ class AddStudentViewController: UIViewController, UIImagePickerControllerDelegat
         
     }
     
+    @objc func closeKeyboard() {
+        view.endEditing(true)
+    }
+    
+    // MARK: UITextFieldDelegate
+    
     
     /*
     // MARK: - Navigation
@@ -133,4 +155,23 @@ class AddStudentViewController: UIViewController, UIImagePickerControllerDelegat
     }
     */
 
+}
+
+// MARK: Keyboard Handling
+extension AddStudentViewController {
+    @objc func keyboardWillShow(notification:NSNotification){
+        var userInfo = notification.userInfo!
+        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        
+        var contentInset:UIEdgeInsets = self.scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height
+        scrollView.contentInset = contentInset
+    }
+    
+    @objc func keyboardWillHide(notification:NSNotification){
+        
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInset
+    }
 }

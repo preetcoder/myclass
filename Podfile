@@ -7,17 +7,18 @@ target 'myclass' do
 
     pod 'SVProgressHUD'
 
-
+end
   # Pods for myclass
 
   target 'myclassTests' do
-    inherit! :search_paths
+    inherit! :complete
     # Pods for testing
+	pod 'SVProgressHUD'
   end
 
   target 'myclassUITests' do
-    inherit! :search_paths
+    inherit! :complete
     # Pods for testing
+	pod 'SVProgressHUD'
   end
 
-end

@@ -23,6 +23,9 @@ class NewAssessmentViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var assessmentMarks: UITextField!
     
     @IBOutlet weak var assessmentDate: UIDatePicker!
+    var activeField: UITextField?
+    var lastOffset: CGPoint!
+    var keyboardHeight: CGFloat!
     
     override func viewDidLoad()
     {
