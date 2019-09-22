@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R6x-3T-3Vw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R6x-3T-3Vw">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,7 +28,7 @@
                                 <rect key="frame" x="25" y="85" width="270" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="tel"/>
                             </textField>
                             <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="vlI-Zv-9ZB">
                                 <rect key="frame" x="20" y="125" width="280" height="100"/>
@@ -53,14 +53,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="vlI-Zv-9ZB" firstAttribute="leading" secondItem="GiH-QV-7gs" secondAttribute="leading" constant="20" id="ByV-K0-Of9"/>
                             <constraint firstItem="GiH-QV-7gs" firstAttribute="trailing" secondItem="1og-xa-I8y" secondAttribute="trailing" constant="25" id="M32-me-WoI"/>
-                            <constraint firstItem="vlI-Zv-9ZB" firstAttribute="top" secondItem="1og-xa-I8y" secondAttribute="bottom" constant="10" id="PYg-xi-Zhf"/>
+                            <constraint firstItem="vlI-Zv-9ZB" firstAttribute="top" secondItem="1og-xa-I8y" secondAttribute="bottom" constant="20" id="PYg-xi-Zhf"/>
                             <constraint firstItem="GiH-QV-7gs" firstAttribute="bottom" secondItem="uvR-LC-gMe" secondAttribute="bottom" constant="20" id="Tqq-BW-4kq"/>
-                            <constraint firstAttribute="trailing" secondItem="vlI-Zv-9ZB" secondAttribute="trailing" constant="20" id="UJD-EA-bIR"/>
                             <constraint firstItem="GiH-QV-7gs" firstAttribute="trailing" secondItem="vlI-Zv-9ZB" secondAttribute="trailing" constant="20" id="UKj-kQ-d9f"/>
                             <constraint firstItem="1og-xa-I8y" firstAttribute="top" secondItem="xSP-aP-5Eh" secondAttribute="bottom" constant="10" id="VBh-eO-aH4"/>
-                            <constraint firstItem="vlI-Zv-9ZB" firstAttribute="top" secondItem="1og-xa-I8y" secondAttribute="bottom" constant="10" id="WhT-gp-yvv"/>
                             <constraint firstItem="uvR-LC-gMe" firstAttribute="leading" secondItem="GiH-QV-7gs" secondAttribute="leading" constant="20" id="ZUR-eh-Jly"/>
                             <constraint firstItem="xSP-aP-5Eh" firstAttribute="leading" secondItem="GiH-QV-7gs" secondAttribute="leading" constant="25" id="a4a-oD-ulT"/>
                             <constraint firstItem="vlI-Zv-9ZB" firstAttribute="leading" secondItem="GiH-QV-7gs" secondAttribute="leading" constant="20" id="ehX-w6-tAy"/>
