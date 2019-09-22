@@ -38,11 +38,22 @@ class NewAssessmentViewController: UIViewController,UITextFieldDelegate {
     
     @IBAction func newAssessmentSave(_ sender: Any) {
         
-        delegate?.userEnteredData(Desc: assessmentDesc.text!, marks: assessmentMarks.text!, dateVal: assessmentDate.date)
+        if Int(assessmentMarks.text!) != nil {
+            
+            delegate?.userEnteredData(Desc: assessmentDesc.text!, marks: assessmentMarks.text!, dateVal: assessmentDate.date)
+            
+            // dismiss sigue
+            navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
+            
+        }else{
+            // declare an alert
+            let alertpopupVal = PopUpAlert()
+            let alert =  alertpopupVal.popUp(titleMsg: "Error!!", popupMsg: "Marks must be integer")
+            self.present(alert, animated: true, completion: nil)
+        }
         
-        // dismiss sigue
-        navigationController?.popViewController(animated: true)
-        self.dismiss(animated: true, completion: nil)
+        
     }
     
     @objc func closeKeyboard() {

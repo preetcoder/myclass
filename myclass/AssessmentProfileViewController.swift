@@ -37,17 +37,28 @@ class AssessmentProfileViewController: UIViewController
     @IBAction func onClickSave(_ sender: Any)
     {
      
-        selectedAssessmentProfile.setAssessmentTitle(assessmentName: self.assessmentDescription.text!)
-        selectedAssessmentProfile.setAssessmentMarks(assessmentTotalMarks: Int(self.assessmentMarks.text!)!)
-        selectedAssessmentProfile.setAssessmentDate(date: self.assessmentDate.date)
+        if Int(assessmentMarks.text!) != nil{
+            selectedAssessmentProfile.setAssessmentTitle(assessmentName: self.assessmentDescription.text!)
+            selectedAssessmentProfile.setAssessmentMarks(assessmentTotalMarks: Int(self.assessmentMarks.text!)!)
+            selectedAssessmentProfile.setAssessmentDate(date: self.assessmentDate.date)
+            
+            //print("HELLO \(selectedAssessmentProfile.getAssessmentTitle())")
+            self.delegate?.updateAssessment(Desc: selectedAssessmentProfile.getAssessmentTitle(), marks: Int(assessmentMarks.text!)!, dateVal: assessmentDate.date,position: indexPathValue!)
+            //self.delegate?.updateAssessment(Desc: "sds", marks: 32, dateVal: assessmentDate.date, position: indexPathValue!)
+            
+            // dismiss sigue
+            navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
+            
+            
+        } else{
+            // declare an alert
+            let alertpopupVal = PopUpAlert()
+            let alert =  alertpopupVal.popUp(titleMsg: "Error!!", popupMsg: "Marks must be integer")
+            self.present(alert, animated: true, completion: nil)
+        }
         
-        //print("HELLO \(selectedAssessmentProfile.getAssessmentTitle())")
-        self.delegate?.updateAssessment(Desc: selectedAssessmentProfile.getAssessmentTitle(), marks: Int(assessmentMarks.text!)!, dateVal: assessmentDate.date,position: indexPathValue!)
-        //self.delegate?.updateAssessment(Desc: "sds", marks: 32, dateVal: assessmentDate.date, position: indexPathValue!)
         
-        // dismiss sigue
-        navigationController?.popViewController(animated: true)
-        self.dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad()
