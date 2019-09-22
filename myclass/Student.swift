@@ -26,7 +26,7 @@ class Student {
         
     }
     
-    convenience init(studentEmail : String, studentID : String, studentFirstName : String, studentLastName : String, studentPhone : String, studentImage : String, studentAttendance : [Attendance]) {
+    convenience init(studentEmail : String, studentID : String, studentFirstName : String, studentLastName : String, studentPhone : String, studentImage : String, studentAttendance : [Attendance], studentMarks : [Marks]) {
         self.init()
         self.email = studentEmail
         self.studentID = studentID
@@ -35,6 +35,7 @@ class Student {
         self.phone = studentPhone
         self.image = studentImage
         self.attendance = studentAttendance
+        self.marks = studentMarks
     }
     
     
@@ -79,6 +80,11 @@ class Student {
        return self.attendance
     }
     
+    func getMarks() -> [Marks]?
+    {
+        return self.marks
+    }
+    
     // setters
     
     func setStudentFirstName(name : String) {
@@ -105,5 +111,14 @@ class Student {
     func updateAttendance(position : Int, state : Bool)
     {
         self.attendance![position].updateStatus(Status: state)
+    }
+    
+    func updateMarks(position : Int, score : Int)
+    {
+        self.marks![position].updateScore(score: score)
+    }
+    
+    func addMarks(scores :  Marks){
+        self.marks?.append(scores)
     }
 }

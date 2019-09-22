@@ -24,8 +24,10 @@ class NewAssessmentViewController: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var assessmentDate: UIDatePicker!
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
+        self.assessmentMarks.keyboardType = UIKeyboardType.numberPad
         let userTappedOtherThanKeyboard: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector(("closeKeyboard")))
         view.addGestureRecognizer(userTappedOtherThanKeyboard)
         // Do any additional setup after loading the view.

@@ -84,7 +84,7 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
             
             print(studentImage)
             
-            let newStudent = Student(studentEmail: studentEmail, studentID: studentID, studentFirstName: name, studentLastName: lastName, studentPhone: studentPhone, studentImage : "download",studentAttendance: [])
+            let newStudent = Student(studentEmail: studentEmail, studentID: studentID, studentFirstName: name, studentLastName: lastName, studentPhone: studentPhone, studentImage : "download",studentAttendance: [],studentMarks: [])
             
             allStudents.insert(newStudent, at: 0)
             
@@ -137,6 +137,7 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.studentImage?.image = UIImage(named: student.getStudentImage())
         cell.studewntAttendance?.tag = indexPath.row
         cell.studewntAttendance?.setOn(false, animated: false)
+        
         if allStudents[indexPath.row].getAttendance()!.count != 0
         {
             for attendanceObject in allStudents[indexPath.row].getAttendance()!.indices
