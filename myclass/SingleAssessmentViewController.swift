@@ -14,7 +14,8 @@ class SingleAssessmentViewController: UIViewController, AssessmentViewDelegate,U
 {
  
     var pickerData: [Int] = [Int]()
-    let allStudentsData = ImportData.allStudent
+//    var allStudentsData = ImportData().getDatafromDB()
+//        var allStudentsData =  allStudentsData1.getDatafromDB()
     
     var selectedAssessment = Assessment();
     var indexPathValue: Int!;
@@ -27,12 +28,12 @@ class SingleAssessmentViewController: UIViewController, AssessmentViewDelegate,U
     
     override func viewDidLoad()
     {
-        self.assessmentTitle.text = selectedAssessment.getAssessmentTitle()
+        self.assessmentTitle.text = selectedAssessment.getAssessmentTitle
         
-        self.title = self.selectedAssessment.getAssessmentTitle()
+        self.title = self.selectedAssessment.getAssessmentTitle
         super.viewDidLoad()
         pickerData.removeAll()
-        for i in 1...self.selectedAssessment.getAssessmentMarks()
+        for i in 1...self.selectedAssessment.getAssessmentMarks
         {
             pickerData.append(i)
         }
@@ -42,7 +43,8 @@ class SingleAssessmentViewController: UIViewController, AssessmentViewDelegate,U
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allStudentsData.count
+        //return allStudentsData.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -57,25 +59,25 @@ class SingleAssessmentViewController: UIViewController, AssessmentViewDelegate,U
 
         //print(indexPath.count)
         
-        let student = allStudentsData[indexPath.row]
+        //let student = allStudentsData[indexPath.row]
         
         //cell.studentID.text = student.getStudentID()
-        cell.studentID.text = student.getStudentName()
-        cell.studentMarks.delegate = self
-        cell.studentMarks.dataSource = self
-        cell.studentMarks.tag = indexPath.row
+//        cell.studentID.text = student.getStudentName()
+//        cell.studentMarks.delegate = self
+//        cell.studentMarks.dataSource = self
+//        cell.studentMarks.tag = indexPath.row
         
-        if allStudentsData[indexPath.row].getMarks()!.count != 0
-        {
-            for marksObject in allStudentsData[indexPath.row].getMarks()!.indices
-            {
-                if(allStudentsData[indexPath.row].getMarks()![marksObject].getAssessment().getAssessmentID() == selectedAssessment.getAssessmentID())
-                {
-                    print(allStudentsData[indexPath.row].getMarks()![marksObject].getObtainedMarks())
-                    cell.studentMarks.selectRow(allStudentsData[indexPath.row].getMarks()![marksObject].getObtainedMarks()-1, inComponent: 0, animated: true)
-                }
-            }
-        }
+//        if allStudentsData[indexPath.row].getMarks()!.count != 0
+//        {
+//            for marksObject in allStudentsData[indexPath.row].getMarks()!.indices
+//            {
+//                if(allStudentsData[indexPath.row].getMarks()![marksObject].getAssessment().getAssessmentID() == selectedAssessment.getAssessmentID())
+//                {
+//                    print(allStudentsData[indexPath.row].getMarks()![marksObject].getObtainedMarks())
+//                    cell.studentMarks.selectRow(allStudentsData[indexPath.row].getMarks()![marksObject].getObtainedMarks()-1, inComponent: 0, animated: true)
+//                }
+//            }
+//        }
         return cell
         
     }
@@ -84,34 +86,34 @@ class SingleAssessmentViewController: UIViewController, AssessmentViewDelegate,U
     {
         let buttonRow = pickerView.tag
         
-        if allStudentsData[buttonRow].getMarks()!.count != 0
-        {
-            //get existing no. of objects in Marks array
-            let Count = allStudentsData[buttonRow].getMarks()!.count
-            
-            //check if assessment record alraddy exists for that particular student and assessment
-            var newMarks = true
-            for marksObject in allStudentsData[buttonRow].getMarks()!.indices
-            {
-                if(allStudentsData[buttonRow].getMarks()![marksObject].getAssessment().getAssessmentID() == selectedAssessment.getAssessmentID())
-                {
-                    newMarks = false
-                    allStudentsData[buttonRow].updateMarks(position: marksObject, score: row+1)
-                }
-            }
-            
-            if(newMarks)
-            {
-                let newAssessmentScore = Marks(marksID: Count, assessmentObj: selectedAssessment, marksObtained: row+1)
-                allStudentsData[buttonRow].addMarks(scores: newAssessmentScore)
-            }
-        }
-        else
-        {
-           let count = 0
-           let newAssessmentScore = Marks(marksID: count, assessmentObj: selectedAssessment, marksObtained: row+1)
-            allStudentsData[buttonRow].addMarks(scores: newAssessmentScore)
-        }
+//        if allStudentsData[buttonRow].getMarks()!.count != 0
+//        {
+//            //get existing no. of objects in Marks array
+//            let Count = allStudentsData[buttonRow].getMarks()!.count
+//
+//            //check if assessment record alraddy exists for that particular student and assessment
+//            var newMarks = true
+//            for marksObject in allStudentsData[buttonRow].getMarks()!.indices
+//            {
+//                if(allStudentsData[buttonRow].getMarks()![marksObject].getAssessment().getAssessmentID() == selectedAssessment.getAssessmentID())
+//                {
+//                    newMarks = false
+//                    allStudentsData[buttonRow].updateMarks(position: marksObject, score: row+1)
+//                }
+//            }
+//
+//            if(newMarks)
+//            {
+//                let newAssessmentScore = Marks(marksID: Count, assessmentObj: selectedAssessment, marksObtained: row+1)
+//                allStudentsData[buttonRow].addMarks(scores: newAssessmentScore)
+//            }
+//        }
+//        else
+//        {
+//           let count = 0
+////           let newAssessmentScore = Marks(marksID: count, assessmentObj: selectedAssessment, marksObtained: row+1)
+////            allStudentsData[buttonRow].addMarks(scores: newAssessmentScore)
+//        }
     }
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -138,14 +140,14 @@ class SingleAssessmentViewController: UIViewController, AssessmentViewDelegate,U
     {
         if(Desc != "" && marks>0 && dateVal != nil)
         {
-            selectedAssessment.setAssessmentTitle(assessmentName: Desc)
-            selectedAssessment.setAssessmentMarks(assessmentTotalMarks: marks)
-            selectedAssessment.setAssessmentDate(date: dateVal)
-            self.assessmentTitle.text = selectedAssessment.getAssessmentTitle()
-            updateDelegate?.updateAssessmentDetails(Title: selectedAssessment.getAssessmentTitle(), Totalmarks: selectedAssessment.getAssessmentMarks(), AssessmentDate: selectedAssessment.getAssessmentDate(), IndexValue: self.indexPathValue)
+//            selectedAssessment.getAssessmentTitle(assessmentName: Desc)
+//            selectedAssessment.getAssessmentMarks(assessmentTotalMarks: marks)
+//            selectedAssessment.getAssessmentDate(date: dateVal)
+//            self.assessmentTitle.text = selectedAssessment.getAssessmentTitle
+//            updateDelegate?.updateAssessmentDetails(Title: selectedAssessment.getAssessmentTitle, Totalmarks: selectedAssessment.getAssessmentMarks(), AssessmentDate: selectedAssessment.getAssessmentDate(), IndexValue: self.indexPathValue)
         }
         var temppickerData: [Int] = [Int]()
-        for i in 1...self.selectedAssessment.getAssessmentMarks()
+        for i in 1...self.selectedAssessment.getAssessmentMarks
         {
             temppickerData.append(i)
         }
@@ -159,7 +161,7 @@ class SingleAssessmentViewController: UIViewController, AssessmentViewDelegate,U
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.selectedAssessment.getAssessmentMarks()
+        return self.selectedAssessment.getAssessmentMarks
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {

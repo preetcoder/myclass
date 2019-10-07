@@ -53,22 +53,22 @@ class StudentProfileViewController: UIViewController, UIImagePickerControllerDel
         self.studPhone.isUserInteractionEnabled = false;
         
         self.studLastName.isUserInteractionEnabled = false;
-        self.studName.text = self.selectedStudent.getStudentName()
-        self.studID.text = self.selectedStudent.getStudentID()
-        self.studEmail.text = self.selectedStudent.getStudentEmail()
-        self.studPhone.text = self.selectedStudent.getStudentPhone()
-        self.studLastName.text = self.selectedStudent.getStudentLastName()
+        self.studName.text = self.selectedStudent.getStudentName
+        self.studID.text = self.selectedStudent.getStudentID
+        self.studEmail.text = self.selectedStudent.getStudentEmail
+        self.studPhone.text = self.selectedStudent.getStudentPhone
+        self.studLastName.text = self.selectedStudent.getStudentLastName
         
         // image
-        if self.selectedStudent.getStudentImage() == "download" {
-            self.studentImage.image = UIImage(named: self.selectedStudent.getStudentImage())
+        if self.selectedStudent.getStudentImage == "download" {
+            self.studentImage.image = UIImage(named: self.selectedStudent.getStudentImage)
         }
         else{
             
-            self.studentImage.image =  FileSaving.getImage(imageName: selectedStudent.getStudentImage())
+            self.studentImage.image =  FileSaving.getImage(imageName: selectedStudent.getStudentImage)
         }
         
-        self.title = self.selectedStudent.getStudentName()
+        self.title = self.selectedStudent.getStudentName
         
         self.saveButton.isHidden = true
         //self.studentName.text = self.selectedStudent.getStudentName()
@@ -126,23 +126,23 @@ class StudentProfileViewController: UIViewController, UIImagePickerControllerDel
     @IBAction func onClickSave(_ sender: Any) {
         if studEmail.text! != "" && studName.text! != "" && studLastName.text! != "" && studPhone.text! != "" && studID.text! != ""{
             
-            selectedStudent.setStudentEmail(email: self.studEmail.text!)
-            selectedStudent.setStudentPhone(phone: studPhone.text!)
-            selectedStudent.setStudentFirstName(name: studName.text!)
-            selectedStudent.setStudentLastName(lastname: studLastName.text!)
+//            selectedStudent.setStudentEmail(email: self.studEmail.text!)
+//            selectedStudent.setStudentPhone(phone: studPhone.text!)
+//            selectedStudent.setStudentFirstName(name: studName.text!)
+//            selectedStudent.setStudentLastName(lastname: studLastName.text!)
             
             // set image
             if  let imageVal = studentImage.image {
                 
                 let selectedImagefromCamera = FileSaving.saveImage(image: imageVal)
                 
-                selectedStudent.setStudentImage(image: selectedImagefromCamera)
+//                selectedStudent.setStudentImage(image: selectedImagefromCamera)
                 
                
             }
             else{
                 
-                selectedStudent.setStudentImage(image: "download")
+//                selectedStudent.setStudentImage(image: "download")
                 
             }
             

@@ -28,7 +28,7 @@ class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDe
     
     func studentdataLoad(){
         
-        students =  ImportData.allStudent
+        //students =  ImportData.allStudent
         
         //print("hello \(students[1].getStudentName())")
         
@@ -41,9 +41,9 @@ class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDe
         
         if(Desc != "" && marks != "" && dateVal != nil)
         {
-         let newAssessment = Assessment(assessmentId: (assessments.count + 1), assessmentName: Desc, assessmentTotalMarks: Int(marks)!, date: dateVal)
-            
-            assessments.append(newAssessment)
+//         let newAssessment = Assessment(assessmentId: (assessments.count + 1), assessmentName: Desc, assessmentTotalMarks: Int(marks)!, date: dateVal)
+//
+//            assessments.append(newAssessment)
             // reload table view
             tableView.reloadData()
         }
@@ -56,9 +56,9 @@ class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDe
     {
         if(Title != "" && Totalmarks>0 && AssessmentDate != nil)
         {
-            assessments[IndexValue].setAssessmentTitle(assessmentName: Title)
-            assessments[IndexValue].setAssessmentMarks(assessmentTotalMarks: Totalmarks)
-            assessments[IndexValue].setAssessmentDate(date: AssessmentDate)
+//            assessments[IndexValue].setAssessmentTitle(assessmentName: Title)
+//            assessments[IndexValue].setAssessmentMarks(assessmentTotalMarks: Totalmarks)
+//            assessments[IndexValue].setAssessmentDate(date: AssessmentDate)
         }
         tableView.reloadData()
     }
@@ -122,7 +122,7 @@ class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDe
 
         // Configure the cell...
         
-        cell.singleAssessmentTitle.text = assessment.getAssessmentTitle()
+//        cell.singleAssessmentTitle.text = assessment.getAssessmentTitle()
         
         
 

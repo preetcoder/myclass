@@ -7,13 +7,17 @@
 //
 
 import Foundation
+import UIKit
+import CoreData
 
 struct ImportData {
     // load data from API
    
-   static  let APIURL = "https://my.api.mockaroo.com/students_data.json?key=3e4cec20"
+     let APIURL = "https://my.api.mockaroo.com/students_data.json?key=3e4cec20"
     
-    static var allStudent : [Student] = []
+     var allStudent : [Student] = []
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     
     
@@ -21,13 +25,9 @@ struct ImportData {
     
     
     
-    static func getDataFromURL(_ completion: @escaping (_ students : [Student]) -> ())
+    func getDataFromURL()
     {
         
-        if(self.allStudent.count > 0) {
-            return completion(self.allStudent)
-        }
-        //var allStudent : [Student] = []
         
         let url = URL(string: APIURL)
         
@@ -40,12 +40,45 @@ struct ImportData {
                 if json != nil {
                     for singleJsonData in json! {
                         // instantiating Student
-                        let studentData = Student(studentEmail: singleJsonData["email"]! as! String, studentID: singleJsonData["studentID"]! as! String, studentFirstName: singleJsonData["first_name"]! as! String, studentLastName: singleJsonData["last_name"]! as! String, studentPhone: singleJsonData["phone"]! as! String, studentImage: "download", studentAttendance: [], studentMarks: [])
-                        self.allStudent.append(studentData)
+//                        let studentData = Student(studentEmail: singleJsonData["email"]! as! String, studentID: singleJsonData["studentID"]! as! String, studentFirstName: singleJsonData["first_name"]! as! String, studentLastName: singleJsonData["last_name"]! as! String, studentPhone: singleJsonData["phone"]! as! String, studentImage: "download", studentAttendance: [], studentMarks: [])
+//                        self.allStudent.append(studentData)
+                        
+                        //add data to coredata
+                        
+                        let studentData = Student(context: self.context)
+                        
+                        studentData.email = (singleJsonData["email"]! as! String)
+                        
+                        studentData.studentID = (singleJsonData["studentID"]! as! String)
+                        
+                        studentData.first_name = (singleJsonData["first_name"]! as! String)
+                        
+                        studentData.last_name = (singleJsonData["last_name"]! as! String)
+                        
+                        studentData.phone = (singleJsonData["phone"]! as! String)
+                        
+                        studentData.image = "download"
+                        
+//                        studentData.attendance = []
+//
+//                        studentData.marks = []
+                        
+                        print("saving data")
+                        
+                        do{
+                            try self.context.save()
+                        }
+                        catch{
+                            print("error saving students \(error)")
+                        }
+                        
+                        print((singleJsonData["studentID"]! as! String))
+                        
+                        //let newStudent = Student()
                         
                     }
                     // callback
-                    completion(self.allStudent)
+                   // completion(self.allStudent)
                 }
                 else{
                     print("failed to load data")
@@ -57,12 +90,33 @@ struct ImportData {
         
         // add a dummy student or test
         
-        allStudent.append(Student(studentEmail: "test@test.com", studentID: "2332323", studentFirstName: "test", studentLastName: "test", studentPhone: "3434343", studentImage: "download", studentAttendance: [], studentMarks: []))
+//        allStudent.append(Student(studentEmail: "test@test.com", studentID: "2332323", studentFirstName: "test", studentLastName: "test", studentPhone: "3434343", studentImage: "download", studentAttendance: [], studentMarks: []))
         
     }
     
     // add More objects
-    static func addSharedData(StudOBJ : Student) {
-        allStudent.append(StudOBJ)
+//    static func addSharedData(StudOBJ : Student) {
+//        allStudent.append(StudOBJ)
+//    }
+    
+    mutating func getDatafromDB() -> [Student]{
+        if(self.allStudent.count == 0) {
+            print("calling");
+            getDataFromURL()
+        
+        
+        }
+        
+        //print("not calling");
+        let request : NSFetchRequest<Student> = Student.fetchRequest()
+        
+        do {
+            allStudent =  try context.fetch(request)
+        }catch{
+            print("Error fetching students \(error)")
+        }
+        
+        return allStudent
+        
     }
 }

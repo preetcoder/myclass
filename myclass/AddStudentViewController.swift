@@ -90,7 +90,7 @@ class AddStudentViewController: UIViewController, UIImagePickerControllerDelegat
         
         //print(newStudentName.text!)
         // check if student ID already exists
-        let results = allStudentsData.filter { $0.getStudentID() == newStudentID.text! }
+        let results = allStudentsData.filter { $0.getStudentID == newStudentID.text! }
         
         //print(results.isEmpty)
         

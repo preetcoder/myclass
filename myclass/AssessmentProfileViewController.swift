@@ -38,12 +38,12 @@ class AssessmentProfileViewController: UIViewController
     {
      
         if Int(assessmentMarks.text!) != nil{
-            selectedAssessmentProfile.setAssessmentTitle(assessmentName: self.assessmentDescription.text!)
-            selectedAssessmentProfile.setAssessmentMarks(assessmentTotalMarks: Int(self.assessmentMarks.text!)!)
-            selectedAssessmentProfile.setAssessmentDate(date: self.assessmentDate.date)
+//            selectedAssessmentProfile.setAssessmentTitle(assessmentName: self.assessmentDescription.text!)
+//            selectedAssessmentProfile.setAssessmentMarks(assessmentTotalMarks: Int(self.assessmentMarks.text!)!)
+//            selectedAssessmentProfile.setAssessmentDate(date: self.assessmentDate.date)
             
             //print("HELLO \(selectedAssessmentProfile.getAssessmentTitle())")
-            self.delegate?.updateAssessment(Desc: selectedAssessmentProfile.getAssessmentTitle(), marks: Int(assessmentMarks.text!)!, dateVal: assessmentDate.date,position: indexPathValue!)
+            self.delegate?.updateAssessment(Desc: selectedAssessmentProfile.getAssessmentTitle, marks: Int(assessmentMarks.text!)!, dateVal: assessmentDate.date,position: indexPathValue!)
             //self.delegate?.updateAssessment(Desc: "sds", marks: 32, dateVal: assessmentDate.date, position: indexPathValue!)
             
             // dismiss sigue
@@ -67,11 +67,11 @@ class AssessmentProfileViewController: UIViewController
         assessmentDescription.isUserInteractionEnabled = false;
         assessmentMarks.isUserInteractionEnabled = false;
         assessmentDate.isUserInteractionEnabled = false;
-        assessmentDescription.text = self.selectedAssessmentProfile.getAssessmentTitle()
-        assessmentMarks.text = String(self.selectedAssessmentProfile.getAssessmentMarks())
-        assessmentDate.date = self.selectedAssessmentProfile.getAssessmentDate()
+        assessmentDescription.text = self.selectedAssessmentProfile.getAssessmentTitle
+        assessmentMarks.text = String(self.selectedAssessmentProfile.getAssessmentMarks)
+        assessmentDate.date = self.selectedAssessmentProfile.getAssessmentDate
         
-        self.title = self.selectedAssessmentProfile.getAssessmentTitle();
+        self.title = self.selectedAssessmentProfile.getAssessmentTitle;
         
         self.saveButton.isHidden = true;
         

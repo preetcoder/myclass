@@ -11,6 +11,7 @@ import MessageUI
 
 class ExportViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
+     var loadStudents = ImportData()
   
     @IBAction func exportAssessments(_ sender: Any) {
         
@@ -42,49 +43,47 @@ class ExportViewController: UIViewController, MFMailComposeViewControllerDelegat
         if(val == "attendance") {
             
             let obj = ConvertToDate()
-            let  allStudents = ImportData.allStudent
+            
+            
+            let  allStudents = loadStudents.getDatafromDB()
             
             for student in allStudents{
                 
                 
                 // get all attendance of this student
-                if((student.getAttendance()?.count)! > 0){
-                    allStudentData += "Student ID - \(student.getStudentID()) \n Dates Attended - "
-                    for attendance in student.getAttendance()! {
-                        if attendance.getStatus() == true {
-                            
-                            allStudentData += " \(obj.getStringFromDate(dateVal: attendance.getDate())),"
-                        }
-                    }
-                    
-                }
-                allStudentData += "\n"
+//                if((student.getAttendance()?.count)! > 0){
+//                    allStudentData += "Student ID - \(student.getStudentID) \n Dates Attended - "
+//                    for attendance in student.getAttendance()! {
+//                        if attendance.getStatus() == true {
+//
+//                            allStudentData += " \(obj.getStringFromDate(dateVal: attendance.getDate())),"
+//                        }
+//                    }
+//
+//                }
+//                allStudentData += "\n"
             }
             
         }
         else{
             
             let obj = ConvertToDate()
-            let  allStudents = ImportData.allStudent
+            let  allStudents = loadStudents.getDatafromDB()
             
             for student in allStudents{
                 
-                if (student.getMarks()?.count)! > 0 {
-                    allStudentData += "Student ID - \(student.getStudentID())  "
-                    
-                    
-                    for assessmentMarks in student.getMarks()! {
-                        
-                         allStudentData += "\n Assessment Name - \(assessmentMarks.getAssessment().getAssessmentTitle()) \n Marks Obtained = \(assessmentMarks.getObtainedMarks())"
-                        
-                    }
-                    
-                    allStudentData += "\n ================ \n"
-                    
-                
-                    
-                    
-                }
+//                if (student.getMarks()?.count)! > 0 {
+//                    allStudentData += "Student ID - \(student.getStudentID())  "
+//                    
+//                    
+//                    for assessmentMarks in student.getMarks()! {
+//                        
+//                         allStudentData += "\n Assessment Name - \(assessmentMarks.getAssessment().getAssessmentTitle()) \n Marks Obtained = \(assessmentMarks.getObtainedMarks())"
+//                        
+//                    }
+//                    
+//                    allStudentData += "\n ================ \n"
+//                }
                 
             }
         }
