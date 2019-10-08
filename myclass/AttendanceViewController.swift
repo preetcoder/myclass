@@ -17,12 +17,15 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var allStudents = [Student]()
     
-     var loadStudents = ImportData()
+     var loadStudents = RestAPI()
+    
+    var studentmanager = StudentManager()
 
     
      //var delegate : userDataDelegate?
     
     @IBOutlet weak var StudentData: UITableView!
+    
     @IBAction func AddNewStudentOnClick(_ sender: Any)
     {
          performSegue(withIdentifier: "addNewStudent", sender: self)
@@ -50,7 +53,7 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
         let currentDate = dateHelper.getDateFromString(dateVal: currentDateText!)
         let nextDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)
         dateLable.text = dateHelper.getStringFromDate(dateVal: nextDate!)
-        self.StudentData.reloadData()
+        refreshStudents()
     }
     
     
@@ -60,15 +63,10 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
         let currentDate = dateHelper.getDateFromString(dateVal: currentDateText!)
         let nextDate = Calendar.current.date(byAdding: .day, value: -1, to: currentDate)
         dateLable.text = dateHelper.getStringFromDate(dateVal: nextDate!)
-        self.StudentData.reloadData()
+        refreshStudents()
     }
     
 
-//    override func viewDidAppear(_ animated: Bool) {
-//        //print("aaa")
-//        // reload table view
-//        StudentData.reloadData()
-//    }
     
     override func viewWillAppear(_ animated: Bool) {
 
@@ -77,29 +75,24 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
     
     // Delegation method
     
-    
-    
     func newStudentEnteredData(name: String, lastName: String, studentID: String, studentEmail: String, studentPhone: String, studentImage : String) {
-        //print("\(name) \(studentID) \(studentEmail) \(studentPhone)")
-//
-//        if (name != "" && studentID != "" && lastName != "" && studentEmail != "" && studentPhone != ""){
-//
-//            var newStudent = Student()
-//
-//                newStudent = Student(studentEmail: studentEmail, studentID: studentID, studentFirstName: name, studentLastName: lastName, studentPhone: studentPhone, studentImage : studentImage, studentAttendance: [], studentMarks: [])
-//
-//
-//
-//
-//            allStudents.insert(newStudent, at: 0)
-//
-//            // add to singleton too
-//            ImportData.addSharedData(StudOBJ: newStudent)
-//
-//            // reload table view
-//            StudentData.reloadData()
-//
-//        }
+
+        if (name != "" && studentID != "" && lastName != "" && studentEmail != "" && studentPhone != ""){
+            
+            let studentmanager = StudentManager()
+            
+            // save in db
+            
+            let newStudentStatus =  studentmanager.saveStudentinDB(email: studentEmail, studentID: studentID, first_name: name, last_name: lastName, phone: studentPhone, image: studentImage)
+
+            if newStudentStatus {
+                print("New Student Added")
+            }
+
+            // reload table view
+            refreshStudents()
+
+        }
     }
     
     
@@ -118,12 +111,24 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
         
         if editingStyle == UITableViewCell.EditingStyle.delete {
             
-            // delete from array first
-            allStudents.remove(at: indexPath.row)
             
-            //ImportData.allStudent.remove(at: indexPath.row)
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            let studentmanager = StudentManager()
+            // delete from core db
+            let deleteStatus =  studentmanager.deleteStudentRecordinDB(studentObj: allStudents[indexPath.row])
+            
+            if deleteStatus {
+                
+                // delete from array
+                allStudents.remove(at: indexPath.row)
+                
+                //ImportData.allStudent.remove(at: indexPath.row)
+                // Delete the row from the data source
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                
+            }
+            
+            
         }
     }
     
@@ -201,35 +206,21 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
     // MARK: - Private Methods
     private func loadSampleData() {
         
-       
-//        ImportData.getDataFromURL{
-//
-//            students in
-//            //print(students[0].getStudentID())
-//            for student in students {
-//                self.allStudents.append(student)
-//            }
-//
-//            DispatchQueue.main.async {
-//                //self.allStudents = ImportData.shared()
-//                //print(self.allStudents)
-//                //tableView.reloadData()
-//                self.StudentData.reloadData()
-//                // disappear loader
-//                SVProgressHUD.dismiss()
-//            }
-//        }
-        
-        self.allStudents =  loadStudents.getDatafromDB()
-        
-        sleep(5)
-        
-        self.StudentData.reloadData()
-        
-         SVProgressHUD.dismiss()
-        
-        
-        
+        // load all students from API/DB
+        loadStudents.getDataFromURL{
+            (success) -> Void in
+            
+            self.allStudents =  self.studentmanager.getStudentsfromDB()
+            
+            DispatchQueue.main.async {
+                
+                                self.StudentData.reloadData()
+                                // disappear loader
+                                SVProgressHUD.dismiss()
+                            }
+
+        }
+   
     }
 
     
@@ -257,11 +248,13 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
             destinationVC.allStudentsData = self.allStudents
         }
         
-       
-        
-       
         
     }
     
-
+    func refreshStudents(){
+        
+        var studentmanager = StudentManager()
+        allStudents = studentmanager.getStudentsfromDB()
+        self.StudentData.reloadData()
+    }
 }

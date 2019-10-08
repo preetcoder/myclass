@@ -11,7 +11,9 @@ import MessageUI
 
 class ExportViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
-     var loadStudents = ImportData()
+     var loadStudents = RestAPI()
+    
+    var studentmanager = StudentManager()
   
     @IBAction func exportAssessments(_ sender: Any) {
         
@@ -45,7 +47,7 @@ class ExportViewController: UIViewController, MFMailComposeViewControllerDelegat
             let obj = ConvertToDate()
             
             
-            let  allStudents = loadStudents.getDatafromDB()
+            let  allStudents = studentmanager.getStudentsfromDB()
             
             for student in allStudents{
                 
@@ -68,7 +70,7 @@ class ExportViewController: UIViewController, MFMailComposeViewControllerDelegat
         else{
             
             let obj = ConvertToDate()
-            let  allStudents = loadStudents.getDatafromDB()
+            let  allStudents = studentmanager.getStudentsfromDB()
             
             for student in allStudents{
                 

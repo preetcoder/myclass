@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 protocol NewStudentDataDelegate {
     func newStudentEnteredData (name : String, lastName : String, studentID : String, studentEmail : String, studentPhone : String, studentImage : String)
 }
@@ -18,6 +19,7 @@ class AddStudentViewController: UIViewController, UIImagePickerControllerDelegat
     var activeField: UITextField?
     var lastOffset: CGPoint!
     var keyboardHeight: CGFloat!
+    var studentmanager = StudentManager()
     var allStudentsData =  [Student]()
 
     @IBOutlet weak var studentProfileImage: UIImageView!
@@ -80,16 +82,16 @@ class AddStudentViewController: UIViewController, UIImagePickerControllerDelegat
             
            
         }
-        
-        
         self.dismiss(animated: true, completion: nil)
     }
     
 
     @IBAction func onSaveNewStudentClick(_ sender: Any) {
         
-        //print(newStudentName.text!)
         // check if student ID already exists
+        
+        allStudentsData = studentmanager.getStudentsfromDB()
+        
         let results = allStudentsData.filter { $0.getStudentID == newStudentID.text! }
         
         //print(results.isEmpty)

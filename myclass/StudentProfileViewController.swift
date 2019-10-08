@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import CoreData
 
 class StudentProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITextFieldDelegate
 {
     
-    var selectedStudent = Student() 
+    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+    var selectedStudent : Student?
     
     @IBOutlet weak var studentImage: UIImageView!
     
@@ -32,7 +35,11 @@ class StudentProfileViewController: UIViewController, UIImagePickerControllerDel
     
     override func viewDidLoad()
     {
+        
+         //selectedStudent = NSEntityDescription.insertNewObject(forEntityName: "Student", into: context)
         super.viewDidLoad()
+        
+        loadValues()
         
         self.mainScrollView.contentSize =  CGSize(width: view.frame.width, height: view.frame.height);
         
@@ -53,28 +60,38 @@ class StudentProfileViewController: UIViewController, UIImagePickerControllerDel
         self.studPhone.isUserInteractionEnabled = false;
         
         self.studLastName.isUserInteractionEnabled = false;
-        self.studName.text = self.selectedStudent.getStudentName
-        self.studID.text = self.selectedStudent.getStudentID
-        self.studEmail.text = self.selectedStudent.getStudentEmail
-        self.studPhone.text = self.selectedStudent.getStudentPhone
-        self.studLastName.text = self.selectedStudent.getStudentLastName
         
-        // image
-        if self.selectedStudent.getStudentImage == "download" {
-            self.studentImage.image = UIImage(named: self.selectedStudent.getStudentImage)
-        }
-        else{
-            
-            self.studentImage.image =  FileSaving.getImage(imageName: selectedStudent.getStudentImage)
-        }
-        
-        self.title = self.selectedStudent.getStudentName
+       
         
         self.saveButton.isHidden = true
         //self.studentName.text = self.selectedStudent.getStudentName()
         // Do any additional setup after loading the view.
         
         
+        
+    }
+    
+    private func loadValues(){
+        
+        if selectedStudent != nil {
+            self.studName.text = self.selectedStudent!.getStudentName
+            self.studID.text = self.selectedStudent!.getStudentID
+            self.studEmail.text = self.selectedStudent!.getStudentEmail
+            self.studPhone.text = self.selectedStudent!.getStudentPhone
+            self.studLastName.text = self.selectedStudent!.getStudentLastName
+            
+            // image
+            if self.selectedStudent!.getStudentImage == "download" {
+                self.studentImage.image = UIImage(named: self.selectedStudent!.getStudentImage)
+            }
+            else{
+                
+                self.studentImage!.image =  FileSaving.getImage(imageName: selectedStudent!.getStudentImage)
+            }
+            
+            self.title = self.selectedStudent!.getStudentName
+        }
+    
         
     }
     
@@ -100,6 +117,7 @@ class StudentProfileViewController: UIViewController, UIImagePickerControllerDel
         
     }
     
+    // once clicked on image
     @objc func tappedMe()
     {
         
@@ -126,25 +144,35 @@ class StudentProfileViewController: UIViewController, UIImagePickerControllerDel
     @IBAction func onClickSave(_ sender: Any) {
         if studEmail.text! != "" && studName.text! != "" && studLastName.text! != "" && studPhone.text! != "" && studID.text! != ""{
             
-//            selectedStudent.setStudentEmail(email: self.studEmail.text!)
-//            selectedStudent.setStudentPhone(phone: studPhone.text!)
-//            selectedStudent.setStudentFirstName(name: studName.text!)
-//            selectedStudent.setStudentLastName(lastname: studLastName.text!)
+            // update in DB
+            let studentmanager = StudentManager()
             
-            // set image
-            if  let imageVal = studentImage.image {
-                
-                let selectedImagefromCamera = FileSaving.saveImage(image: imageVal)
-                
-//                selectedStudent.setStudentImage(image: selectedImagefromCamera)
-                
-               
-            }
-            else{
-                
-//                selectedStudent.setStudentImage(image: "download")
-                
-            }
+            let updatedStatus =  studentmanager.updateStudentRecordinDB(studentObj: selectedStudent!, emailVal: self.studEmail.text!, studentIDVal: studID.text!, first_nameVal: studName.text!, last_nameVal: studLastName.text!, phoneVal: studPhone.text!, imageVal: "download")
+            
+            if(updatedStatus) {
+                                print("Student Updated")
+                            }
+            
+            
+          /************************ Need to work on image  ********************/
+            
+            
+             //set image
+//            if  let imageVal = studentImage.image {
+//
+//                let selectedImagefromCamera = FileSaving.saveImage(image: imageVal)
+//
+//                print("Image = \(selectedImagefromCamera)")
+//
+////                selectedStudent.setStudentImage(image: selectedImagefromCamera)
+//
+//
+//            }
+//            else{
+//
+////                selectedStudent.setStudentImage(image: "download")
+//
+//            }
             
             self.studID.backgroundColor = nil
         

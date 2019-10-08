@@ -11,13 +11,13 @@
         <attribute name="attendaceDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="status" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="singleStudentAttendance" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Student" inverseName="attendance" inverseEntity="Student" syncable="YES"/>
+        <relationship name="parentStudentAttendance" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Student" inverseName="attendance" inverseEntity="Student" syncable="YES"/>
     </entity>
     <entity name="Marks" representedClassName=".Marks" syncable="YES">
         <attribute name="id" attributeType="Integer 32" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="obtainedMarks" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="assessment" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Assessment" inverseName="singleMark" inverseEntity="Assessment" syncable="YES"/>
-        <relationship name="singleStudentMarks" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Student" inverseName="marks" inverseEntity="Student" syncable="YES"/>
+        <relationship name="parentStudentMarks" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Student" inverseName="marks" inverseEntity="Student" syncable="YES"/>
     </entity>
     <entity name="Student" representedClassName=".Student" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
@@ -26,8 +26,8 @@
         <attribute name="last_name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="studentID" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="attendance" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Attendance" inverseName="singleStudentAttendance" inverseEntity="Attendance" syncable="YES"/>
-        <relationship name="marks" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Marks" inverseName="singleStudentMarks" inverseEntity="Marks" syncable="YES"/>
+        <relationship name="attendance" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Attendance" inverseName="parentStudentAttendance" inverseEntity="Attendance" syncable="YES"/>
+        <relationship name="marks" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Marks" inverseName="parentStudentMarks" inverseEntity="Marks" syncable="YES"/>
     </entity>
     <elements>
         <element name="Assessment" positionX="46.71484375" positionY="224.51171875" width="128" height="120"/>
