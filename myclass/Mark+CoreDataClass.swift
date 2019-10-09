@@ -1,8 +1,8 @@
 //
-//  Marks+CoreDataClass.swift
+//  Mark+CoreDataClass.swift
 //  myclass
 //
-//  Created by Harpreet Singh on 7/10/19.
+//  Created by Harpreet Singh on 9/10/19.
 //  Copyright © 2019 Harpreetandbhavesh. All rights reserved.
 //
 //
@@ -11,7 +11,7 @@ import Foundation
 import CoreData
 
 
-public class Marks: NSManagedObject {
+public class Mark: NSManagedObject {
 
     var getObtainedMarks :  Int {
         return Int(obtainedMarks)

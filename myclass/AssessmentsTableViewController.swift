@@ -13,6 +13,11 @@ class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDe
     var assessments = [Assessment]()
     
     var students = [Student]()
+    
+    var studentmanager = StudentManager()
+    
+    var assessmentmanager = AssessmentManager()
+    
 
     @IBAction func OnAddAssessmentClick(_ sender: Any)
     {
@@ -21,6 +26,8 @@ class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        refershAssessments()
+        
         studentdataLoad()
         //print(students)
 
@@ -28,7 +35,7 @@ class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDe
     
     func studentdataLoad(){
         
-        //students =  ImportData.allStudent
+        students =  studentmanager.getStudentsfromDB()
         
         //print("hello \(students[1].getStudentName())")
         
@@ -37,15 +44,38 @@ class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDe
     // Delegated Method from NewAssessment
     func userEnteredData(Desc: String, marks: String, dateVal: Date) {
         
-        //print("\(Desc) \(marks) \(dateVal)")
-        
+      
         if(Desc != "" && marks != "" && dateVal != nil)
         {
-//         let newAssessment = Assessment(assessmentId: (assessments.count + 1), assessmentName: Desc, assessmentTotalMarks: Int(marks)!, date: dateVal)
-//
-//            assessments.append(newAssessment)
+            
+            // get recent assessment so can findout the id of next assessment
+            
+            let recentAssessment = assessmentmanager.getAssessmentRecords(lastVal: true)
+            
+            let assessmentNewID : Int
+            
+            if recentAssessment.count > 0 {
+                
+                let recentAssessmentRecord = recentAssessment[0]
+                
+                // add 1 to previous id
+                assessmentNewID = (recentAssessmentRecord.getAssessmentID + 1)
+           
+            }
+            
+            else{
+                assessmentNewID = 1
+            }
+            
+            let newassessmentstatus =  assessmentmanager.addNewAssessment(assessmentID: assessmentNewID, assessmentTitle: Desc, assessmentTotalmarks: Int(marks)!, assessmentDate: dateVal)
+            
+            if(newassessmentstatus) {
+                print("New Assessment Added")
+            }
+            
             // reload table view
-            tableView.reloadData()
+            refershAssessments()
+            
         }
        
         
@@ -54,13 +84,8 @@ class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDe
     //Delegated Method for Updating Assessment
     func updateAssessmentDetails(Title: String, Totalmarks: Int, AssessmentDate: Date, IndexValue: Int)
     {
-        if(Title != "" && Totalmarks>0 && AssessmentDate != nil)
-        {
-//            assessments[IndexValue].setAssessmentTitle(assessmentName: Title)
-//            assessments[IndexValue].setAssessmentMarks(assessmentTotalMarks: Totalmarks)
-//            assessments[IndexValue].setAssessmentDate(date: AssessmentDate)
-        }
-        tableView.reloadData()
+      // just refersh the table view from db
+        refershAssessments()
     }
 
     
@@ -69,10 +94,16 @@ class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDe
         
         if editingStyle == UITableViewCell.EditingStyle.delete {
             
-            // delete from array first
-            assessments.remove(at: indexPath.row)
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
+           let deleteAssessmentStatus =  assessmentmanager.deleteAssessmentinDB(assessmentObj: assessments[indexPath.row])
+            
+            if(deleteAssessmentStatus) {
+                print("Assessment deleted")
+                // delete from array also
+                assessments.remove(at: indexPath.row)
+                // Delete the row from the data source
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+           
         }
     }
 
@@ -115,14 +146,14 @@ class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDe
         let cellIdentifier = "SingleAssessmentTableViewCell"
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? SingleAssessmentTableViewCell  else {
-            fatalError("The dequeued cell is not an instance of MealTableViewCell.")
+            fatalError("The dequeued cell is not an instance of SingleAssessmentTableViewCell.")
         }
         
         let assessment = self.assessments[indexPath.row]
 
         // Configure the cell...
         
-//        cell.singleAssessmentTitle.text = assessment.getAssessmentTitle()
+        cell.singleAssessmentTitle.text = assessment.getAssessmentTitle
         
         
 
@@ -156,6 +187,11 @@ class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDe
     // move to another screen on cell click
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "ViewAssessmentProfile", sender: indexPath)
+    }
+    
+    func refershAssessments(){
+        assessments =  assessmentmanager.getAssessmentRecords(lastVal: false)
+        tableView.reloadData()
     }
 
     

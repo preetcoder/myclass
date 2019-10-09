@@ -22,8 +22,6 @@
 		1052637C234B24790014E906 /* Attendance+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10526376234B24790014E906 /* Attendance+CoreDataProperties.swift */; };
 		1052637D234B24790014E906 /* Assessment+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10526377234B24790014E906 /* Assessment+CoreDataClass.swift */; };
 		1052637E234B24790014E906 /* Assessment+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10526378234B24790014E906 /* Assessment+CoreDataProperties.swift */; };
-		1052637F234B24790014E906 /* Marks+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10526379234B24790014E906 /* Marks+CoreDataClass.swift */; };
-		10526380234B24790014E906 /* Marks+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1052637A234B24790014E906 /* Marks+CoreDataProperties.swift */; };
 		1054579B232E4B28008BEF57 /* SingleStudentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1054579A232E4B28008BEF57 /* SingleStudentTableViewCell.swift */; };
 		1054579D232E5CC8008BEF57 /* AllStudentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1054579C232E5CC8008BEF57 /* AllStudentsTableViewController.swift */; };
 		106EAFEB232E93EF00A20C5B /* StudentProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EAFEA232E93EF00A20C5B /* StudentProfileViewController.swift */; };
@@ -34,7 +32,10 @@
 		106EAFF6232FDFF800A20C5B /* convertToDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EAFF5232FDFF800A20C5B /* convertToDate.swift */; };
 		107DA9FF23373DE300087505 /* Export.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 107DA9FE23373DE300087505 /* Export.storyboard */; };
 		109DADDC234C84EA0026299D /* StudentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109DADDB234C84EA0026299D /* StudentManager.swift */; };
-		10A05454234CF8B8005A33EE /* AttendanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A05453234CF8B8005A33EE /* AttendanceManager.swift */; };
+		10A05456234D7D84005A33EE /* AssessmentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A05455234D7D84005A33EE /* AssessmentManager.swift */; };
+		10A05458234DB362005A33EE /* AttendanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A05457234DB362005A33EE /* AttendanceManager.swift */; };
+		10A0545B234DB59B005A33EE /* Mark+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A05459234DB59B005A33EE /* Mark+CoreDataClass.swift */; };
+		10A0545C234DB59B005A33EE /* Mark+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A0545A234DB59B005A33EE /* Mark+CoreDataProperties.swift */; };
 		10B7D1D3234AE794006D33AC /* myclassDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 10B7D1D1234AE794006D33AC /* myclassDataModel.xcdatamodeld */; };
 		10C103012333DA1300D7A469 /* popupAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C103002333DA1300D7A469 /* popupAlert.swift */; };
 		10C2E3EA23369E8100CA10C5 /* FileSaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C2E3E923369E8100CA10C5 /* FileSaving.swift */; };
@@ -96,8 +97,6 @@
 		10526376234B24790014E906 /* Attendance+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Attendance+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		10526377234B24790014E906 /* Assessment+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assessment+CoreDataClass.swift"; sourceTree = "<group>"; };
 		10526378234B24790014E906 /* Assessment+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assessment+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		10526379234B24790014E906 /* Marks+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Marks+CoreDataClass.swift"; sourceTree = "<group>"; };
-		1052637A234B24790014E906 /* Marks+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Marks+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1054579A232E4B28008BEF57 /* SingleStudentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleStudentTableViewCell.swift; sourceTree = "<group>"; };
 		1054579C232E5CC8008BEF57 /* AllStudentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllStudentsTableViewController.swift; sourceTree = "<group>"; };
 		106EAFEA232E93EF00A20C5B /* StudentProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentProfileViewController.swift; sourceTree = "<group>"; };
@@ -108,7 +107,10 @@
 		106EAFF5232FDFF800A20C5B /* convertToDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = convertToDate.swift; sourceTree = "<group>"; };
 		107DA9FE23373DE300087505 /* Export.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Export.storyboard; sourceTree = "<group>"; };
 		109DADDB234C84EA0026299D /* StudentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentManager.swift; sourceTree = "<group>"; };
-		10A05453234CF8B8005A33EE /* AttendanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceManager.swift; sourceTree = "<group>"; };
+		10A05455234D7D84005A33EE /* AssessmentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentManager.swift; sourceTree = "<group>"; };
+		10A05457234DB362005A33EE /* AttendanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceManager.swift; sourceTree = "<group>"; };
+		10A05459234DB59B005A33EE /* Mark+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mark+CoreDataClass.swift"; sourceTree = "<group>"; };
+		10A0545A234DB59B005A33EE /* Mark+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mark+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		10B7D1D2234AE794006D33AC /* myclassDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = myclassDataModel.xcdatamodel; sourceTree = "<group>"; };
 		10C103002333DA1300D7A469 /* popupAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popupAlert.swift; sourceTree = "<group>"; };
 		10C2E3E923369E8100CA10C5 /* FileSaving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSaving.swift; sourceTree = "<group>"; };
@@ -257,12 +259,12 @@
 		CE37B7A1232CA9ED0086DCD3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				10A05459234DB59B005A33EE /* Mark+CoreDataClass.swift */,
+				10A0545A234DB59B005A33EE /* Mark+CoreDataProperties.swift */,
 				10526375234B24790014E906 /* Attendance+CoreDataClass.swift */,
 				10526376234B24790014E906 /* Attendance+CoreDataProperties.swift */,
 				10526377234B24790014E906 /* Assessment+CoreDataClass.swift */,
 				10526378234B24790014E906 /* Assessment+CoreDataProperties.swift */,
-				10526379234B24790014E906 /* Marks+CoreDataClass.swift */,
-				1052637A234B24790014E906 /* Marks+CoreDataProperties.swift */,
 				10526371234B23BA0014E906 /* Student+CoreDataClass.swift */,
 				10526372234B23BA0014E906 /* Student+CoreDataProperties.swift */,
 				CE28ACFC2335FFF400A2B24E /* CustomDate.swift */,
@@ -274,7 +276,8 @@
 				10507FCC2335DDBA0006F229 /* studentObjects.swift */,
 				10B7D1D1234AE794006D33AC /* myclassDataModel.xcdatamodeld */,
 				109DADDB234C84EA0026299D /* StudentManager.swift */,
-				10A05453234CF8B8005A33EE /* AttendanceManager.swift */,
+				10A05455234D7D84005A33EE /* AssessmentManager.swift */,
+				10A05457234DB362005A33EE /* AttendanceManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -590,6 +593,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10A0545C234DB59B005A33EE /* Mark+CoreDataProperties.swift in Sources */,
 				106EAFEB232E93EF00A20C5B /* StudentProfileViewController.swift in Sources */,
 				CE37B7AB232CDB1E0086DCD3 /* AddStudentViewController.swift in Sources */,
 				1035605A232CEF1400466075 /* RestAPI.swift in Sources */,
@@ -597,10 +601,12 @@
 				10507FCB2335C8750006F229 /* AssessmentDetailsTableViewCell.swift in Sources */,
 				106EAFF6232FDFF800A20C5B /* convertToDate.swift in Sources */,
 				CEF579BB232E3E27009099ED /* NewAssessmentViewController.swift in Sources */,
+				10A05456234D7D84005A33EE /* AssessmentManager.swift in Sources */,
 				10C103012333DA1300D7A469 /* popupAlert.swift in Sources */,
 				10356058232CE6BB00466075 /* MarksOld.swift in Sources */,
 				CE28ACFD2335FFF400A2B24E /* CustomDate.swift in Sources */,
 				10526374234B23BA0014E906 /* Student+CoreDataProperties.swift in Sources */,
+				10A05458234DB362005A33EE /* AttendanceManager.swift in Sources */,
 				10EC239C232CA46D00E488B3 /* AppDelegate.swift in Sources */,
 				CE0119DF23308D2B002E183C /* AssessmentProfileViewController.swift in Sources */,
 				109DADDC234C84EA0026299D /* StudentManager.swift in Sources */,
@@ -613,8 +619,6 @@
 				1052637C234B24790014E906 /* Attendance+CoreDataProperties.swift in Sources */,
 				10B7D1D3234AE794006D33AC /* myclassDataModel.xcdatamodeld in Sources */,
 				1052637B234B24790014E906 /* Attendance+CoreDataClass.swift in Sources */,
-				10526380234B24790014E906 /* Marks+CoreDataProperties.swift in Sources */,
-				1052637F234B24790014E906 /* Marks+CoreDataClass.swift in Sources */,
 				10526373234B23BA0014E906 /* Student+CoreDataClass.swift in Sources */,
 				106EAFF3232F93AA00A20C5B /* AttendanceViewController.swift in Sources */,
 				10EC239C232CA46D00E488B3 /* AppDelegate.swift in Sources */,
@@ -626,8 +630,8 @@
 				10356056232CDFD700466075 /* AssessmentOld.swift in Sources */,
 				10356052232CDC1400466075 /* StudentOld.swift in Sources */,
 				1052637D234B24790014E906 /* Assessment+CoreDataClass.swift in Sources */,
-				10A05454234CF8B8005A33EE /* AttendanceManager.swift in Sources */,
 				10356054232CDE0600466075 /* AttendanceOld.swift in Sources */,
+				10A0545B234DB59B005A33EE /* Mark+CoreDataClass.swift in Sources */,
 				CE0119DB232F78DB002E183C /* AssessmentsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

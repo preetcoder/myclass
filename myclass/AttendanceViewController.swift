@@ -20,6 +20,8 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
      var loadStudents = RestAPI()
     
     var studentmanager = StudentManager()
+    
+    var attendancemanager = AttendanceManager()
 
     
      //var delegate : userDataDelegate?
@@ -70,7 +72,8 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewWillAppear(_ animated: Bool) {
 
-        StudentData.reloadData()
+        //StudentData.reloadData()
+        refreshStudents()
     }
     
     // Delegation method
@@ -154,19 +157,25 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.studentImage?.image = FileSaving.getImage(imageName: student.getStudentImage)
         }
 //
-//        cell.studewntAttendance?.tag = indexPath.row
-//        cell.studewntAttendance?.setOn(false, animated: false)
-//
-//        if allStudents[indexPath.row].getAttendance()!.count != 0
-//        {
-//            for attendanceObject in allStudents[indexPath.row].getAttendance()!.indices
-//            {
-//                if(allStudents[indexPath.row].getAttendance()![attendanceObject].getDate() == dateHelper.getDateFromString(dateVal: dateLable.text!))
-//                {
-//                    cell.studewntAttendance?.setOn(allStudents[indexPath.row].getAttendance()![attendanceObject].getStatus(), animated: false)
-//                }
-//            }
-//        }
+        cell.studewntAttendance?.tag = indexPath.row
+        cell.studewntAttendance?.setOn(false, animated: false)
+        
+        let attendanceofCurrentstudentCell = attendancemanager.getAttendanceRecords(StudObj: student, lastVal: false)
+        
+        //print(attendanceofCurrentstudentCell)
+      
+        if attendanceofCurrentstudentCell.count != 0
+        {
+            for attendanceObject in attendanceofCurrentstudentCell.indices
+            {
+                print("\(attendanceofCurrentstudentCell[attendanceObject].getDate) => \(dateHelper.getDateFromString(dateVal: dateLable.text!))")
+                
+                if(attendanceofCurrentstudentCell[attendanceObject].getDate == dateHelper.getDateFromString(dateVal: dateLable.text!))
+                {
+                    cell.studewntAttendance?.setOn(attendanceofCurrentstudentCell[attendanceObject].getStatus, animated: false)
+                }
+            }
+        }
         cell.studewntAttendance.addTarget(self, action: #selector(buttonClicked(sender:)), for: .valueChanged)
         return cell
     }
@@ -198,10 +207,32 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
 //        }
 //        else
 //        {
-//            let Count = 0
-//            let todayAttendance = Attendance(attendanceID: Count,attendanceDate: dateHelper.getDateFromString(dateVal: dateLable.text!),attendanceStatus: sender.isOn)
-//            allStudents[buttonRow].addAttendance(attendanceObj: todayAttendance)
-//        }
+        print(buttonRow)
+        
+        
+        let recentAttendance  =  attendancemanager.getAttendanceRecords(StudObj: allStudents[buttonRow], lastVal: true)
+        
+        var Count : Int = 1
+        
+        if recentAttendance.count > 0 {
+            
+            let recentAttendanceRecord = recentAttendance[0]
+            
+            // add 1 to previous id
+            Count = (recentAttendanceRecord.getID + 1)
+            
+        }
+            
+        else{
+            Count = 1
+        }
+        
+        let todayAttendance = attendancemanager.addNewAttendanceinDB(attendanceID: Count, attendanceDate: dateHelper.getDateFromString(dateVal: dateLable.text!), attendanceStatus: sender.isOn, studentObj : allStudents[buttonRow])
+        
+        if todayAttendance {
+            print("Attendance Added")
+        }
+            
     }
     // MARK: - Private Methods
     private func loadSampleData() {

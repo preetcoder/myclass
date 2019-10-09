@@ -5,15 +5,15 @@
         <attribute name="id" attributeType="Integer 32" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="totalMarks" attributeType="Integer 32" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="singleMark" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Marks" inverseName="assessment" inverseEntity="Marks" syncable="YES"/>
+        <relationship name="singleMark" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Mark" inverseName="assessment" inverseEntity="Mark" syncable="YES"/>
     </entity>
     <entity name="Attendance" representedClassName=".Attendance" syncable="YES">
         <attribute name="attendaceDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="status" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="parentStudentAttendance" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Student" inverseName="attendance" inverseEntity="Student" syncable="YES"/>
+        <relationship name="parentStudentAttendance" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Student" inverseName="attendances" inverseEntity="Student" syncable="YES"/>
     </entity>
-    <entity name="Marks" representedClassName=".Marks" syncable="YES">
+    <entity name="Mark" representedClassName=".Mark" syncable="YES">
         <attribute name="id" attributeType="Integer 32" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="obtainedMarks" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="assessment" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Assessment" inverseName="singleMark" inverseEntity="Assessment" syncable="YES"/>
@@ -26,13 +26,13 @@
         <attribute name="last_name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="studentID" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="attendance" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Attendance" inverseName="parentStudentAttendance" inverseEntity="Attendance" syncable="YES"/>
-        <relationship name="marks" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Marks" inverseName="parentStudentMarks" inverseEntity="Marks" syncable="YES"/>
+        <relationship name="attendances" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Attendance" inverseName="parentStudentAttendance" inverseEntity="Attendance" syncable="YES"/>
+        <relationship name="marks" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Mark" inverseName="parentStudentMarks" inverseEntity="Mark" syncable="YES"/>
     </entity>
     <elements>
         <element name="Assessment" positionX="46.71484375" positionY="224.51171875" width="128" height="120"/>
         <element name="Attendance" positionX="75.609375" positionY="17.5703125" width="128" height="105"/>
-        <element name="Marks" positionX="-148.2734375" positionY="235.9140625" width="128" height="105"/>
+        <element name="Mark" positionX="-148.2734375" positionY="235.9140625" width="128" height="105"/>
         <element name="Student" positionX="-152.3203125" positionY="11.7578125" width="128" height="165"/>
     </elements>
 </model>

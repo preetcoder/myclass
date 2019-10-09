@@ -2,7 +2,7 @@
 //  Student+CoreDataProperties.swift
 //  myclass
 //
-//  Created by Harpreet Singh on 7/10/19.
+//  Created by Harpreet Singh on 9/10/19.
 //  Copyright © 2019 Harpreetandbhavesh. All rights reserved.
 //
 //
@@ -23,25 +23,25 @@ extension Student {
     @NSManaged public var last_name: String?
     @NSManaged public var phone: String?
     @NSManaged public var studentID: String?
-    @NSManaged public var attendance: NSSet?
+    @NSManaged public var attendances: NSSet?
     @NSManaged public var marks: NSSet?
 
 }
 
-// MARK: Generated accessors for attendance
+// MARK: Generated accessors for attendances
 extension Student {
 
-    @objc(addAttendanceObject:)
-    @NSManaged public func addToAttendance(_ value: Attendance)
+    @objc(addAttendancesObject:)
+    @NSManaged public func addToAttendances(_ value: Attendance)
 
-    @objc(removeAttendanceObject:)
-    @NSManaged public func removeFromAttendance(_ value: Attendance)
+    @objc(removeAttendancesObject:)
+    @NSManaged public func removeFromAttendances(_ value: Attendance)
 
-    @objc(addAttendance:)
-    @NSManaged public func addToAttendance(_ values: NSSet)
+    @objc(addAttendances:)
+    @NSManaged public func addToAttendances(_ values: NSSet)
 
-    @objc(removeAttendance:)
-    @NSManaged public func removeFromAttendance(_ values: NSSet)
+    @objc(removeAttendances:)
+    @NSManaged public func removeFromAttendances(_ values: NSSet)
 
 }
 
@@ -49,10 +49,10 @@ extension Student {
 extension Student {
 
     @objc(addMarksObject:)
-    @NSManaged public func addToMarks(_ value: Marks)
+    @NSManaged public func addToMarks(_ value: Mark)
 
     @objc(removeMarksObject:)
-    @NSManaged public func removeFromMarks(_ value: Marks)
+    @NSManaged public func removeFromMarks(_ value: Mark)
 
     @objc(addMarks:)
     @NSManaged public func addToMarks(_ values: NSSet)

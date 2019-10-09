@@ -25,5 +25,10 @@ public class Assessment: NSManagedObject {
         return assessmentDate! as Date
     }
     
+    var getAssessmentID : Int {
+        
+        return Int(id)
+    }
+    
     
 }

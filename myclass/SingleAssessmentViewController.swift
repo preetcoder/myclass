@@ -12,39 +12,44 @@ protocol AssessmentUpdateDelegate {
 }
 class SingleAssessmentViewController: UIViewController, AssessmentViewDelegate,UITableViewDelegate, UITableViewDataSource,UIPickerViewDataSource,UIPickerViewDelegate,UITextFieldDelegate
 {
- 
-    var pickerData: [Int] = [Int]()
-//    var allStudentsData = ImportData().getDatafromDB()
-//        var allStudentsData =  allStudentsData1.getDatafromDB()
     
-    var selectedAssessment = Assessment();
-    var indexPathValue: Int!;
-
-     //Define Delegate property
+    var pickerData: [Int] = [Int]()
+    var allStudentsData : [Student] = []
+    
+    var selectedAssessment : Assessment?
+    var indexPathValue: Int!
+    
+    //Define Delegate property
     var updateDelegate : AssessmentUpdateDelegate?
     
     @IBOutlet weak var studentMarksTable: UITableView!
     @IBOutlet weak var assessmentTitle: UILabel!
     
+    var studentmanager = StudentManager()
+    var assessmentmanager = AssessmentManager()
+    
     override func viewDidLoad()
     {
-        self.assessmentTitle.text = selectedAssessment.getAssessmentTitle
         
-        self.title = self.selectedAssessment.getAssessmentTitle
-        super.viewDidLoad()
+         super.viewDidLoad()
+        self.assessmentTitle.text = selectedAssessment!.getAssessmentTitle
+        
+        self.title = self.selectedAssessment!.getAssessmentTitle
+       
         pickerData.removeAll()
-        for i in 1...self.selectedAssessment.getAssessmentMarks
+        for i in 1...self.selectedAssessment!.getAssessmentMarks
         {
             pickerData.append(i)
         }
+        
+        allStudentsData = studentmanager.getStudentsfromDB()
         //print(pickerData.count)
         
         // Do any additional setup after loading the view.
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return allStudentsData.count
-        return 1
+        return allStudentsData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,16 +61,16 @@ class SingleAssessmentViewController: UIViewController, AssessmentViewDelegate,U
             fatalError("The dequeued cell is not an instance of AssessmentDetailsTableViewCell.")
         }
         
-
+        
         //print(indexPath.count)
         
-        //let student = allStudentsData[indexPath.row]
+        let student = allStudentsData[indexPath.row]
         
         //cell.studentID.text = student.getStudentID()
-//        cell.studentID.text = student.getStudentName()
-//        cell.studentMarks.delegate = self
-//        cell.studentMarks.dataSource = self
-//        cell.studentMarks.tag = indexPath.row
+        cell.studentID.text = student.getStudentName
+        cell.studentMarks.delegate = self
+        cell.studentMarks.dataSource = self
+        cell.studentMarks.tag = indexPath.row
         
 //        if allStudentsData[indexPath.row].getMarks()!.count != 0
 //        {
@@ -110,9 +115,9 @@ class SingleAssessmentViewController: UIViewController, AssessmentViewDelegate,U
 //        }
 //        else
 //        {
-//           let count = 0
-////           let newAssessmentScore = Marks(marksID: count, assessmentObj: selectedAssessment, marksObtained: row+1)
-////            allStudentsData[buttonRow].addMarks(scores: newAssessmentScore)
+//            let count = 0
+//            let newAssessmentScore = Marks(marksID: count, assessmentObj: selectedAssessment, marksObtained: row+1)
+//            allStudentsData[buttonRow].addMarks(scores: newAssessmentScore)
 //        }
     }
     
@@ -123,11 +128,11 @@ class SingleAssessmentViewController: UIViewController, AssessmentViewDelegate,U
         if segue.identifier == "showAssessmentProfile"
         {
             let destinationVC = segue.destination as! AssessmentProfileViewController
-            destinationVC.selectedAssessmentProfile = self.selectedAssessment
+            destinationVC.selectedAssessmentProfile = self.selectedAssessment!
             destinationVC.indexPathValue = self.indexPathValue
             destinationVC.delegate = self
         }
-        }
+    }
     
     @IBAction func onClickShowAssessment(_ sender: Any)
     {
@@ -140,14 +145,21 @@ class SingleAssessmentViewController: UIViewController, AssessmentViewDelegate,U
     {
         if(Desc != "" && marks>0 && dateVal != nil)
         {
-//            selectedAssessment.getAssessmentTitle(assessmentName: Desc)
-//            selectedAssessment.getAssessmentMarks(assessmentTotalMarks: marks)
-//            selectedAssessment.getAssessmentDate(date: dateVal)
-//            self.assessmentTitle.text = selectedAssessment.getAssessmentTitle
-//            updateDelegate?.updateAssessmentDetails(Title: selectedAssessment.getAssessmentTitle, Totalmarks: selectedAssessment.getAssessmentMarks(), AssessmentDate: selectedAssessment.getAssessmentDate(), IndexValue: self.indexPathValue)
+            
+           let updateAssessmentStatus =  assessmentmanager.updateAssessmentinDB(assessmentObj: selectedAssessment!, assessmentTitle: Desc, assessmentTotalmarks: marks, assessmentDate: dateVal)
+            
+            if updateAssessmentStatus {
+                //print("Assessment Updated Successfully")
+                // update the title
+                self.assessmentTitle.text = Desc
+                updateDelegate?.updateAssessmentDetails(Title: Desc, Totalmarks: marks, AssessmentDate: dateVal, IndexValue: self.indexPathValue)
+            }
+            
+            
+
         }
         var temppickerData: [Int] = [Int]()
-        for i in 1...self.selectedAssessment.getAssessmentMarks
+        for i in 1...self.selectedAssessment!.getAssessmentMarks
         {
             temppickerData.append(i)
         }
@@ -161,7 +173,7 @@ class SingleAssessmentViewController: UIViewController, AssessmentViewDelegate,U
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.selectedAssessment.getAssessmentMarks
+        return self.selectedAssessment!.getAssessmentMarks
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -176,13 +188,13 @@ class SingleAssessmentViewController: UIViewController, AssessmentViewDelegate,U
         self.dismiss(animated: true, completion: nil)
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
