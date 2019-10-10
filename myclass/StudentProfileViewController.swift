@@ -82,7 +82,10 @@ class StudentProfileViewController: UIViewController, UIImagePickerControllerDel
             
             // image
             if self.selectedStudent!.getStudentImage == "download" {
+               
                 self.studentImage.image = UIImage(named: self.selectedStudent!.getStudentImage)
+                
+                
             }
             else{
                 
@@ -129,6 +132,13 @@ class StudentProfileViewController: UIViewController, UIImagePickerControllerDel
             imagePicker.allowsEditing = false
             self.present(imagePicker,animated: true, completion: nil)
         }
+        
+        else{
+            // error if no camera support
+            let alertpopupVal = PopUpAlert()
+            let alert =  alertpopupVal.popUp(titleMsg: "Error!!", popupMsg: "Your device doesn't support camera!!")
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -144,35 +154,31 @@ class StudentProfileViewController: UIViewController, UIImagePickerControllerDel
     @IBAction func onClickSave(_ sender: Any) {
         if studEmail.text! != "" && studName.text! != "" && studLastName.text! != "" && studPhone.text! != "" && studID.text! != ""{
             
+            var studentProfileImage : String = ""
+            
+            //set image
+            if  let imageVal = studentImage.image {
+                
+                // get image from camera in string
+                studentProfileImage = FileSaving.saveImage(image: imageVal)
+               
+            }
+            else{
+                
+                studentProfileImage = "download"
+                
+            }
+            
             // update in DB
             let studentmanager = StudentManager()
             
-            let updatedStatus =  studentmanager.updateStudentRecordinDB(studentObj: selectedStudent!, emailVal: self.studEmail.text!, studentIDVal: studID.text!, first_nameVal: studName.text!, last_nameVal: studLastName.text!, phoneVal: studPhone.text!, imageVal: "download")
+            let updatedStatus =  studentmanager.updateStudentRecordinDB(studentObj: selectedStudent!, emailVal: self.studEmail.text!, studentIDVal: studID.text!, first_nameVal: studName.text!, last_nameVal: studLastName.text!, phoneVal: studPhone.text!, imageVal: studentProfileImage)
             
             if(updatedStatus) {
-                                print("Student Updated")
-                            }
+                print("Student Updated")
+            }
+    
             
-            
-          /************************ Need to work on image  ********************/
-            
-            
-             //set image
-//            if  let imageVal = studentImage.image {
-//
-//                let selectedImagefromCamera = FileSaving.saveImage(image: imageVal)
-//
-//                print("Image = \(selectedImagefromCamera)")
-//
-////                selectedStudent.setStudentImage(image: selectedImagefromCamera)
-//
-//
-//            }
-//            else{
-//
-////                selectedStudent.setStudentImage(image: "download")
-//
-//            }
             
             self.studID.backgroundColor = nil
         

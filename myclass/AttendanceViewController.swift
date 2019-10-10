@@ -39,7 +39,10 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
         //print("sss")
         
         let date = Date()
+        
+        //print(date)
         dateLable.text = dateHelper.getStringFromDate(dateVal: date)
+       // print(" jhdjfdhkf" + dateLable.text!)
         
         SVProgressHUD.show()
         
@@ -72,7 +75,6 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewWillAppear(_ animated: Bool) {
 
-        //StudentData.reloadData()
         refreshStudents()
     }
     
@@ -81,6 +83,7 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
     func newStudentEnteredData(name: String, lastName: String, studentID: String, studentEmail: String, studentPhone: String, studentImage : String) {
 
         if (name != "" && studentID != "" && lastName != "" && studentEmail != "" && studentPhone != ""){
+            
             
             let studentmanager = StudentManager()
             
@@ -148,7 +151,7 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let student  = allStudents[indexPath.row]
         cell.StudentName?.text = student.getStudentName
-//        //cell.StudentName.text = "ss"
+
         if student.getStudentImage == "download" {
             cell.studentImage?.image = UIImage(named: student.getStudentImage)
         }
@@ -156,7 +159,7 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
         else {
             cell.studentImage?.image = FileSaving.getImage(imageName: student.getStudentImage)
         }
-//
+
         cell.studewntAttendance?.tag = indexPath.row
         cell.studewntAttendance?.setOn(false, animated: false)
         
@@ -207,7 +210,6 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
 //        }
 //        else
 //        {
-        print(buttonRow)
         
         
         let recentAttendance  =  attendancemanager.getAttendanceRecords(StudObj: allStudents[buttonRow], lastVal: true)
@@ -240,17 +242,17 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
         // load all students from API/DB
         loadStudents.getDataFromURL{
             (success) -> Void in
-            
+
             self.allStudents =  self.studentmanager.getStudentsfromDB()
-            
+
             DispatchQueue.main.async {
-                
+
                                 self.StudentData.reloadData()
                                 // disappear loader
                                 SVProgressHUD.dismiss()
                             }
-
         }
+        
    
     }
 

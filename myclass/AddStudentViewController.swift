@@ -47,7 +47,9 @@ class AddStudentViewController: UIViewController, UIImagePickerControllerDelegat
         studentProfileImage.addGestureRecognizer(tap)
         studentProfileImage.isUserInteractionEnabled = true
         self.newStudentPhone.keyboardType = UIKeyboardType.numberPad
+       
         let userTappedOtherThanKeyboard: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector(("closeKeyboard")))
+        
         view.addGestureRecognizer(userTappedOtherThanKeyboard)
         
         //set TextField Delegate
@@ -74,6 +76,13 @@ class AddStudentViewController: UIViewController, UIImagePickerControllerDelegat
             imagePicker.allowsEditing = false
             self.present(imagePicker,animated: true, completion: nil)
         }
+        
+        else{
+            // error if no camera support
+            let alertpopupVal = PopUpAlert()
+            let alert =  alertpopupVal.popUp(titleMsg: "Error!!", popupMsg: "Your device doesn't support camera!!")
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -99,10 +108,10 @@ class AddStudentViewController: UIViewController, UIImagePickerControllerDelegat
         if results.isEmpty == true {
             
             // save image
-            //let filesave = FileSaving()
-           // FileSaving.saveImage(image: studentProfileImage.image!)
-            
-            
+//            let filesave = FileSaving()
+//            FileSaving.saveImage(image: studentProfileImage.image!)
+//
+            //print("image = \(studentProfileImage.image)")
             
             if let imageVal = studentProfileImage.image {
                 

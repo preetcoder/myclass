@@ -16,7 +16,7 @@ struct StudentManager {
     
      var allStudent : [Student] = []
     
-    func saveStudentinDB(email : String, studentID : String, first_name : String, last_name : String, phone : String, image : String) -> Bool {
+    func saveStudentinDB(email : String, studentID : String, first_name : String, last_name : String, phone : String, image : String = "download") -> Bool {
         
         let studentData = Student(context: self.context)
         
@@ -30,7 +30,7 @@ struct StudentManager {
         
         studentData.phone = phone
         
-        studentData.image = "download"
+        studentData.image = image
         
        // studentData.attendance = []
         
