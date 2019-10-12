@@ -25,6 +25,7 @@ class SingleAssessmentViewController: UIViewController, AssessmentViewDelegate,U
     @IBOutlet weak var studentMarksTable: UITableView!
     @IBOutlet weak var assessmentTitle: UILabel!
     
+    
     override func viewDidLoad()
     {
         self.assessmentTitle.text = selectedAssessment.getAssessmentTitle()
