@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VNF-jO-ZoQ">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Title-->
+        <scene sceneID="KRz-LV-Usd">
+            <objects>
+                <viewController id="VNF-jO-ZoQ" customClass="AssessmentProfileViewController" customModule="myclass" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="P96-cs-c8N">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HGg-JF-nF1">
+                                <rect key="frame" x="25" y="45" width="271" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Total Marks" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="71U-Th-bLZ">
+                                <rect key="frame" x="25" y="85" width="270" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="TS4-tx-G2j">
+                                <rect key="frame" x="25" y="125" width="270" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="FG1-CU-7BA"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="590383740.40565896">
+                                    <!--2019-09-17 03:29:00 +0000-->
+                                </date>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NpP-bG-y3o">
+                                <rect key="frame" x="25" y="528" width="270" height="30"/>
+                                <color key="backgroundColor" red="0.33333333329999998" green="0.90196078430000004" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.17254901959999999" green="0.2274509804" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="onClickSave:" destination="VNF-jO-ZoQ" eventType="touchUpInside" id="baV-lb-142"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NpP-bG-y3o" firstAttribute="leading" secondItem="77A-Wn-FJh" secondAttribute="leading" constant="25" id="2LU-SF-jDh"/>
+                            <constraint firstItem="77A-Wn-FJh" firstAttribute="trailing" secondItem="NpP-bG-y3o" secondAttribute="trailing" constant="25" id="66d-QN-QLg"/>
+                            <constraint firstItem="HGg-JF-nF1" firstAttribute="leading" secondItem="77A-Wn-FJh" secondAttribute="leading" constant="25" id="7br-BD-gTA"/>
+                            <constraint firstItem="77A-Wn-FJh" firstAttribute="trailing" secondItem="HGg-JF-nF1" secondAttribute="trailing" constant="24" id="HPE-Sz-gQE"/>
+                            <constraint firstItem="HGg-JF-nF1" firstAttribute="top" secondItem="77A-Wn-FJh" secondAttribute="top" constant="25" id="LTb-JV-pj1"/>
+                            <constraint firstItem="TS4-tx-G2j" firstAttribute="leading" secondItem="77A-Wn-FJh" secondAttribute="leading" constant="25" id="PER-H2-MHf"/>
+                            <constraint firstItem="71U-Th-bLZ" firstAttribute="leading" secondItem="77A-Wn-FJh" secondAttribute="leading" constant="25" id="PaT-rM-s7O"/>
+                            <constraint firstItem="71U-Th-bLZ" firstAttribute="top" secondItem="HGg-JF-nF1" secondAttribute="bottom" constant="10" id="ZjN-gB-ZSo"/>
+                            <constraint firstItem="77A-Wn-FJh" firstAttribute="trailing" secondItem="71U-Th-bLZ" secondAttribute="trailing" constant="25" id="bu6-R2-yAy"/>
+                            <constraint firstAttribute="trailing" secondItem="TS4-tx-G2j" secondAttribute="trailing" constant="25" id="gBj-2h-pcd"/>
+                            <constraint firstItem="TS4-tx-G2j" firstAttribute="top" secondItem="71U-Th-bLZ" secondAttribute="bottom" constant="10" id="nrG-9y-hkN"/>
+                            <constraint firstItem="77A-Wn-FJh" firstAttribute="bottom" secondItem="NpP-bG-y3o" secondAttribute="bottom" constant="10" id="oAK-sU-voI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="77A-Wn-FJh"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="mWf-xL-T5g">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Ylj-6w-eJF">
+                            <connections>
+                                <action selector="onClickEdit:" destination="VNF-jO-ZoQ" id="QxH-XN-dyN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="assessmentDate" destination="TS4-tx-G2j" id="iOt-DU-vN5"/>
+                        <outlet property="assessmentDescription" destination="HGg-JF-nF1" id="E7g-gO-Gaq"/>
+                        <outlet property="assessmentMarks" destination="71U-Th-bLZ" id="QJG-9l-WhT"/>
+                        <outlet property="saveButton" destination="NpP-bG-y3o" id="a5j-4Y-q32"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uqz-CL-Nb5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-57" y="-58"/>
+        </scene>
+    </scenes>
+</document>
