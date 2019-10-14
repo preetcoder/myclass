@@ -160,81 +160,57 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.studentImage?.image = FileSaving.getImage(imageName: student.getStudentImage)
         }
 
-        cell.studewntAttendance?.tag = indexPath.row
-        cell.studewntAttendance?.setOn(false, animated: false)
+        cell.studentAttendance?.tag = indexPath.row
+        cell.studentAttendance?.setOn(false, animated: false)
         
         let attendanceofCurrentstudentCell = attendancemanager.getAttendanceRecords(StudObj: student, lastVal: false)
-        
-        //print(attendanceofCurrentstudentCell)
-      
         if attendanceofCurrentstudentCell.count != 0
         {
             for attendanceObject in attendanceofCurrentstudentCell.indices
             {
-                print("\(attendanceofCurrentstudentCell[attendanceObject].getDate) => \(dateHelper.getDateFromString(dateVal: dateLable.text!))")
-                
                 if(attendanceofCurrentstudentCell[attendanceObject].getDate == dateHelper.getDateFromString(dateVal: dateLable.text!))
                 {
-                    cell.studewntAttendance?.setOn(attendanceofCurrentstudentCell[attendanceObject].getStatus, animated: false)
+                    cell.studentAttendance?.setOn(attendanceofCurrentstudentCell[attendanceObject].getStatus, animated: false)
                 }
             }
         }
-        cell.studewntAttendance.addTarget(self, action: #selector(buttonClicked(sender:)), for: .valueChanged)
+        cell.studentAttendance.addTarget(self, action: #selector(buttonClicked(sender:)), for: .valueChanged)
         return cell
     }
     
     @objc func buttonClicked(sender:UISwitch)
     {
         let buttonRow = sender.tag
+        let attendanceRecord = attendancemanager.getAttendanceRecord(StudObj: allStudents[buttonRow], attendanceDate: dateHelper.getDateFromString(dateVal: dateLable.text!));
         
-        // check if array is empty
-//        if allStudents[buttonRow].getAttendance()!.count != 0
-//        {
-//            //get the no. of objects
-//            let Count = allStudents[buttonRow].getAttendance()!.count
-//            //check if the attendance record already exists for that date
-//            var newAttendance = true
-//            for attendanceObject in allStudents[buttonRow].getAttendance()!.indices
-//            {
-//                if(allStudents[buttonRow].getAttendance()![attendanceObject].getDate() == dateHelper.getDateFromString(dateVal: dateLable.text!))
-//                {
-//                    newAttendance = false
-//                    allStudents[buttonRow].updateAttendance(position: attendanceObject, state: sender.isOn)
-//                }
-//            }
-//            if(newAttendance)
-//            {
-//                let todayAttendance = Attendance(attendanceID: Count,attendanceDate: dateHelper.getDateFromString(dateVal: dateLable.text!),attendanceStatus: sender.isOn)
-//                allStudents[buttonRow].addAttendance(attendanceObj: todayAttendance)
-//            }
-//        }
-//        else
-//        {
-        
-        
-        let recentAttendance  =  attendancemanager.getAttendanceRecords(StudObj: allStudents[buttonRow], lastVal: true)
-        
-        var Count : Int = 1
-        
-        if recentAttendance.count > 0 {
-            
-            let recentAttendanceRecord = recentAttendance[0]
-            
-            // add 1 to previous id
-            Count = (recentAttendanceRecord.getID + 1)
-            
+        if(attendanceRecord.count > 0)
+        {
+            let todayAttendance = attendancemanager.updateAttendanceRecord(StudObj: allStudents[buttonRow], attendanceDate: dateHelper.getDateFromString(dateVal: dateLable.text!), attendanceStatus: sender.isOn)
+            if(todayAttendance)
+            {
+                print("Attendance Updated")
+            }
         }
-            
-        else{
-            Count = 1
+        else
+        {
+            let recentAttendance  =  attendancemanager.getAttendanceRecords(StudObj: allStudents[buttonRow], lastVal: true)
+            var Count : Int = 1
+            if recentAttendance.count > 0
+            {
+                let recentAttendanceRecord = recentAttendance[0]
+                // add 1 to previous id
+                Count = (recentAttendanceRecord.getID + 1)
+            }
+            else
+            {
+                Count = 1
+            }
+            let todayAttendance = attendancemanager.addNewAttendanceinDB(attendanceID: Count, attendanceDate: dateHelper.getDateFromString(dateVal: dateLable.text!), attendanceStatus: sender.isOn, studentObj : allStudents[buttonRow])
+            if(todayAttendance)
+            {
+                print("Attendance Added")
+            }
         }
-        
-        let todayAttendance = attendancemanager.addNewAttendanceinDB(attendanceID: Count, attendanceDate: dateHelper.getDateFromString(dateVal: dateLable.text!), attendanceStatus: sender.isOn, studentObj : allStudents[buttonRow])
-        
-        if todayAttendance {
-            print("Attendance Added")
-        }
-            
     }
     // MARK: - Private Methods
     private func loadSampleData() {

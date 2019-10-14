@@ -15,7 +15,7 @@ class SingleStudentTableViewCell: UITableViewCell {
     
     @IBOutlet weak var StudentName: UILabel!
     
-    @IBOutlet weak var studewntAttendance: UISwitch!
+    @IBOutlet weak var studentAttendance: UISwitch!
     
     override func awakeFromNib() {
         super.awakeFromNib()

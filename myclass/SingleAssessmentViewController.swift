@@ -27,6 +27,7 @@ class SingleAssessmentViewController: UIViewController, AssessmentViewDelegate,U
     
     var studentmanager = StudentManager()
     var assessmentmanager = AssessmentManager()
+    var markmanager = MarkManager()
     
     override func viewDidLoad()
     {
@@ -72,6 +73,13 @@ class SingleAssessmentViewController: UIViewController, AssessmentViewDelegate,U
         cell.studentMarks.dataSource = self
         cell.studentMarks.tag = indexPath.row
         
+        let markOfCurrentStudentCell = markmanager.getStudentMark(assessmentObj: self.selectedAssessment!, studentObj: student)
+        
+        if markOfCurrentStudentCell.count > 0
+        {
+            cell.studentMarks.selectRow(markOfCurrentStudentCell[0].getObtainedMarks-1, inComponent: 0, animated: true)
+        }
+        
 //        if allStudentsData[indexPath.row].getMarks()!.count != 0
 //        {
 //            for marksObject in allStudentsData[indexPath.row].getMarks()!.indices
@@ -90,6 +98,38 @@ class SingleAssessmentViewController: UIViewController, AssessmentViewDelegate,U
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         let buttonRow = pickerView.tag
+        let student = allStudentsData[buttonRow]
+        let markOfCurrentStudentCell = markmanager.getStudentMark(assessmentObj: self.selectedAssessment!, studentObj: student)
+        if (markOfCurrentStudentCell.count > 0)
+        {
+            let updateMarkRecord = markmanager.updateMark(obtainedMark: row+1, assessmentObj: selectedAssessment!, studentObj: student)
+                       if(updateMarkRecord)
+                       {
+                           print("Mark updated")
+            }
+           
+        }
+        else
+        {
+           let recentMark  =  markmanager.getLastRecord()
+            var Count : Int = 1
+            if recentMark.count > 0
+            {
+                let recentMarkRecord =  recentMark[0]
+                // add 1 to previous id
+                Count = (recentMarkRecord.getID + 1)
+            }
+            let newMarkRecord = markmanager.addNewMark(markID: Count, obtainedMark: row+1, assessmentObj: selectedAssessment!, studentObj: student)
+            if(newMarkRecord)
+            {
+                print("Mark Added")
+            }
+        }
+        
+//        if markOfCurrentStudentCell.count != 0
+//        {
+//            cell.studentMarks.selectRow(markOfCurrentStudentCell[0].getObtainedMarks-1, inComponent: 0, animated: true)
+//        }
         
 //        if allStudentsData[buttonRow].getMarks()!.count != 0
 //        {

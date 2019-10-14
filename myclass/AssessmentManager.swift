@@ -21,7 +21,7 @@ struct AssessmentManager {
         
         let assessmentData = Assessment(context: context)
         
-        assessmentData.assessmentDate = assessmentDate as NSDate
+        assessmentData.assessmentDate = assessmentDate as Date
         assessmentData.totalMarks = Int32(assessmentTotalmarks)
         assessmentData.name = assessmentTitle
         assessmentData.id = Int32(assessmentID)

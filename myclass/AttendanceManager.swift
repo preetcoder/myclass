@@ -79,4 +79,47 @@ struct AttendanceManager {
         
     }
     
+    mutating func getAttendanceRecord(StudObj : Student,attendanceDate: Date)->[Attendance]
+    {
+        var studentAttendance : [Attendance] = []
+        let request : NSFetchRequest<Attendance> = Attendance.fetchRequest()
+        let studentPredicate = NSPredicate(format: "attendaceDate = %@ and parentStudentAttendance.studentID MATCHES %@", attendanceDate as NSDate,StudObj.getStudentID)
+        request.predicate = studentPredicate
+        do {
+            // fetch from db
+            studentAttendance =  try context.fetch(request)
+            
+        }catch{
+            print("Error fetching Assessments \(error)")
+        }
+        
+        return studentAttendance
+    }
+    
+    mutating func updateAttendanceRecord(StudObj : Student,attendanceDate: Date,attendanceStatus: Bool)-> Bool
+    {
+        var studentAttendance : [Attendance] = []
+        let request : NSFetchRequest<Attendance> = Attendance.fetchRequest()
+        let studentPredicate = NSPredicate(format: "attendaceDate = %@ and parentStudentAttendance.studentID MATCHES %@", attendanceDate as NSDate,StudObj.getStudentID)
+        request.predicate = studentPredicate
+        do {
+            // fetch from db
+            studentAttendance =  try context.fetch(request)
+            
+        }catch{
+            print("Error fetching Assessments \(error)")
+        }
+        
+        let attendanceObject = studentAttendance[0] as NSObject
+        attendanceObject.setValue(attendanceStatus, forKey: "status")
+        do{
+            // save in db
+            try self.context.save()
+            return true
+        }
+        catch{
+            print("error saving assessment \(error)")
+        }
+        return false
+    }
 }

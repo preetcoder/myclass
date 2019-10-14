@@ -2,7 +2,7 @@
 //  Mark+CoreDataClass.swift
 //  myclass
 //
-//  Created by Harpreet Singh on 9/10/19.
+//  Created by Bhavesh Hingad on 14/10/19.
 //  Copyright © 2019 Harpreetandbhavesh. All rights reserved.
 //
 //
@@ -16,5 +16,8 @@ public class Mark: NSManagedObject {
     var getObtainedMarks :  Int {
         return Int(obtainedMarks)
     }
+    var getID : Int {
+           return Int(id)
+       }
     
 }
