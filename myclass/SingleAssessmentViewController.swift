@@ -126,6 +126,8 @@ class SingleAssessmentViewController: UIViewController, AssessmentViewDelegate,U
             }
         }
         
+        //singleTableView.reloadInputViews()
+        
 //        if markOfCurrentStudentCell.count != 0
 //        {
 //            cell.studentMarks.selectRow(markOfCurrentStudentCell[0].getObtainedMarks-1, inComponent: 0, animated: true)
@@ -236,5 +238,6 @@ class SingleAssessmentViewController: UIViewController, AssessmentViewDelegate,U
      // Pass the selected object to the new view controller.
      }
      */
+    
     
 }

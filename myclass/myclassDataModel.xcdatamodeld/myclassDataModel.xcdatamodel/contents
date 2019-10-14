@@ -5,7 +5,7 @@
         <attribute name="id" attributeType="Integer 32" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="totalMarks" attributeType="Integer 32" usesScalarValueType="YES"/>
-        <relationship name="singleMark" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Mark" inverseName="assessment" inverseEntity="Mark"/>
+        <relationship name="singleMark" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Mark" inverseName="assessment" inverseEntity="Mark"/>
     </entity>
     <entity name="Attendance" representedClassName=".Attendance" syncable="YES">
         <attribute name="attendaceDate" attributeType="Date" usesScalarValueType="NO"/>
