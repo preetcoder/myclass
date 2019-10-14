@@ -14,6 +14,8 @@ class ExportViewController: UIViewController, MFMailComposeViewControllerDelegat
      var loadStudents = RestAPI()
     
     var studentmanager = StudentManager()
+    
+    var attendancemanager = AttendanceManager()
   
     @IBAction func exportAssessments(_ sender: Any) {
         
@@ -51,19 +53,23 @@ class ExportViewController: UIViewController, MFMailComposeViewControllerDelegat
             
             for student in allStudents{
                 
+                let studentAttendancefromDB = attendancemanager.getAttendanceRecords(StudObj: student, lastVal: false)
                 
                 // get all attendance of this student
-//                if((student.getAttendance()?.count)! > 0){
-//                    allStudentData += "Student ID - \(student.getStudentID) \n Dates Attended - "
-//                    for attendance in student.getAttendance()! {
-//                        if attendance.getStatus() == true {
-//
-//                            allStudentData += " \(obj.getStringFromDate(dateVal: attendance.getDate())),"
-//                        }
-//                    }
-//
-//                }
-//                allStudentData += "\n"
+                if(((student.attendances?.count)!) > 0){
+                    // get attendance of this student
+                    allStudentData += "Student ID - \(student.getStudentID) \n Dates Attended - "
+                    
+                    for attendance in studentAttendancefromDB {
+                        //print(attendance)
+                        if attendance.getStatus == true {
+
+                            allStudentData += " \(obj.getStringFromDate(dateVal: attendance.getDate)),"
+                        }
+                    }
+
+                }
+                allStudentData += "\n"
             }
             
         }
