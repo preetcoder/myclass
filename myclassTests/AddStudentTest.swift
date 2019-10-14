@@ -19,7 +19,7 @@ class AddStudentTest : XCTestCase {
         // add student parameter
         let studentData = studentmanager.saveStudentinDB(email: "helloTest@test.com", studentID: "s3701661", first_name: "Preet", last_name: "Singh", phone: "876787687")
         
-        // check status
+        // check status. must be true as value are correct
         XCTAssertTrue(studentData)
     }
 }
