@@ -32,6 +32,7 @@
 		109DADDC234C84EA0026299D /* StudentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109DADDB234C84EA0026299D /* StudentManager.swift */; };
 		10A05456234D7D84005A33EE /* AssessmentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A05455234D7D84005A33EE /* AssessmentManager.swift */; };
 		10A05458234DB362005A33EE /* AttendanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A05457234DB362005A33EE /* AttendanceManager.swift */; };
+		10B0A7F92354B7B5000E5733 /* AddStudentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B0A7F82354B7B5000E5733 /* AddStudentTest.swift */; };
 		10B7D1D3234AE794006D33AC /* myclassDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 10B7D1D1234AE794006D33AC /* myclassDataModel.xcdatamodeld */; };
 		10C103012333DA1300D7A469 /* popupAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C103002333DA1300D7A469 /* popupAlert.swift */; };
 		10C2E3EA23369E8100CA10C5 /* FileSaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C2E3E923369E8100CA10C5 /* FileSaving.swift */; };
@@ -108,6 +109,7 @@
 		109DADDB234C84EA0026299D /* StudentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentManager.swift; sourceTree = "<group>"; };
 		10A05455234D7D84005A33EE /* AssessmentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentManager.swift; sourceTree = "<group>"; };
 		10A05457234DB362005A33EE /* AttendanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceManager.swift; sourceTree = "<group>"; };
+		10B0A7F82354B7B5000E5733 /* AddStudentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentTest.swift; sourceTree = "<group>"; };
 		10B7D1D2234AE794006D33AC /* myclassDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = myclassDataModel.xcdatamodel; sourceTree = "<group>"; };
 		10C103002333DA1300D7A469 /* popupAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popupAlert.swift; sourceTree = "<group>"; };
 		10C2E3E923369E8100CA10C5 /* FileSaving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSaving.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 			children = (
 				10EC23B0232CA46E00E488B3 /* myclassTests.swift */,
 				10EC23B2232CA46E00E488B3 /* Info.plist */,
+				10B0A7F82354B7B5000E5733 /* AddStudentTest.swift */,
 			);
 			path = myclassTests;
 			sourceTree = "<group>";
@@ -645,6 +648,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10EC23B1232CA46E00E488B3 /* myclassTests.swift in Sources */,
+				10B0A7F92354B7B5000E5733 /* AddStudentTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

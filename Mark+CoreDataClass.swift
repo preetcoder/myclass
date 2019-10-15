@@ -20,4 +20,8 @@ public class Mark: NSManagedObject {
            return Int(id)
        }
     
+    var getAssessment : Assessment {
+        return assessment!
+    }
+    
 }

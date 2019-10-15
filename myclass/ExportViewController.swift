@@ -14,6 +14,10 @@ class ExportViewController: UIViewController, MFMailComposeViewControllerDelegat
      var loadStudents = RestAPI()
     
     var studentmanager = StudentManager()
+    
+    var attendancemanager = AttendanceManager()
+    
+    var markmanager = MarkManager()
   
     @IBAction func exportAssessments(_ sender: Any) {
         
@@ -36,11 +40,10 @@ class ExportViewController: UIViewController, MFMailComposeViewControllerDelegat
         }
     }
     
+    // method with string parameter of attendance or assessment to export
     func getAllStudentAttendance(val : String) -> String{
         
         var allStudentData = ""
-        
-        print(val)
         
         if(val == "attendance") {
             
@@ -51,41 +54,49 @@ class ExportViewController: UIViewController, MFMailComposeViewControllerDelegat
             
             for student in allStudents{
                 
+                let studentAttendancefromDB = attendancemanager.getAttendanceRecords(StudObj: student, lastVal: false)
                 
                 // get all attendance of this student
-//                if((student.getAttendance()?.count)! > 0){
-//                    allStudentData += "Student ID - \(student.getStudentID) \n Dates Attended - "
-//                    for attendance in student.getAttendance()! {
-//                        if attendance.getStatus() == true {
-//
-//                            allStudentData += " \(obj.getStringFromDate(dateVal: attendance.getDate())),"
-//                        }
-//                    }
-//
-//                }
-//                allStudentData += "\n"
+                if(((student.attendances?.count)!) > 0){
+                    // get attendance of this student
+                    allStudentData += "Student ID - \(student.getStudentID) \n Dates Attended - "
+                    
+                    for attendance in studentAttendancefromDB {
+                        //print(attendance)
+                        if attendance.getStatus == true {
+
+                            allStudentData += " \(obj.getStringFromDate(dateVal: attendance.getDate)),"
+                        }
+                    }
+
+                }
+                allStudentData += "\n"
             }
             
         }
         else{
             
-            let obj = ConvertToDate()
+            //let obj = ConvertToDate()
             let  allStudents = studentmanager.getStudentsfromDB()
             
             for student in allStudents{
                 
-//                if (student.getMarks()?.count)! > 0 {
-//                    allStudentData += "Student ID - \(student.getStudentID())  "
-//                    
-//                    
-//                    for assessmentMarks in student.getMarks()! {
-//                        
-//                         allStudentData += "\n Assessment Name - \(assessmentMarks.getAssessment().getAssessmentTitle()) \n Marks Obtained = \(assessmentMarks.getObtainedMarks())"
-//                        
-//                    }
-//                    
-//                    allStudentData += "\n ================ \n"
-//                }
+                
+                if ((student.marks?.count)!) > 0 {
+                    allStudentData += "Student ID - \(student.getStudentID)"
+                    
+                    
+                    for case let assessmentMarks as Mark in student.marks! {
+                        
+                        // get assessment details from Mark entity object
+                         allStudentData += "\n Assessment Name - \(assessmentMarks.getAssessment.getAssessmentTitle) \n Marks Obtained = \(assessmentMarks.getObtainedMarks)"
+                      
+                       
+
+
+                    }
+                    allStudentData += "\n ================ \n"
+                }
                 
             }
         }
@@ -98,9 +109,12 @@ class ExportViewController: UIViewController, MFMailComposeViewControllerDelegat
     func configureMailComposer(val : String) -> MFMailComposeViewController{
         let mailComposeVC = MFMailComposeViewController()
         mailComposeVC.mailComposeDelegate = self
-        mailComposeVC.setToRecipients(["s3701661@student.rmit.edu.au","s3695018@student.rmit.ed.au"])
+       
+        // set mail parameters
+    mailComposeVC.setToRecipients(["s3701661@student.rmit.edu.au","s3695018@student.rmit.ed.au"])
         mailComposeVC.setSubject("File Export")
         mailComposeVC.setMessageBody(getAllStudentAttendance(val: val), isHTML: false)
+        
         return mailComposeVC
     }
     
@@ -113,20 +127,6 @@ class ExportViewController: UIViewController, MFMailComposeViewControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
-       
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
