@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDelegate, AssessmentUpdateDelegate
 {
+    /// An authentication context stored at class scope so it's available for use during UI updates.
+    var context = LAContext()
+    
     var assessments = [Assessment]()
     
     var students = [Student]()
@@ -30,6 +34,8 @@ class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDe
         
         studentdataLoad()
         //print(students)
+        
+        context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil)
 
     }
     
@@ -185,8 +191,40 @@ class AssessmentsTableViewController: UITableViewController, NewAssessmentDataDe
     }
     
     // move to another screen on cell click
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "ViewAssessmentProfile", sender: indexPath)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        context = LAContext()
+
+        context.localizedCancelTitle = ""
+        
+
+        // First check if we have the needed hardware support.
+        var error: NSError?
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+
+            let reason = "Log in to your account"
+            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason ) { success, error in
+
+                if success
+                {
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "ViewAssessmentProfile", sender: indexPath)
+                    }
+
+                } else {
+                    print(error?.localizedDescription ?? "Failed to authenticate")
+
+                    // Fall back to a asking for username and password.
+                    // ...
+                }
+            }
+        } else {
+            print(error?.localizedDescription ?? "Can't evaluate policy")
+
+            // Fall back to a asking for username and password.
+            // ...
+        }
+        //performSegue(withIdentifier: "ViewAssessmentProfile", sender: indexPath)
     }
     
     func refershAssessments(){
