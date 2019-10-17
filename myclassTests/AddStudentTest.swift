@@ -14,8 +14,8 @@ class AddStudentTest : XCTestCase {
     
     var studentmanager = StudentManager()
     
-    func addNewStudentTest(){
-        
+    func addNewStudentTest()
+    {
         // add student parameter
         let studentData = studentmanager.saveStudentinDB(email: "helloTest@test.com", studentID: "s3701661", first_name: "Preet", last_name: "Singh", phone: "876787687")
         

@@ -144,12 +144,31 @@ class myclassUITests: XCTestCase {
     
     func testReadAddedAssessment()
     {
+        let validAssessmentName = "test"
+        let validAssessmentMark = "10"
         
-        testAddNewAssessment()
         let app = XCUIApplication()
+        app.tabBars.buttons["Assessment"].tap()
+        app.navigationBars["Assessments"].buttons["Add"].tap()
+        
+        let assessmentNameTextField = app.textFields["Assessment description"]
+        XCTAssertTrue(assessmentNameTextField.exists)
+        assessmentNameTextField.tap()
+        assessmentNameTextField.typeText(validAssessmentName)
+        
+        let totalMarksTextField = app.textFields["Total marks"]
+        XCTAssertTrue(totalMarksTextField.exists)
+        totalMarksTextField.tap()
+        totalMarksTextField.typeText(validAssessmentMark)
+
+        app.datePickers.pickerWheels["Today"].tap()
+        app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.tap()
+        app.buttons["Save"].tap()
+        
+        let assessmentCell = app.tables.staticTexts["test"]
         app.tables.staticTexts["test"].tap()
-        let assessmentCell = app.staticTexts["test"]
-        XCTAssertTrue(assessmentCell.exists)
+        let assessmentCellRead = app.staticTexts["test"]
+        XCTAssertTrue(assessmentCellRead.exists)
     }
     
 }
