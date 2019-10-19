@@ -13,13 +13,33 @@ import XCTest
 class AddStudentTest : XCTestCase {
     
     var studentmanager = StudentManager()
-    
-    func addNewStudentTest()
-    {
-        // add student parameter
-        let studentData = studentmanager.saveStudentinDB(email: "helloTest@test.com", studentID: "s3701661", first_name: "Preet", last_name: "Singh", phone: "876787687")
+    override func setUp() {
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
+        testaddNewStudentTest()
         
-        // check status. must be true as value are correct
+        
+    }
+    
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+    
+    
+    func testaddNewStudentTest()
+    {
+        // given
+        let emailVal = "helloTest@test.com"
+        let studentIDVal = "s3701661"
+        let studentFirstName = "Preet"
+        let studentLastName = "Singh"
+        let studentPhone = "876787687"
+        
+        // When
+        let studentData = studentmanager.saveStudentinDB(email: emailVal, studentID: studentIDVal, first_name: studentFirstName, last_name: studentLastName, phone: studentPhone)
+        
+        // Then
         XCTAssertTrue(studentData)
     }
 }
