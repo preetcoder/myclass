@@ -16,6 +16,8 @@ struct StudentManager {
     
      var allStudent : [Student] = []
     
+    var singleStudent : Student?
+    
     func saveStudentinDB(email : String, studentID : String, first_name : String, last_name : String, phone : String, image : String = "download") -> Bool {
         
         let studentData = Student(context: self.context)
@@ -66,6 +68,35 @@ struct StudentManager {
         return allStudent
         
     }
+    
+    //method to get single student from DB
+    mutating func getSingleStudentfromDB(studentID : String) -> Student? {
+      
+       
+        let request : NSFetchRequest<Student> = Student.fetchRequest()
+
+        let studentPredicate = NSPredicate(format: "studentID = %@", studentID)
+        request.predicate = studentPredicate
+
+        var allStudentswithCondition : [Student] = []
+
+        do {
+            // fetch from db
+            allStudentswithCondition =  try context.fetch(request)
+
+
+
+        }catch{
+            print("Error fetching Student \(error)")
+        }
+
+        if allStudentswithCondition.count > 0 {
+            // only 1 user if found because student ID is unique
+            singleStudent = allStudentswithCondition[0]
+        }
+        return singleStudent
+    }
+    
     
     // method to check if student entity has data
     func checkifStudentsExistsinDB() -> Bool{
