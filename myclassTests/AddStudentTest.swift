@@ -40,6 +40,7 @@ class AddStudentTest : XCTestCase {
         let studentData = studentmanager.saveStudentinDB(email: emailVal, studentID: studentIDVal, first_name: studentFirstName, last_name: studentLastName, phone: studentPhone)
         
         // Then
+        // Result:  student added successfully
         XCTAssertTrue(studentData)
     }
 }

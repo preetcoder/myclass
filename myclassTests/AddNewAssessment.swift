@@ -39,7 +39,7 @@ class AddNewAssessment: XCTestCase {
         let assessmentStatus = assessmentmanager.addNewAssessment(assessmentID: testAssessmentID, assessmentTitle: testAssessmentTitle, assessmentTotalmarks: testAssessmentTotalMarks, assessmentDate: testAssessmentDate!)
         
         // Then
-        // if test passes, Assessment added successfully
+        // Result:  if test passes, Assessment added successfully
         XCTAssertTrue(assessmentStatus)
         
     }
