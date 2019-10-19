@@ -58,8 +58,8 @@
 		CE37B7A7232CB9930086DCD3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37B7A6232CB9930086DCD3 /* HomeViewController.swift */; };
 		CE37B7AB232CDB1E0086DCD3 /* AddStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37B7AA232CDB1E0086DCD3 /* AddStudentViewController.swift */; };
 		CE37B7AD232CDC550086DCD3 /* AddNewStudent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE37B7AC232CDC550086DCD3 /* AddNewStudent.storyboard */; };
+		CE6ECC22235AD66C00B023D6 /* NewAssessment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6ECC21235AD66C00B023D6 /* NewAssessment.storyboard */; };
 		CEF579B3232D006E009099ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF579B2232D006E009099ED /* Images.xcassets */; };
-		CEF579B9232E3C1C009099ED /* NewAssessment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF579B8232E3C1C009099ED /* NewAssessment.storyboard */; };
 		CEF579BB232E3E27009099ED /* NewAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF579BA232E3E27009099ED /* NewAssessmentViewController.swift */; };
 		CEF579BF232E3FA9009099ED /* StudentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF579BE232E3FA9009099ED /* StudentsViewController.swift */; };
 		CEF579C1232E3FB8009099ED /* ExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF579C0232E3FB8009099ED /* ExportViewController.swift */; };
@@ -154,8 +154,8 @@
 		CE37B7A6232CB9930086DCD3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CE37B7AA232CDB1E0086DCD3 /* AddStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentViewController.swift; sourceTree = "<group>"; };
 		CE37B7AC232CDC550086DCD3 /* AddNewStudent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddNewStudent.storyboard; sourceTree = "<group>"; };
+		CE6ECC21235AD66C00B023D6 /* NewAssessment.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewAssessment.storyboard; sourceTree = "<group>"; };
 		CEF579B2232D006E009099ED /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		CEF579B8232E3C1C009099ED /* NewAssessment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewAssessment.storyboard; sourceTree = "<group>"; };
 		CEF579BA232E3E27009099ED /* NewAssessmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAssessmentViewController.swift; sourceTree = "<group>"; };
 		CEF579BE232E3FA9009099ED /* StudentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsViewController.swift; sourceTree = "<group>"; };
 		CEF579C0232E3FB8009099ED /* ExportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportViewController.swift; sourceTree = "<group>"; };
@@ -307,11 +307,11 @@
 		CE37B7A2232CA9F70086DCD3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CE6ECC21235AD66C00B023D6 /* NewAssessment.storyboard */,
 				10EC239F232CA46D00E488B3 /* Main.storyboard */,
 				10EC23A4232CA46E00E488B3 /* LaunchScreen.storyboard */,
 				CE37B7A4232CB91A0086DCD3 /* Home.storyboard */,
 				CE37B7AC232CDC550086DCD3 /* AddNewStudent.storyboard */,
-				CEF579B8232E3C1C009099ED /* NewAssessment.storyboard */,
 				106EAFEC232F6F2F00A20C5B /* StudentProfile.storyboard */,
 				CE0119D8232F76E0002E183C /* Assessments.storyboard */,
 				106EAFF0232F934700A20C5B /* Attendance.storyboard */,
@@ -492,8 +492,8 @@
 				10EC23A6232CA46E00E488B3 /* LaunchScreen.storyboard in Resources */,
 				CEF579B3232D006E009099ED /* Images.xcassets in Resources */,
 				CE0119DD2330899C002E183C /* AssessmentProfile.storyboard in Resources */,
+				CE6ECC22235AD66C00B023D6 /* NewAssessment.storyboard in Resources */,
 				CE37B7AD232CDC550086DCD3 /* AddNewStudent.storyboard in Resources */,
-				CEF579B9232E3C1C009099ED /* NewAssessment.storyboard in Resources */,
 				10EC23A1232CA46D00E488B3 /* Main.storyboard in Resources */,
 				106EAFF1232F934700A20C5B /* Attendance.storyboard in Resources */,
 				106EAFED232F6F2F00A20C5B /* StudentProfile.storyboard in Resources */,

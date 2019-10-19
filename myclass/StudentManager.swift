@@ -50,7 +50,8 @@ struct StudentManager {
     mutating func getStudentsfromDB() -> [Student]{
         
         let request : NSFetchRequest<Student> = Student.fetchRequest()
-        
+        let sort = NSSortDescriptor(key: "self", ascending: false)
+        request.sortDescriptors = [sort]
         
         do {
             // fetch from db

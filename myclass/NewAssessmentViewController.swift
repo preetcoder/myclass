@@ -12,7 +12,7 @@ protocol NewAssessmentDataDelegate {
     func userEnteredData (Desc : String, marks : String, dateVal : Date)
 }
 
-class NewAssessmentViewController: UIViewController,UITextFieldDelegate {
+class NewAssessmentViewController: UIViewController,UITextFieldDelegate,UINavigationControllerDelegate {
     
     // Define Delegate property
     
@@ -27,6 +27,9 @@ class NewAssessmentViewController: UIViewController,UITextFieldDelegate {
     var lastOffset: CGPoint!
     var keyboardHeight: CGFloat!
     
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -34,6 +37,10 @@ class NewAssessmentViewController: UIViewController,UITextFieldDelegate {
         let userTappedOtherThanKeyboard: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector(("closeKeyboard")))
         view.addGestureRecognizer(userTappedOtherThanKeyboard)
         // Do any additional setup after loading the view.
+        
+        // setup keyboard event
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @IBAction func newAssessmentSave(_ sender: Any) {
@@ -71,3 +78,25 @@ class NewAssessmentViewController: UIViewController,UITextFieldDelegate {
     */
 
 }
+
+// MARK: Keyboard Handling
+extension NewAssessmentViewController {
+    @objc func keyboardWillShow(notification:NSNotification){
+        var userInfo = notification.userInfo!
+        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        
+        
+        
+        var contentInset:UIEdgeInsets = self.scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height
+        scrollView.contentInset = contentInset
+    }
+    
+    @objc func keyboardWillHide(notification:NSNotification){
+        
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInset
+    }
+}
+

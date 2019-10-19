@@ -75,9 +75,6 @@ class myclassUITests: XCTestCase {
         pleaseEnterPhoneNumberTextField.tap()
         pleaseEnterPhoneNumberTextField.typeText(validPhoneNo)
         
-       
-        
-        
         elementsQuery.buttons["Save"].tap()
         let studentCell = app.tables.staticTexts["test123"]
         XCTAssertTrue(studentCell.exists)
@@ -91,9 +88,9 @@ class myclassUITests: XCTestCase {
         
         let app = XCUIApplication()
         let tablesQuery = app.tables
-        tablesQuery.staticTexts["test"].tap()
+        tablesQuery.staticTexts["test123"].tap()
         
-        let franNavigationBar = app.navigationBars["test"]
+        let franNavigationBar = app.navigationBars["test123"]
         franNavigationBar.buttons["Edit"].tap()
         
         let elementsQuery = app.scrollViews.otherElements
@@ -109,11 +106,10 @@ class myclassUITests: XCTestCase {
         elementsQuery.textFields["StudentID"].tap()
         elementsQuery.textFields["Email"].tap()
         elementsQuery.buttons["Save"].tap()
-        
-        franNavigationBar.buttons["Attendance"].tap()
-        let studentcell = tablesQuery.staticTexts["testtest123"]
+        let studentcell = tablesQuery.staticTexts["test123test123"]
         XCTAssertTrue(studentcell.exists)
     }
+    
     
     func testAddNewAssessment()
     {
@@ -124,19 +120,25 @@ class myclassUITests: XCTestCase {
         app.tabBars.buttons["Assessment"].tap()
         app.navigationBars["Assessments"].buttons["Add"].tap()
         
-        let assessmentNameTextField = app.textFields["Assessment description"]
+        
+        let scrollViewsQuery = app.scrollViews
+        let elementsQuery = scrollViewsQuery.otherElements
+        
+        let assessmentNameTextField = elementsQuery.textFields["Assessment description"]
         XCTAssertTrue(assessmentNameTextField.exists)
         assessmentNameTextField.tap()
         assessmentNameTextField.typeText(validAssessmentName)
         
-        let totalMarksTextField = app.textFields["Total marks"]
+        let totalMarksTextField = elementsQuery.textFields["Total marks"]
         XCTAssertTrue(totalMarksTextField.exists)
         totalMarksTextField.tap()
         totalMarksTextField.typeText(validAssessmentMark)
+        
 
-        app.datePickers.pickerWheels["Today"].tap()
-        app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.tap()
-        app.buttons["Save"].tap()
+        elementsQuery.datePickers.pickerWheels["Today"].tap()
+        scrollViewsQuery.otherElements.containing(.textField, identifier:"Assessment description").element.tap()
+        
+        elementsQuery.buttons["Save"].tap()
         
         let assessmentCell = app.tables.staticTexts["test"]
         XCTAssertTrue(assessmentCell.exists)
@@ -144,6 +146,8 @@ class myclassUITests: XCTestCase {
     
     func testReadAddedAssessment()
     {
+        
+                
         let validAssessmentName = "test"
         let validAssessmentMark = "10"
         
@@ -151,24 +155,28 @@ class myclassUITests: XCTestCase {
         app.tabBars.buttons["Assessment"].tap()
         app.navigationBars["Assessments"].buttons["Add"].tap()
         
-        let assessmentNameTextField = app.textFields["Assessment description"]
+        
+        let scrollViewsQuery = app.scrollViews
+        let elementsQuery = scrollViewsQuery.otherElements
+        
+        let assessmentNameTextField = elementsQuery.textFields["Assessment description"]
         XCTAssertTrue(assessmentNameTextField.exists)
         assessmentNameTextField.tap()
         assessmentNameTextField.typeText(validAssessmentName)
         
-        let totalMarksTextField = app.textFields["Total marks"]
+        let totalMarksTextField = elementsQuery.textFields["Total marks"]
         XCTAssertTrue(totalMarksTextField.exists)
         totalMarksTextField.tap()
         totalMarksTextField.typeText(validAssessmentMark)
+        
 
-        app.datePickers.pickerWheels["Today"].tap()
-        app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.tap()
-        app.buttons["Save"].tap()
+        elementsQuery.datePickers/*@START_MENU_TOKEN@*/.pickerWheels["Today"]/*[[".pickers.pickerWheels[\"Today\"]",".pickerWheels[\"Today\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        scrollViewsQuery.otherElements.containing(.textField, identifier:"Assessment description").element.tap()
+        
+        elementsQuery.buttons["Save"].tap()
         
         let assessmentCell = app.tables.staticTexts["test"]
-        app.tables.staticTexts["test"].tap()
-        let assessmentCellRead = app.staticTexts["test"]
-        XCTAssertTrue(assessmentCellRead.exists)
+        XCTAssertTrue(assessmentCell.exists)
     }
     
 }
