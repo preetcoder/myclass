@@ -32,11 +32,15 @@ class testCDeleteStudent: XCTestCase {
         let tablesQuery = XCUIApplication().tables
         //Action: Swipe Left and Click on Delete
         tablesQuery.children(matching: .cell).element(boundBy: 0).staticTexts["test123test123"].swipeLeft()
-        tablesQuery/*@START_MENU_TOKEN@*/.buttons["trailing0"]/*[[".buttons[\"Delete\"]",".buttons[\"trailing0\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        tablesQuery.buttons["Delete"].tap()
         
         //Result: Student with name test123test123 must not exists
         let assessmentCell = tablesQuery.staticTexts["test123test123"]
         XCTAssertTrue(!assessmentCell.exists)
+        
+        
+        
+        
     }
 
 }

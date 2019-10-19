@@ -68,14 +68,6 @@ struct RestAPI {
             }
             }.resume()
         
-        // add a dummy student for UItest
-        
-        let studentTestStatus = self.studentmanager.saveStudentinDB(email: "test@test.com", studentID: "2332323", first_name: "test", last_name: "test", phone: "3434343", image: "download")
-        
-        if(studentTestStatus){
-            print("New Student Added in DB for testing")
-        }
-        
         
     }
 }
