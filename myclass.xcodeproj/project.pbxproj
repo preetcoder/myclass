@@ -54,6 +54,10 @@
 		CE37B7AB232CDB1E0086DCD3 /* AddStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37B7AA232CDB1E0086DCD3 /* AddStudentViewController.swift */; };
 		CE37B7AD232CDC550086DCD3 /* AddNewStudent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE37B7AC232CDC550086DCD3 /* AddNewStudent.storyboard */; };
 		CE6ECC22235AD66C00B023D6 /* NewAssessment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6ECC21235AD66C00B023D6 /* NewAssessment.storyboard */; };
+		CE8C54B4235B18AC00ED6CF1 /* testDAddNewAssessment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C54B2235B18AC00ED6CF1 /* testDAddNewAssessment.swift */; };
+		CE8C54B7235B18E600ED6CF1 /* testAAddNewStudent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C54B6235B18E600ED6CF1 /* testAAddNewStudent.swift */; };
+		CEDD8E77235B10700060EF7D /* testBEditStudent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD8E76235B10700060EF7D /* testBEditStudent.swift */; };
+		CEDD8E7B235B12CC0060EF7D /* testCDeleteStudent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD8E7A235B12CC0060EF7D /* testCDeleteStudent.swift */; };
 		CEF579B3232D006E009099ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF579B2232D006E009099ED /* Images.xcassets */; };
 		CEF579BB232E3E27009099ED /* NewAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF579BA232E3E27009099ED /* NewAssessmentViewController.swift */; };
 		CEF579BF232E3FA9009099ED /* StudentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF579BE232E3FA9009099ED /* StudentsViewController.swift */; };
@@ -145,6 +149,10 @@
 		CE37B7AA232CDB1E0086DCD3 /* AddStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentViewController.swift; sourceTree = "<group>"; };
 		CE37B7AC232CDC550086DCD3 /* AddNewStudent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddNewStudent.storyboard; sourceTree = "<group>"; };
 		CE6ECC21235AD66C00B023D6 /* NewAssessment.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewAssessment.storyboard; sourceTree = "<group>"; };
+		CE8C54B2235B18AC00ED6CF1 /* testDAddNewAssessment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testDAddNewAssessment.swift; sourceTree = "<group>"; };
+		CE8C54B6235B18E600ED6CF1 /* testAAddNewStudent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testAAddNewStudent.swift; sourceTree = "<group>"; };
+		CEDD8E76235B10700060EF7D /* testBEditStudent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testBEditStudent.swift; sourceTree = "<group>"; };
+		CEDD8E7A235B12CC0060EF7D /* testCDeleteStudent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testCDeleteStudent.swift; sourceTree = "<group>"; };
 		CEF579B2232D006E009099ED /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CEF579BA232E3E27009099ED /* NewAssessmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAssessmentViewController.swift; sourceTree = "<group>"; };
 		CEF579BE232E3FA9009099ED /* StudentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsViewController.swift; sourceTree = "<group>"; };
@@ -239,6 +247,10 @@
 		10EC23BA232CA46E00E488B3 /* myclassUITests */ = {
 			isa = PBXGroup;
 			children = (
+				CE8C54B6235B18E600ED6CF1 /* testAAddNewStudent.swift */,
+				CE8C54B2235B18AC00ED6CF1 /* testDAddNewAssessment.swift */,
+				CEDD8E7A235B12CC0060EF7D /* testCDeleteStudent.swift */,
+				CEDD8E76235B10700060EF7D /* testBEditStudent.swift */,
 				10EC23BB232CA46E00E488B3 /* myclassUITests.swift */,
 				10EC23BD232CA46E00E488B3 /* Info.plist */,
 			);
@@ -688,7 +700,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEDD8E77235B10700060EF7D /* testBEditStudent.swift in Sources */,
+				CE8C54B7235B18E600ED6CF1 /* testAAddNewStudent.swift in Sources */,
 				10EC23BC232CA46E00E488B3 /* myclassUITests.swift in Sources */,
+				CEDD8E7B235B12CC0060EF7D /* testCDeleteStudent.swift in Sources */,
+				CE8C54B4235B18AC00ED6CF1 /* testDAddNewAssessment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
