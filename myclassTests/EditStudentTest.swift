@@ -1,5 +1,5 @@
 //
-//  DeleteStudentTest.swift
+//  EditStudentTest.swift
 //  myclassTests
 //
 //  Created by Harpreet Singh on 19/10/19.
@@ -9,50 +9,51 @@
 import XCTest
 @testable import myclass
 
-class DeleteStudentTest: XCTestCase {
+class EditStudentTest: XCTestCase {
     
-    // preconditions
+    
+    // precondition
     var studentmanager = StudentManager()
-    
+
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         super.setUp()
-        
-        
-        
-        // main execute
-        testDeleteStudent()
-    }
     
+        // main execute
+        testEditStudent()
+    }
+
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
-    func testDeleteStudent() {
-        
-        // preconditions - Add and get student first
-        var deleteStudStatus = false
+
+    func testEditStudent() {
         // Given
-        addNewStudenttoDelete()
+        let newFirstName = "PrTest"
+        let newLastName = "PrLastName"
+        var EditStudStatus = false
+        addNewStudenttoEdit()
         
         // get student Object
         let getUserWithStudID = studentmanager.getSingleStudentfromDB(studentID: "s3701661")
         
         // When
         if getUserWithStudID != nil {
-            deleteStudStatus = studentmanager.deleteStudentRecordinDB(studentObj: getUserWithStudID!)
+            EditStudStatus = studentmanager.updateStudentRecordinDB(studentObj: getUserWithStudID!, emailVal: getUserWithStudID!.getStudentEmail, studentIDVal: getUserWithStudID!.getStudentID, first_nameVal: newFirstName, last_nameVal: newLastName, phoneVal: getUserWithStudID!.getStudentPhone, imageVal: getUserWithStudID!.getStudentImage)
         }
         
         
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
         // Then
-        // Result:  delete student successfully
-        XCTAssertTrue(deleteStudStatus)
+        // Result:  Edit student successfully
+        XCTAssertTrue(EditStudStatus)
         
     }
-    
+
     // method as precondition to add student before deleting
-    func addNewStudenttoDelete(){
+    func addNewStudenttoEdit(){
         
         // given
         let emailVal = "helloTest@test.com"
@@ -65,6 +66,5 @@ class DeleteStudentTest: XCTestCase {
         let studentData = studentmanager.saveStudentinDB(email: emailVal, studentID: studentIDVal, first_name: studentFirstName, last_name: studentLastName, phone: studentPhone)
         
     }
-    
-    
+
 }

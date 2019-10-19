@@ -35,8 +35,8 @@
 		10EC239E232CA46D00E488B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EC239D232CA46D00E488B3 /* ViewController.swift */; };
 		10EC23A1232CA46D00E488B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10EC239F232CA46D00E488B3 /* Main.storyboard */; };
 		10EC23A6232CA46E00E488B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10EC23A4232CA46E00E488B3 /* LaunchScreen.storyboard */; };
-		10EC23BC232CA46E00E488B3 /* myclassUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EC23BB232CA46E00E488B3 /* myclassUITests.swift */; };
 		10FEE348235AF2A300AF8D72 /* DeleteStudentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FEE347235AF2A300AF8D72 /* DeleteStudentTest.swift */; };
+		10FEE34A235B239F00AF8D72 /* EditStudentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FEE349235B239F00AF8D72 /* EditStudentTest.swift */; };
 		9DE7E8CEE2561F46ED85B852 /* libPods-myclassUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF71A205AA3CFA4CB04F6B6 /* libPods-myclassUITests.a */; };
 		9FE11445280236A290DDCDBA /* Pods_myclass.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDA531E5E0945E8940316E07 /* Pods_myclass.framework */; };
 		CE0119D9232F76E0002E183C /* Assessments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0119D8232F76E0002E183C /* Assessments.storyboard */; };
@@ -124,9 +124,9 @@
 		10EC23AC232CA46E00E488B3 /* myclassTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myclassTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		10EC23B2232CA46E00E488B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10EC23B7232CA46E00E488B3 /* myclassUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myclassUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		10EC23BB232CA46E00E488B3 /* myclassUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myclassUITests.swift; sourceTree = "<group>"; };
 		10EC23BD232CA46E00E488B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10FEE347235AF2A300AF8D72 /* DeleteStudentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteStudentTest.swift; sourceTree = "<group>"; };
+		10FEE349235B239F00AF8D72 /* EditStudentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStudentTest.swift; sourceTree = "<group>"; };
 		116ECED746C97162AC5E1401 /* Pods-myclassTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myclassTests.release.xcconfig"; path = "Target Support Files/Pods-myclassTests/Pods-myclassTests.release.xcconfig"; sourceTree = "<group>"; };
 		32273840F5FACCDC3FB3DC7E /* Pods-myclassUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myclassUITests.release.xcconfig"; path = "Target Support Files/Pods-myclassUITests/Pods-myclassUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5FF71A205AA3CFA4CB04F6B6 /* libPods-myclassUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myclassUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -236,6 +236,7 @@
 		10EC23AF232CA46E00E488B3 /* myclassTests */ = {
 			isa = PBXGroup;
 			children = (
+				10FEE349235B239F00AF8D72 /* EditStudentTest.swift */,
 				10FEE347235AF2A300AF8D72 /* DeleteStudentTest.swift */,
 				105A51FD23598D720014F4FB /* AddNewAssessment.swift */,
 				10EC23B2232CA46E00E488B3 /* Info.plist */,
@@ -251,7 +252,6 @@
 				CE8C54B2235B18AC00ED6CF1 /* testDAddNewAssessment.swift */,
 				CEDD8E7A235B12CC0060EF7D /* testCDeleteStudent.swift */,
 				CEDD8E76235B10700060EF7D /* testBEditStudent.swift */,
-				10EC23BB232CA46E00E488B3 /* myclassUITests.swift */,
 				10EC23BD232CA46E00E488B3 /* Info.plist */,
 			);
 			path = myclassUITests;
@@ -691,6 +691,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10FEE348235AF2A300AF8D72 /* DeleteStudentTest.swift in Sources */,
+				10FEE34A235B239F00AF8D72 /* EditStudentTest.swift in Sources */,
 				105A51FE23598D720014F4FB /* AddNewAssessment.swift in Sources */,
 				10B0A7F92354B7B5000E5733 /* AddStudentTest.swift in Sources */,
 			);
@@ -702,7 +703,6 @@
 			files = (
 				CEDD8E77235B10700060EF7D /* testBEditStudent.swift in Sources */,
 				CE8C54B7235B18E600ED6CF1 /* testAAddNewStudent.swift in Sources */,
-				10EC23BC232CA46E00E488B3 /* myclassUITests.swift in Sources */,
 				CEDD8E7B235B12CC0060EF7D /* testCDeleteStudent.swift in Sources */,
 				CE8C54B4235B18AC00ED6CF1 /* testDAddNewAssessment.swift in Sources */,
 			);

@@ -37,6 +37,10 @@ class testCDeleteStudent: XCTestCase {
         //Result: Student with name test123test123 must not exists
         let assessmentCell = tablesQuery.staticTexts["test123test123"]
         XCTAssertTrue(!assessmentCell.exists)
+        
+        
+        
+        
     }
 
 }
