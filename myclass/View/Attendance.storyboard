@@ -167,7 +167,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="download" width="225" height="225"/>
+        <image name="download" width="231" height="231"/>
         <image name="left" width="57" height="57"/>
         <image name="right" width="57" height="57"/>
     </resources>

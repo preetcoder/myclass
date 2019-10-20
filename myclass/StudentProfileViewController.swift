@@ -18,6 +18,7 @@ class StudentProfileViewController: UIViewController, UIImagePickerControllerDel
     
     @IBOutlet weak var studentImage: UIImageView!
     
+    @IBOutlet weak var cameraHintText: UILabel!
     @IBOutlet weak var studName: UITextField!
     @IBOutlet weak var studID: UITextField!
     @IBOutlet weak var studEmail: UITextField!
@@ -67,6 +68,8 @@ class StudentProfileViewController: UIViewController, UIImagePickerControllerDel
         //self.studentName.text = self.selectedStudent.getStudentName()
         // Do any additional setup after loading the view.
         
+        self.cameraHintText.isHidden = true
+        
         
         
     }
@@ -111,6 +114,7 @@ class StudentProfileViewController: UIViewController, UIImagePickerControllerDel
         
         self.studName.becomeFirstResponder()
         self.saveButton.isHidden = false
+        self.cameraHintText.isHidden = false
         
         // make image clickable on edit
         
