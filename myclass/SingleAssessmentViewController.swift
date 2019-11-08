@@ -12,30 +12,38 @@ protocol AssessmentUpdateDelegate {
 }
 class SingleAssessmentViewController: UIViewController, AssessmentViewDelegate,UITableViewDelegate, UITableViewDataSource,UIPickerViewDataSource,UIPickerViewDelegate,UITextFieldDelegate
 {
- 
-    var pickerData: [Int] = [Int]()
-    let allStudentsData = ImportData.allStudent
     
-    var selectedAssessment = Assessment();
-    var indexPathValue: Int!;
-
-     //Define Delegate property
+    var pickerData: [Int] = [Int]()
+    var allStudentsData : [Student] = []
+    
+    var selectedAssessment : Assessment?
+    var indexPathValue: Int!
+    
+    //Define Delegate property
     var updateDelegate : AssessmentUpdateDelegate?
     
     @IBOutlet weak var studentMarksTable: UITableView!
     @IBOutlet weak var assessmentTitle: UILabel!
     
+    var studentmanager = StudentManager()
+    var assessmentmanager = AssessmentManager()
+    var markmanager = MarkManager()
+    
     override func viewDidLoad()
     {
-        self.assessmentTitle.text = selectedAssessment.getAssessmentTitle()
         
-        self.title = self.selectedAssessment.getAssessmentTitle()
-        super.viewDidLoad()
+         super.viewDidLoad()
+        self.assessmentTitle.text = selectedAssessment!.getAssessmentTitle
+        
+        self.title = self.selectedAssessment!.getAssessmentTitle
+       
         pickerData.removeAll()
-        for i in 1...self.selectedAssessment.getAssessmentMarks()
+        for i in 1...self.selectedAssessment!.getAssessmentMarks
         {
             pickerData.append(i)
         }
+        
+        allStudentsData = studentmanager.getStudentsfromDB()
         //print(pickerData.count)
         
         // Do any additional setup after loading the view.
@@ -54,28 +62,35 @@ class SingleAssessmentViewController: UIViewController, AssessmentViewDelegate,U
             fatalError("The dequeued cell is not an instance of AssessmentDetailsTableViewCell.")
         }
         
-
+        
         //print(indexPath.count)
         
         let student = allStudentsData[indexPath.row]
         
         //cell.studentID.text = student.getStudentID()
-        cell.studentID.text = student.getStudentName()
+        cell.studentID.text = student.getStudentName
         cell.studentMarks.delegate = self
         cell.studentMarks.dataSource = self
         cell.studentMarks.tag = indexPath.row
         
-        if allStudentsData[indexPath.row].getMarks()!.count != 0
+        let markOfCurrentStudentCell = markmanager.getStudentMark(assessmentObj: self.selectedAssessment!, studentObj: student)
+        
+        if markOfCurrentStudentCell.count > 0
         {
-            for marksObject in allStudentsData[indexPath.row].getMarks()!.indices
-            {
-                if(allStudentsData[indexPath.row].getMarks()![marksObject].getAssessment().getAssessmentID() == selectedAssessment.getAssessmentID())
-                {
-                    print(allStudentsData[indexPath.row].getMarks()![marksObject].getObtainedMarks())
-                    cell.studentMarks.selectRow(allStudentsData[indexPath.row].getMarks()![marksObject].getObtainedMarks()-1, inComponent: 0, animated: true)
-                }
-            }
+            cell.studentMarks.selectRow(markOfCurrentStudentCell[0].getObtainedMarks-1, inComponent: 0, animated: true)
         }
+        
+//        if allStudentsData[indexPath.row].getMarks()!.count != 0
+//        {
+//            for marksObject in allStudentsData[indexPath.row].getMarks()!.indices
+//            {
+//                if(allStudentsData[indexPath.row].getMarks()![marksObject].getAssessment().getAssessmentID() == selectedAssessment.getAssessmentID())
+//                {
+//                    print(allStudentsData[indexPath.row].getMarks()![marksObject].getObtainedMarks())
+//                    cell.studentMarks.selectRow(allStudentsData[indexPath.row].getMarks()![marksObject].getObtainedMarks()-1, inComponent: 0, animated: true)
+//                }
+//            }
+//        }
         return cell
         
     }
@@ -83,35 +98,69 @@ class SingleAssessmentViewController: UIViewController, AssessmentViewDelegate,U
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         let buttonRow = pickerView.tag
-        
-        if allStudentsData[buttonRow].getMarks()!.count != 0
+        let student = allStudentsData[buttonRow]
+        let markOfCurrentStudentCell = markmanager.getStudentMark(assessmentObj: self.selectedAssessment!, studentObj: student)
+        if (markOfCurrentStudentCell.count > 0)
         {
-            //get existing no. of objects in Marks array
-            let Count = allStudentsData[buttonRow].getMarks()!.count
-            
-            //check if assessment record alraddy exists for that particular student and assessment
-            var newMarks = true
-            for marksObject in allStudentsData[buttonRow].getMarks()!.indices
-            {
-                if(allStudentsData[buttonRow].getMarks()![marksObject].getAssessment().getAssessmentID() == selectedAssessment.getAssessmentID())
-                {
-                    newMarks = false
-                    allStudentsData[buttonRow].updateMarks(position: marksObject, score: row+1)
-                }
+            let updateMarkRecord = markmanager.updateMark(obtainedMark: row+1, assessmentObj: selectedAssessment!, studentObj: student)
+                       if(updateMarkRecord)
+                       {
+                           print("Mark updated")
             }
-            
-            if(newMarks)
-            {
-                let newAssessmentScore = Marks(marksID: Count, assessmentObj: selectedAssessment, marksObtained: row+1)
-                allStudentsData[buttonRow].addMarks(scores: newAssessmentScore)
-            }
+           
         }
         else
         {
-           let count = 0
-           let newAssessmentScore = Marks(marksID: count, assessmentObj: selectedAssessment, marksObtained: row+1)
-            allStudentsData[buttonRow].addMarks(scores: newAssessmentScore)
+           let recentMark  =  markmanager.getLastRecord()
+            var Count : Int = 1
+            if recentMark.count > 0
+            {
+                let recentMarkRecord =  recentMark[0]
+                // add 1 to previous id
+                Count = (recentMarkRecord.getID + 1)
+            }
+            let newMarkRecord = markmanager.addNewMark(markID: Count, obtainedMark: row+1, assessmentObj: selectedAssessment!, studentObj: student)
+            if(newMarkRecord)
+            {
+                print("Mark Added")
+            }
         }
+        
+        //singleTableView.reloadInputViews()
+        
+//        if markOfCurrentStudentCell.count != 0
+//        {
+//            cell.studentMarks.selectRow(markOfCurrentStudentCell[0].getObtainedMarks-1, inComponent: 0, animated: true)
+//        }
+        
+//        if allStudentsData[buttonRow].getMarks()!.count != 0
+//        {
+//            //get existing no. of objects in Marks array
+//            let Count = allStudentsData[buttonRow].getMarks()!.count
+//
+//            //check if assessment record alraddy exists for that particular student and assessment
+//            var newMarks = true
+//            for marksObject in allStudentsData[buttonRow].getMarks()!.indices
+//            {
+//                if(allStudentsData[buttonRow].getMarks()![marksObject].getAssessment().getAssessmentID() == selectedAssessment.getAssessmentID())
+//                {
+//                    newMarks = false
+//                    allStudentsData[buttonRow].updateMarks(position: marksObject, score: row+1)
+//                }
+//            }
+//
+//            if(newMarks)
+//            {
+//                let newAssessmentScore = Marks(marksID: Count, assessmentObj: selectedAssessment, marksObtained: row+1)
+//                allStudentsData[buttonRow].addMarks(scores: newAssessmentScore)
+//            }
+//        }
+//        else
+//        {
+//            let count = 0
+//            let newAssessmentScore = Marks(marksID: count, assessmentObj: selectedAssessment, marksObtained: row+1)
+//            allStudentsData[buttonRow].addMarks(scores: newAssessmentScore)
+//        }
     }
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -121,11 +170,11 @@ class SingleAssessmentViewController: UIViewController, AssessmentViewDelegate,U
         if segue.identifier == "showAssessmentProfile"
         {
             let destinationVC = segue.destination as! AssessmentProfileViewController
-            destinationVC.selectedAssessmentProfile = self.selectedAssessment
+            destinationVC.selectedAssessmentProfile = self.selectedAssessment!
             destinationVC.indexPathValue = self.indexPathValue
             destinationVC.delegate = self
         }
-        }
+    }
     
     @IBAction func onClickShowAssessment(_ sender: Any)
     {
@@ -138,14 +187,21 @@ class SingleAssessmentViewController: UIViewController, AssessmentViewDelegate,U
     {
         if(Desc != "" && marks>0 && dateVal != nil)
         {
-            selectedAssessment.setAssessmentTitle(assessmentName: Desc)
-            selectedAssessment.setAssessmentMarks(assessmentTotalMarks: marks)
-            selectedAssessment.setAssessmentDate(date: dateVal)
-            self.assessmentTitle.text = selectedAssessment.getAssessmentTitle()
-            updateDelegate?.updateAssessmentDetails(Title: selectedAssessment.getAssessmentTitle(), Totalmarks: selectedAssessment.getAssessmentMarks(), AssessmentDate: selectedAssessment.getAssessmentDate(), IndexValue: self.indexPathValue)
+            
+           let updateAssessmentStatus =  assessmentmanager.updateAssessmentinDB(assessmentObj: selectedAssessment!, assessmentTitle: Desc, assessmentTotalmarks: marks, assessmentDate: dateVal)
+            
+            if updateAssessmentStatus {
+                //print("Assessment Updated Successfully")
+                // update the title
+                self.assessmentTitle.text = Desc
+                updateDelegate?.updateAssessmentDetails(Title: Desc, Totalmarks: marks, AssessmentDate: dateVal, IndexValue: self.indexPathValue)
+            }
+            
+            
+
         }
         var temppickerData: [Int] = [Int]()
-        for i in 1...self.selectedAssessment.getAssessmentMarks()
+        for i in 1...self.selectedAssessment!.getAssessmentMarks
         {
             temppickerData.append(i)
         }
@@ -159,7 +215,7 @@ class SingleAssessmentViewController: UIViewController, AssessmentViewDelegate,U
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.selectedAssessment.getAssessmentMarks()
+        return self.selectedAssessment!.getAssessmentMarks
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -174,13 +230,14 @@ class SingleAssessmentViewController: UIViewController, AssessmentViewDelegate,U
         self.dismiss(animated: true, completion: nil)
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
+    
 }

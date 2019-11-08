@@ -6,6 +6,9 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string> $(PRODUCT_NAME) camera use</string>
+    <key>NSFaceIDUsageDescription</key>
+    <string>Use Face ID instead of a password to access your account.</string>
+
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

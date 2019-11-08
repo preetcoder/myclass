@@ -27,6 +27,12 @@ class AssessmentDetailsTableViewCell: UITableViewCell
         // Initialization code
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        studentID.text=""
+        studentMarks.selectRow(0, inComponent: 0, animated: false)
+    }
+    
     
 
 }

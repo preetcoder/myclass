@@ -16,11 +16,18 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var dateLable: UILabel!
     
     var allStudents = [Student]()
+    
+     var loadStudents = RestAPI()
+    
+    var studentmanager = StudentManager()
+    
+    var attendancemanager = AttendanceManager()
 
     
      //var delegate : userDataDelegate?
     
     @IBOutlet weak var StudentData: UITableView!
+    
     @IBAction func AddNewStudentOnClick(_ sender: Any)
     {
          performSegue(withIdentifier: "addNewStudent", sender: self)
@@ -32,7 +39,10 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
         //print("sss")
         
         let date = Date()
+        
+        //print(date)
         dateLable.text = dateHelper.getStringFromDate(dateVal: date)
+       // print(" jhdjfdhkf" + dateLable.text!)
         
         SVProgressHUD.show()
         
@@ -48,7 +58,7 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
         let currentDate = dateHelper.getDateFromString(dateVal: currentDateText!)
         let nextDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)
         dateLable.text = dateHelper.getStringFromDate(dateVal: nextDate!)
-        self.StudentData.reloadData()
+        refreshStudents()
     }
     
     
@@ -58,45 +68,36 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
         let currentDate = dateHelper.getDateFromString(dateVal: currentDateText!)
         let nextDate = Calendar.current.date(byAdding: .day, value: -1, to: currentDate)
         dateLable.text = dateHelper.getStringFromDate(dateVal: nextDate!)
-        self.StudentData.reloadData()
+        refreshStudents()
     }
     
 
-//    override func viewDidAppear(_ animated: Bool) {
-//        //print("aaa")
-//        // reload table view
-//        StudentData.reloadData()
-//    }
     
     override func viewWillAppear(_ animated: Bool) {
 
-        StudentData.reloadData()
+        refreshStudents()
     }
     
     // Delegation method
     
-    
-    
     func newStudentEnteredData(name: String, lastName: String, studentID: String, studentEmail: String, studentPhone: String, studentImage : String) {
-        //print("\(name) \(studentID) \(studentEmail) \(studentPhone)")
-        
+
         if (name != "" && studentID != "" && lastName != "" && studentEmail != "" && studentPhone != ""){
             
-            var newStudent = Student()
-           
-                newStudent = Student(studentEmail: studentEmail, studentID: studentID, studentFirstName: name, studentLastName: lastName, studentPhone: studentPhone, studentImage : studentImage, studentAttendance: [], studentMarks: [])
             
+            let studentmanager = StudentManager()
             
+            // save in db
             
-            
-            allStudents.insert(newStudent, at: 0)
-            
-            // add to singleton too
-            ImportData.addSharedData(StudOBJ: newStudent)
-            
+            let newStudentStatus =  studentmanager.saveStudentinDB(email: studentEmail, studentID: studentID, first_name: name, last_name: lastName, phone: studentPhone, image: studentImage)
+
+            if newStudentStatus {
+                print("New Student Added")
+            }
+
             // reload table view
-            StudentData.reloadData()
-            
+            refreshStudents()
+
         }
     }
     
@@ -116,12 +117,24 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
         
         if editingStyle == UITableViewCell.EditingStyle.delete {
             
-            // delete from array first
-            allStudents.remove(at: indexPath.row)
             
-            ImportData.allStudent.remove(at: indexPath.row)
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            let studentmanager = StudentManager()
+            // delete from core db
+            let deleteStatus =  studentmanager.deleteStudentRecordinDB(studentObj: allStudents[indexPath.row])
+            
+            if deleteStatus {
+                
+                // delete from array
+                allStudents.remove(at: indexPath.row)
+                
+                //ImportData.allStudent.remove(at: indexPath.row)
+                // Delete the row from the data source
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                
+            }
+            
+            
         }
     }
     
@@ -137,88 +150,86 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
         //print(indexPath.count)
         
         let student  = allStudents[indexPath.row]
-        cell.StudentName?.text = student.getStudentName()
-        //cell.StudentName.text = "ss"
-        if student.getStudentImage() == "download" {
-             cell.studentImage?.image = UIImage(named: student.getStudentImage())
+        cell.StudentName?.text = student.getStudentName
+
+        if student.getStudentImage == "download" {
+            cell.studentImage?.image = UIImage(named: student.getStudentImage)
         }
-        
+
         else {
-            cell.studentImage?.image = FileSaving.getImage(imageName: student.getStudentImage())
+            cell.studentImage?.image = FileSaving.getImage(imageName: student.getStudentImage)
         }
-       
-        cell.studewntAttendance?.tag = indexPath.row
-        cell.studewntAttendance?.setOn(false, animated: false)
+
+        cell.studentAttendance?.tag = indexPath.row
+        cell.studentAttendance?.setOn(false, animated: false)
         
-        if allStudents[indexPath.row].getAttendance()!.count != 0
+        let attendanceofCurrentstudentCell = attendancemanager.getAttendanceRecords(StudObj: student, lastVal: false)
+        if attendanceofCurrentstudentCell.count != 0
         {
-            for attendanceObject in allStudents[indexPath.row].getAttendance()!.indices
+            for attendanceObject in attendanceofCurrentstudentCell.indices
             {
-                if(allStudents[indexPath.row].getAttendance()![attendanceObject].getDate() == dateHelper.getDateFromString(dateVal: dateLable.text!))
+                if(attendanceofCurrentstudentCell[attendanceObject].getDate == dateHelper.getDateFromString(dateVal: dateLable.text!))
                 {
-                    cell.studewntAttendance?.setOn(allStudents[indexPath.row].getAttendance()![attendanceObject].getStatus(), animated: false)
+                    cell.studentAttendance?.setOn(attendanceofCurrentstudentCell[attendanceObject].getStatus, animated: false)
                 }
             }
         }
-        cell.studewntAttendance.addTarget(self, action: #selector(buttonClicked(sender:)), for: .valueChanged)
+        cell.studentAttendance.addTarget(self, action: #selector(buttonClicked(sender:)), for: .valueChanged)
         return cell
     }
     
     @objc func buttonClicked(sender:UISwitch)
     {
         let buttonRow = sender.tag
+        let attendanceRecord = attendancemanager.getAttendanceRecord(StudObj: allStudents[buttonRow], attendanceDate: dateHelper.getDateFromString(dateVal: dateLable.text!));
         
-        // check if array is empty
-        if allStudents[buttonRow].getAttendance()!.count != 0
+        if(attendanceRecord.count > 0)
         {
-            //get the no. of objects
-            let Count = allStudents[buttonRow].getAttendance()!.count
-            //check if the attendance record already exists for that date
-            var newAttendance = true
-            for attendanceObject in allStudents[buttonRow].getAttendance()!.indices
+            let todayAttendance = attendancemanager.updateAttendanceRecord(StudObj: allStudents[buttonRow], attendanceDate: dateHelper.getDateFromString(dateVal: dateLable.text!), attendanceStatus: sender.isOn)
+            if(todayAttendance)
             {
-                if(allStudents[buttonRow].getAttendance()![attendanceObject].getDate() == dateHelper.getDateFromString(dateVal: dateLable.text!))
-                {
-                    newAttendance = false
-                    allStudents[buttonRow].updateAttendance(position: attendanceObject, state: sender.isOn)
-                }
-            }
-            if(newAttendance)
-            {
-                let todayAttendance = Attendance(attendanceID: Count,attendanceDate: dateHelper.getDateFromString(dateVal: dateLable.text!),attendanceStatus: sender.isOn)
-                allStudents[buttonRow].addAttendance(attendanceObj: todayAttendance)
+                print("Attendance Updated")
             }
         }
         else
         {
-            let Count = 0
-            let todayAttendance = Attendance(attendanceID: Count,attendanceDate: dateHelper.getDateFromString(dateVal: dateLable.text!),attendanceStatus: sender.isOn)
-            allStudents[buttonRow].addAttendance(attendanceObj: todayAttendance)
+            let recentAttendance  =  attendancemanager.getAttendanceRecords(StudObj: allStudents[buttonRow], lastVal: true)
+            var Count : Int = 1
+            if recentAttendance.count > 0
+            {
+                let recentAttendanceRecord = recentAttendance[0]
+                // add 1 to previous id
+                Count = (recentAttendanceRecord.getID + 1)
+            }
+            else
+            {
+                Count = 1
+            }
+            let todayAttendance = attendancemanager.addNewAttendanceinDB(attendanceID: Count, attendanceDate: dateHelper.getDateFromString(dateVal: dateLable.text!), attendanceStatus: sender.isOn, studentObj : allStudents[buttonRow])
+            if(todayAttendance)
+            {
+                print("Attendance Added")
+            }
         }
     }
     // MARK: - Private Methods
     private func loadSampleData() {
         
-        ImportData.getDataFromURL{
-            
-            students in
-            //print(students[0].getStudentID())
-            for student in students {
-                self.allStudents.append(student)
-            }
-            
+        // load all students from API/DB
+        loadStudents.getDataFromURL{
+            (success) -> Void in
+
+            self.allStudents =  self.studentmanager.getStudentsfromDB()
+
             DispatchQueue.main.async {
-                //self.allStudents = ImportData.shared()
-                //print(self.allStudents)
-                //tableView.reloadData()
-                self.StudentData.reloadData()
-                // disappear loader
-                SVProgressHUD.dismiss()
-            }
+
+                                self.StudentData.reloadData()
+                                // disappear loader
+                                SVProgressHUD.dismiss()
+                            }
         }
         
-        
-        
+   
     }
 
     
@@ -246,11 +257,13 @@ class AttendanceViewController: UIViewController, UITableViewDelegate, UITableVi
             destinationVC.allStudentsData = self.allStudents
         }
         
-       
-        
-       
         
     }
     
-
+    func refreshStudents(){
+        
+        var studentmanager = StudentManager()
+        allStudents = studentmanager.getStudentsfromDB()
+        self.StudentData.reloadData()
+    }
 }

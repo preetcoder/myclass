@@ -65,14 +65,14 @@
 		03F7C73911542D8A19D34A7A9572E8C5 /* Pods-myclass.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-myclass.release.xcconfig"; sourceTree = "<group>"; };
 		0C902DBF092DC47BB780D9AFD8C1014A /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVRadialGradientLayer.m; path = SVProgressHUD/SVRadialGradientLayer.m; sourceTree = "<group>"; };
 		0EBA9CD725A47867CA462295A0F59240 /* SVProgressHUD-library.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "SVProgressHUD-library.xcconfig"; path = "../SVProgressHUD-library/SVProgressHUD-library.xcconfig"; sourceTree = "<group>"; };
-		1079E5551FA67389B4A802A7C94F7D4E /* libPods-myclassTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-myclassTests.a"; path = "libPods-myclassTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1079E5551FA67389B4A802A7C94F7D4E /* libPods-myclassTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myclassTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		197B85D1E915FF2CD718F0CEB7622ED0 /* Pods-myclass-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-myclass-acknowledgements.markdown"; sourceTree = "<group>"; };
 		19A23E146713768F3F9C614A25B2EB5E /* SVProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
 		1E329C76A802EB5ED6EC42B5E90F6A9C /* Pods-myclassUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-myclassUITests.release.xcconfig"; sourceTree = "<group>"; };
-		22772C85D8E5CC2CCF55E4AA7887431B /* Pods_myclass.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_myclass.framework; path = "Pods-myclass.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		22772C85D8E5CC2CCF55E4AA7887431B /* Pods_myclass.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myclass.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22AE96175C868184C3A50EE7012690FA /* SVProgressHUD-library-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "SVProgressHUD-library-dummy.m"; path = "../SVProgressHUD-library/SVProgressHUD-library-dummy.m"; sourceTree = "<group>"; };
 		2ABB8BEB0627266AC254A55158F19531 /* SVProgressHUD-library-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SVProgressHUD-library-prefix.pch"; path = "../SVProgressHUD-library/SVProgressHUD-library-prefix.pch"; sourceTree = "<group>"; };
-		36E7C56B15EE867CF8FC2CCE537D0AA0 /* libPods-myclassUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-myclassUITests.a"; path = "libPods-myclassUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		36E7C56B15EE867CF8FC2CCE537D0AA0 /* libPods-myclassUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myclassUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EC4D781995D5DBDC7F46BF4161222CF /* SVProgressHUD-framework.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "SVProgressHUD-framework.xcconfig"; sourceTree = "<group>"; };
 		63AF2C7D18F382EC6C3FD62D5A781E19 /* Pods-myclassTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-myclassTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		64EA0ABB0E4468ECA9724E202F99ED33 /* SVProgressHUD-framework-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-framework-umbrella.h"; sourceTree = "<group>"; };
@@ -84,8 +84,8 @@
 		8385FC0E19C86ECDC0FC4E6802B2BD57 /* Pods-myclass-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-myclass-frameworks.sh"; sourceTree = "<group>"; };
 		8664B24C4CCBE90D8771A7C0E6DA913E /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVIndefiniteAnimatedView.m; path = SVProgressHUD/SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
 		937ECF348033B9490FF11EED8780657C /* Pods-myclassTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-myclassTests-dummy.m"; sourceTree = "<group>"; };
-		98224F94B85AE5E10A1EED678E80E00C /* libSVProgressHUD-library.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libSVProgressHUD-library.a"; path = "libSVProgressHUD-library.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		98224F94B85AE5E10A1EED678E80E00C /* libSVProgressHUD-library.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libSVProgressHUD-library.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A1308769D9BA434039EEFBD3FD81B353 /* SVProgressHUD-framework-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SVProgressHUD-framework-dummy.m"; sourceTree = "<group>"; };
 		A574A01A81D60D24AA3BB01049C13AF5 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVIndefiniteAnimatedView.h; path = SVProgressHUD/SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
 		AFF00F5E36445124C318E73873B7DA93 /* Pods-myclassTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-myclassTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -106,7 +106,7 @@
 		F46475BE90C0F7D1C6B407CDC16A6186 /* Pods-myclassUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-myclassUITests-acknowledgements.plist"; sourceTree = "<group>"; };
 		F8CBCF112D9D45E35777D794BE9CA97E /* SVProgressAnimatedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVProgressAnimatedView.m; path = SVProgressHUD/SVProgressAnimatedView.m; sourceTree = "<group>"; };
 		FBB46411FB4B50F0A300F1D0588909AF /* Pods-myclassUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-myclassUITests-resources.sh"; sourceTree = "<group>"; };
-		FDF74235DDF5898C3FAA53BB0C9259FE /* SVProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SVProgressHUD.framework; path = "SVProgressHUD-framework.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDF74235DDF5898C3FAA53BB0C9259FE /* SVProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SVProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEFC18E35167A7C41EFE8EA5F848F371 /* Pods-myclassTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-myclassTests-acknowledgements.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,7 +186,6 @@
 				8AB624F46925F2BC0A8299C03286D18C /* Resources */,
 				C972F3FC40B4FA774C5DAB95C5D8D265 /* Support Files */,
 			);
-			name = SVProgressHUD;
 			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
@@ -454,6 +453,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			productRefGroup = 409C417B1DC1D51508F996B0EB59D6DA /* Products */;

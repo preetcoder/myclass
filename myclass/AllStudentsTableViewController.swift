@@ -25,41 +25,11 @@ class AllStudentsTableViewController: UITableViewController {
         SVProgressHUD.show()
         
         loadSampleData()
-        
-//        DispatchQueue.main.async { self.tableView.reloadData() }
-        
-        
-        //print(self.allStudents.count)
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
      // MARK: - Private Methods
     private func loadSampleData() {
-        
-        // load data from API
-//        let aUrl = ImportData()
-//        aUrl.getDataFromURL{
-//            students in
-//            
-//            for student in students {
-//                self.allStudents.append(student)
-//            
-//            }
-//           
-//            // reload view
-//            DispatchQueue.main.async {
-//                self.tableView.reloadData()
-//                // disappear loader
-//                SVProgressHUD.dismiss()
-//            }
-//         
-//            
-//        }
 
         
     }
@@ -91,9 +61,9 @@ class AllStudentsTableViewController: UITableViewController {
 
         // Configure the cell...
         
-        cell.StudentName.text = student.getStudentName()
-        cell.studentImage.image = UIImage(named: student.getStudentImage())
-        cell.studewntAttendance.tag = indexPath.row
+        cell.StudentName.text = student.getStudentName
+        cell.studentImage.image = UIImage(named: student.getStudentImage)
+        cell.studentAttendance.tag = indexPath.row
 
         return cell
     }

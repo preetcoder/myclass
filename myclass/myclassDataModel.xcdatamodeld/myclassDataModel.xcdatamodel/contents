@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15400" systemVersion="19A583" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Assessment" representedClassName=".Assessment" syncable="YES">
+        <attribute name="assessmentDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="Integer 32" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="totalMarks" attributeType="Integer 32" usesScalarValueType="YES"/>
+        <relationship name="singleMark" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Mark" inverseName="assessment" inverseEntity="Mark"/>
+    </entity>
+    <entity name="Attendance" representedClassName=".Attendance" syncable="YES">
+        <attribute name="attendaceDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="status" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="parentStudentAttendance" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Student" inverseName="attendances" inverseEntity="Student"/>
+    </entity>
+    <entity name="Mark" representedClassName=".Mark" syncable="YES">
+        <attribute name="id" attributeType="Integer 32" usesScalarValueType="YES"/>
+        <attribute name="obtainedMarks" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="assessment" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Assessment" inverseName="singleMark" inverseEntity="Assessment"/>
+        <relationship name="parentStudentMarks" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Student" inverseName="marks" inverseEntity="Student"/>
+    </entity>
+    <entity name="Student" representedClassName=".Student" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="first_name" optional="YES" attributeType="String"/>
+        <attribute name="image" optional="YES" attributeType="String" defaultValueString="download"/>
+        <attribute name="last_name" optional="YES" attributeType="String"/>
+        <attribute name="phone" optional="YES" attributeType="String"/>
+        <attribute name="studentID" optional="YES" attributeType="String"/>
+        <relationship name="attendances" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Attendance" inverseName="parentStudentAttendance" inverseEntity="Attendance"/>
+        <relationship name="marks" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Mark" inverseName="parentStudentMarks" inverseEntity="Mark"/>
+    </entity>
+    <elements>
+        <element name="Assessment" positionX="46.71484375" positionY="224.51171875" width="128" height="118"/>
+        <element name="Attendance" positionX="75.609375" positionY="17.5703125" width="128" height="105"/>
+        <element name="Mark" positionX="-148.2734375" positionY="235.9140625" width="128" height="103"/>
+        <element name="Student" positionX="-152.3203125" positionY="11.7578125" width="128" height="165"/>
+    </elements>
+</model>

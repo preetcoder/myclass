@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 protocol NewStudentDataDelegate {
     func newStudentEnteredData (name : String, lastName : String, studentID : String, studentEmail : String, studentPhone : String, studentImage : String)
 }
@@ -18,6 +19,7 @@ class AddStudentViewController: UIViewController, UIImagePickerControllerDelegat
     var activeField: UITextField?
     var lastOffset: CGPoint!
     var keyboardHeight: CGFloat!
+    var studentmanager = StudentManager()
     var allStudentsData =  [Student]()
 
     @IBOutlet weak var studentProfileImage: UIImageView!
@@ -45,7 +47,9 @@ class AddStudentViewController: UIViewController, UIImagePickerControllerDelegat
         studentProfileImage.addGestureRecognizer(tap)
         studentProfileImage.isUserInteractionEnabled = true
         self.newStudentPhone.keyboardType = UIKeyboardType.numberPad
+       
         let userTappedOtherThanKeyboard: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector(("closeKeyboard")))
+        
         view.addGestureRecognizer(userTappedOtherThanKeyboard)
         
         //set TextField Delegate
@@ -72,6 +76,13 @@ class AddStudentViewController: UIViewController, UIImagePickerControllerDelegat
             imagePicker.allowsEditing = false
             self.present(imagePicker,animated: true, completion: nil)
         }
+        
+        else{
+            // error if no camera support
+            let alertpopupVal = PopUpAlert()
+            let alert =  alertpopupVal.popUp(titleMsg: "Error!!", popupMsg: "Your device doesn't support camera!!")
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -80,27 +91,27 @@ class AddStudentViewController: UIViewController, UIImagePickerControllerDelegat
             
            
         }
-        
-        
         self.dismiss(animated: true, completion: nil)
     }
     
 
     @IBAction func onSaveNewStudentClick(_ sender: Any) {
         
-        //print(newStudentName.text!)
         // check if student ID already exists
-        let results = allStudentsData.filter { $0.getStudentID() == newStudentID.text! }
+        
+        allStudentsData = studentmanager.getStudentsfromDB()
+        
+        let results = allStudentsData.filter { $0.getStudentID == newStudentID.text! }
         
         //print(results.isEmpty)
         
         if results.isEmpty == true {
             
             // save image
-            //let filesave = FileSaving()
-           // FileSaving.saveImage(image: studentProfileImage.image!)
-            
-            
+//            let filesave = FileSaving()
+//            FileSaving.saveImage(image: studentProfileImage.image!)
+//
+            //print("image = \(studentProfileImage.image)")
             
             if let imageVal = studentProfileImage.image {
                 
